@@ -1,0 +1,53 @@
+cmake_minimum_required (VERSION 2.6)
+
+#Set project name to generate executable.
+project (bd_encoder)
+
+set (PROJECT_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set (PROJECT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set (PROJECT_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+
+set (BD_ENCODER_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../bd_encodercs/include)
+set (BD_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../bd_encodercs/include/bd1api/include)
+set (BD_SDK_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../bd_encodercs/lib/bd1api/lib)
+
+
+set (BD_ENCODER_LIBRARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../../lib)
+
+set (MSG_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/..)
+
+include_directories(
+	${PROJECT_INCLUDE_DIR}
+	${BD_ENCODER_INCLUDE_DIR}
+	${BD_INCLUDE_DIR}
+	${MSG_INCLUDE_DIR}
+)
+
+link_directories(
+	${BD_ENCODER_LIBRARY_DIR}
+	${BD_SDK_LIB_DIR}
+	${PROJECT_LIB_DIR}
+)
+
+set(SRCS
+	${PROJECT_SOURCE_DIR}/main.cpp
+)
+
+add_executable( ${PROJECT_NAME} ${SRCS} )
+
+target_link_libraries(
+	${PROJECT_NAME}
+	pthread
+	m
+	bd_enc
+  rt
+)
+
+
+
+#Specify the cross compiler for MIPS platform.
+SET( CMAKE_C_FLAGS "-EL -g  -O2 -DHW_3_X -DDMABUF_BUFFERS -DSENSOR_TYPE=LVDS_PS3210K_LVDS_1080P_30FPS -DSENSOR_CAM0_ADDR=0xFF -DSENSOR_CAM1_ADDR=0xFF -DSENSOR_SLOT=0 -DSENSOR_CAM0_I2C=0 -DSENSOR_CAM0_SPWDN=1" )
+SET( CMAKE_CXX_FLAGS  "-EL -g  -O2 -DHW_3_X -DDMABUF_BUFFERS -DSENSOR_TYPE=LVDS_PS3210K_LVDS_1080P_30FPS -DSENSOR_CAM0_ADDR=0xFF -DSENSOR_CAM1_ADDR=0xFF -DSENSOR_SLOT=0 -DSENSOR_CAM0_I2C=0 -DSENSOR_CAM0_SPWDN=1")
+
+
+

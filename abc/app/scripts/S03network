@@ -1,0 +1,19 @@
+PID=20999
+
+case "$1" in
+  start)
+        echo "Starting network..."
+        sh /root/video_server/cam_controller/scripts/set_network.sh -p $PID
+        ;;
+  stop)
+        echo -n "Stopping network..."
+        kill -9 |  cat $PID
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac

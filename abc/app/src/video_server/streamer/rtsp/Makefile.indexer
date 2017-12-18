@@ -1,0 +1,33 @@
+TARGET := bin/indexer/ts_indexer
+AR := ar
+CXX := g++
+CC := gcc
+STRIP := strip
+CPPFLAGS := -Wall -g -std=c++11 -D_DEBUG -DLINUX -D__linux__ -D_FILE_OFFSET_BITS=64 -I./include -I./utils -I./rtsp -I./nomad_media_lib
+VPATH = ./activator:./nomad_media_lib/base:./nomad_media_lib/demuxer:./nomad_media_lib/demuxer/ts:./nomad_media_lib/reader:./nomad_media_lib/sinker:
+OBJDIR := bin/indexer/.obj
+
+LIB := -lpthread -ltcmalloc
+
+include nml.mk
+
+SRCS += \
+	ts_indexer.cpp
+
+OBJS := $(addprefix $(OBJDIR)/,$(SRCS:.cpp=.o))
+
+all : $(TARGET)
+
+$(OBJDIR)/%.o : %.cpp
+	$(CXX) -c $(CPPFLAGS) $< -g -o $@
+
+$(OBJS) : | $(OBJDIR)
+$(OBJDIR) :
+	mkdir -p $(OBJDIR)
+
+$(TARGET) : $(OBJS) 
+	$(CXX) $(CPPFLAGS) $^ -o $@ $(LIB)
+
+clean :
+	rm -rf $(OBJDIR)
+	rm -f $(TARGET) *.a

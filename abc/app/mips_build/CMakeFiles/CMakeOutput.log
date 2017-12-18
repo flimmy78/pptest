@@ -1,0 +1,254 @@
+The target system is: Linux -  - 
+The host system is: Linux - 3.13.0-135-generic - i686
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc 
+Build flags: -EL;-g;;-O2;-fPIC
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/2.8.12.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++ 
+Build flags: -EL;-g;;-O2;-fPIC
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/2.8.12.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec606243365/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec606243365.dir/build.make CMakeFiles/cmTryCompileExec606243365.dir/build
+make[1]: Entering directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec606243365.dir/testCCompiler.c.o
+/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc   -EL -g  -O2 -fPIC    -o CMakeFiles/cmTryCompileExec606243365.dir/testCCompiler.c.o   -c /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec606243365
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec606243365.dir/link.txt --verbose=1
+/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc  -EL -g  -O2 -fPIC     CMakeFiles/cmTryCompileExec606243365.dir/testCCompiler.c.o  -o cmTryCompileExec606243365 -rdynamic 
+make[1]: Leaving directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3854151548/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3854151548.dir/build.make CMakeFiles/cmTryCompileExec3854151548.dir/build
+make[1]: Entering directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o
+/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc   -EL -g  -O2 -fPIC    -o CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec3854151548
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3854151548.dir/link.txt --verbose=1
+/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc  -EL -g  -O2 -fPIC   -v CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3854151548 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc
+COLLECT_LTO_WRAPPER=/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/lto-wrapper
+Target: mips-linux-gnu
+Configured with: /scratch/cmoore/2014.05-linux-lite-final/src/gcc-4.8-2014.05/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='%{save-temps: -fverbose-asm} -D__CS_SOURCERYGXX_MAJ__=2014 -D__CS_SOURCERYGXX_MIN__=5 -D__CS_SOURCERYGXX_REV__=27' --enable-languages=c,c++ --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-pkgversion='Sourcery CodeBench Lite 2014.05-27' --with-bugurl=https://sourcery.mentor.com/GNUToolchain/ --disable-nls --prefix=/opt/codesourcery --with-sysroot=/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-cloog=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-libelf=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --enable-poison-system-directories --with-build-time-tools=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/bin SED=sed
+Thread model: posix
+gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench Lite 2014.05-27) 
+COMPILER_PATH=/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/:/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/bin/
+LIBRARY_PATH=/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/:/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib/:/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/
+COLLECT_GCC_OPTIONS='-EL' '-g' '-O2' '-fPIC' '-v' '-o' 'cmTryCompileExec3854151548' '-rdynamic' '-march=mips32r2' '-mhard-float' '-mllsc'  '-mabi=32' '-D' '__CS_SOURCERYGXX_MAJ__=2014' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=27'
+ /home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/collect2 --sysroot=/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el --eh-frame-hdr -EL -EL -export-dynamic -dynamic-linker /lib/ld.so.1 -melf32ltsmip -o cmTryCompileExec3854151548 /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crt1.o /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crti.o /home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtbegin.o -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3 -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib -L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib -L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtend.o /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crtn.o
+make[1]: Leaving directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mips-linux-gnu-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec3854151548/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec3854151548.dir/build.make CMakeFiles/cmTryCompileExec3854151548.dir/build]
+  ignore line: [make[1]: Entering directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc   -EL -g  -O2 -fPIC    -o CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec3854151548]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3854151548.dir/link.txt --verbose=1]
+  ignore line: [/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc  -EL -g  -O2 -fPIC   -v CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3854151548 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/lto-wrapper]
+  ignore line: [Target: mips-linux-gnu]
+  ignore line: [Configured with: /scratch/cmoore/2014.05-linux-lite-final/src/gcc-4.8-2014.05/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='%{save-temps: -fverbose-asm} -D__CS_SOURCERYGXX_MAJ__=2014 -D__CS_SOURCERYGXX_MIN__=5 -D__CS_SOURCERYGXX_REV__=27' --enable-languages=c,c++ --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-pkgversion='Sourcery CodeBench Lite 2014.05-27' --with-bugurl=https://sourcery.mentor.com/GNUToolchain/ --disable-nls --prefix=/opt/codesourcery --with-sysroot=/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-cloog=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-libelf=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --enable-poison-system-directories --with-build-time-tools=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/bin SED=sed]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench Lite 2014.05-27) ]
+  ignore line: [COMPILER_PATH=/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/:/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/:/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib/:/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-EL' '-g' '-O2' '-fPIC' '-v' '-o' 'cmTryCompileExec3854151548' '-rdynamic' '-march=mips32r2' '-mhard-float' '-mllsc'  '-mabi=32' '-D' '__CS_SOURCERYGXX_MAJ__=2014' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=27']
+  link line: [ /home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/collect2 --sysroot=/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el --eh-frame-hdr -EL -EL -export-dynamic -dynamic-linker /lib/ld.so.1 -melf32ltsmip -o cmTryCompileExec3854151548 /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crt1.o /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crti.o /home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtbegin.o -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3 -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib -L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib -L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtend.o /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crtn.o]
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/collect2] ==> ignore
+    arg [--sysroot=/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld.so.1] ==> ignore
+    arg [-melf32ltsmip] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec3854151548] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crt1.o] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crti.o] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtbegin.o] ==> ignore
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib]
+    arg [CMakeFiles/cmTryCompileExec3854151548.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtend.o] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el] ==> [/home/job1/bd1compiler/mips-2014.05/lib/gcc/mips-linux-gnu/4.8.3/el]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el] ==> [/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/lib/el]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3] ==> [/home/job1/bd1compiler/mips-2014.05/lib/gcc/mips-linux-gnu/4.8.3]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc] ==> [/home/job1/bd1compiler/mips-2014.05/lib/gcc]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib] ==> [/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/lib]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib] ==> [/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/libc/el/lib]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib] ==> [/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/libc/el/usr/lib]
+  implicit libs: [c]
+  implicit dirs: [/home/job1/bd1compiler/mips-2014.05/lib/gcc/mips-linux-gnu/4.8.3/el;/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/lib/el;/home/job1/bd1compiler/mips-2014.05/lib/gcc/mips-linux-gnu/4.8.3;/home/job1/bd1compiler/mips-2014.05/lib/gcc;/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/lib;/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/libc/el/lib;/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/libc/el/usr/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2765156637/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2765156637.dir/build.make CMakeFiles/cmTryCompileExec2765156637.dir/build
+make[1]: Entering directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2765156637.dir/testCXXCompiler.cxx.o
+/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++    -EL -g  -O2 -fPIC    -o CMakeFiles/cmTryCompileExec2765156637.dir/testCXXCompiler.cxx.o -c /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec2765156637
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2765156637.dir/link.txt --verbose=1
+/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++   -EL -g  -O2 -fPIC     CMakeFiles/cmTryCompileExec2765156637.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec2765156637 -rdynamic 
+make[1]: Leaving directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec771440901/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec771440901.dir/build.make CMakeFiles/cmTryCompileExec771440901.dir/build
+make[1]: Entering directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o
+/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++    -EL -g  -O2 -fPIC    -o CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec771440901
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec771440901.dir/link.txt --verbose=1
+/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++   -EL -g  -O2 -fPIC   -v CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec771440901 -rdynamic  
+Using built-in specs.
+COLLECT_GCC=/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++
+COLLECT_LTO_WRAPPER=/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/lto-wrapper
+Target: mips-linux-gnu
+Configured with: /scratch/cmoore/2014.05-linux-lite-final/src/gcc-4.8-2014.05/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='%{save-temps: -fverbose-asm} -D__CS_SOURCERYGXX_MAJ__=2014 -D__CS_SOURCERYGXX_MIN__=5 -D__CS_SOURCERYGXX_REV__=27' --enable-languages=c,c++ --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-pkgversion='Sourcery CodeBench Lite 2014.05-27' --with-bugurl=https://sourcery.mentor.com/GNUToolchain/ --disable-nls --prefix=/opt/codesourcery --with-sysroot=/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-cloog=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-libelf=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --enable-poison-system-directories --with-build-time-tools=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/bin SED=sed
+Thread model: posix
+gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench Lite 2014.05-27) 
+COMPILER_PATH=/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/:/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/bin/
+LIBRARY_PATH=/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/:/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib/:/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/
+COLLECT_GCC_OPTIONS='-EL' '-g' '-O2' '-fPIC' '-v' '-o' 'cmTryCompileExec771440901' '-rdynamic' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc'  '-mabi=32' '-D' '__CS_SOURCERYGXX_MAJ__=2014' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=27'
+ /home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/collect2 --sysroot=/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el --eh-frame-hdr -EL -EL -export-dynamic -dynamic-linker /lib/ld.so.1 -melf32ltsmip -o cmTryCompileExec771440901 /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crt1.o /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crti.o /home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtbegin.o -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3 -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib -L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib -L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtend.o /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crtn.o
+make[1]: Leaving directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(mips-linux-gnu-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec771440901/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec771440901.dir/build.make CMakeFiles/cmTryCompileExec771440901.dir/build]
+  ignore line: [make[1]: Entering directory `/home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp']
+  ignore line: [/usr/bin/cmake -E cmake_progress_report /home/job1/nomadprj/rtsplite/app/mips_build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++    -EL -g  -O2 -fPIC    -o CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec771440901]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec771440901.dir/link.txt --verbose=1]
+  ignore line: [/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++   -EL -g  -O2 -fPIC   -v CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec771440901 -rdynamic  ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/home/job1/bd1compiler/mips-2014.05/bin/mips-linux-gnu-g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/lto-wrapper]
+  ignore line: [Target: mips-linux-gnu]
+  ignore line: [Configured with: /scratch/cmoore/2014.05-linux-lite-final/src/gcc-4.8-2014.05/configure --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --target=mips-linux-gnu --enable-threads --disable-libmudflap --disable-libssp --disable-libstdcxx-pch --with-arch-32=mips32r2 --with-arch-64=mips64r2 --with-float=hard --with-mips-plt --enable-extra-sgxxlite-multilibs --with-gnu-as --with-gnu-ld --with-specs='%{save-temps: -fverbose-asm} -D__CS_SOURCERYGXX_MAJ__=2014 -D__CS_SOURCERYGXX_MIN__=5 -D__CS_SOURCERYGXX_REV__=27' --enable-languages=c,c++ --enable-shared --enable-lto --enable-symvers=gnu --enable-__cxa_atexit --with-pkgversion='Sourcery CodeBench Lite 2014.05-27' --with-bugurl=https://sourcery.mentor.com/GNUToolchain/ --disable-nls --prefix=/opt/codesourcery --with-sysroot=/opt/codesourcery/mips-linux-gnu/libc --with-build-sysroot=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/libc --with-gmp=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpfr=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-mpc=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-isl=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-cloog=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --with-libelf=/scratch/cmoore/2014.05-linux-lite-final/obj/pkg-2014.05-27-mips-linux-gnu/mips-2014.05-27-mips-linux-gnu.extras/host-libs-i686-pc-linux-gnu/usr --enable-libgomp --disable-libitm --enable-libatomic --disable-libssp --enable-poison-system-directories --with-build-time-tools=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/bin --with-build-time-tools=/scratch/cmoore/2014.05-linux-lite-final/install/opt/codesourcery/mips-linux-gnu/bin SED=sed]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.8.3 20140320 (prerelease) (Sourcery CodeBench Lite 2014.05-27) ]
+  ignore line: [COMPILER_PATH=/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/:/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/:/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/:/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib/:/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-EL' '-g' '-O2' '-fPIC' '-v' '-o' 'cmTryCompileExec771440901' '-rdynamic' '-shared-libgcc' '-march=mips32r2' '-mhard-float' '-mllsc'  '-mabi=32' '-D' '__CS_SOURCERYGXX_MAJ__=2014' '-D' '__CS_SOURCERYGXX_MIN__=5' '-D' '__CS_SOURCERYGXX_REV__=27']
+  link line: [ /home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/collect2 --sysroot=/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el --eh-frame-hdr -EL -EL -export-dynamic -dynamic-linker /lib/ld.so.1 -melf32ltsmip -o cmTryCompileExec771440901 /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crt1.o /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crti.o /home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtbegin.o -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3 -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc -L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib -L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib -L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtend.o /home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crtn.o]
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../libexec/gcc/mips-linux-gnu/4.8.3/collect2] ==> ignore
+    arg [--sysroot=/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-EL] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld.so.1] ==> ignore
+    arg [-melf32ltsmip] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec771440901] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crt1.o] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crti.o] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtbegin.o] ==> ignore
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib]
+    arg [-L/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib] ==> dir [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib]
+    arg [CMakeFiles/cmTryCompileExec771440901.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el/crtend.o] ==> ignore
+    arg [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/el] ==> [/home/job1/bd1compiler/mips-2014.05/lib/gcc/mips-linux-gnu/4.8.3/el]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib/el] ==> [/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/lib/el]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3] ==> [/home/job1/bd1compiler/mips-2014.05/lib/gcc/mips-linux-gnu/4.8.3]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc] ==> [/home/job1/bd1compiler/mips-2014.05/lib/gcc]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../lib/gcc/mips-linux-gnu/4.8.3/../../../../mips-linux-gnu/lib] ==> [/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/lib]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/lib] ==> [/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/libc/el/lib]
+  collapse library dir [/home/job1/bd1compiler/mips-2014.05/bin/../mips-linux-gnu/libc/el/usr/lib] ==> [/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/libc/el/usr/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/home/job1/bd1compiler/mips-2014.05/lib/gcc/mips-linux-gnu/4.8.3/el;/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/lib/el;/home/job1/bd1compiler/mips-2014.05/lib/gcc/mips-linux-gnu/4.8.3;/home/job1/bd1compiler/mips-2014.05/lib/gcc;/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/lib;/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/libc/el/lib;/home/job1/bd1compiler/mips-2014.05/mips-linux-gnu/libc/el/usr/lib]
+  implicit fwks: []
+
+

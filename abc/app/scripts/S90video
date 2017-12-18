@@ -1,0 +1,66 @@
+#!/bin/sh
+#
+# Start demo application...
+#
+
+case "$1" in
+  start)
+
+	echo 8192 > /proc/sys/vm/min_free_kbytes
+	echo 4 4 1 7 > /proc/sys/kernel/printk
+
+
+
+
+	echo "Starting video server.."
+        insmod /opt/drivermm/imgvideo.ko
+        insmod /opt/drivermm/topazkm.ko
+
+
+
+	 modprobe pm1208-mmz2
+	 modprobe pm1208-cif
+	 modprobe pm1208-pvi
+	 modprobe pm1208-isp
+	 modprobe pm1208-hdmi
+	 modprobe pm1208_du_core
+	 modprobe pm1208-fb
+
+
+
+
+
+	#modprobe pm1208-isp
+        #modprobe pm1208-addon
+        #modprobe pm1208-cifctl
+        #modprobe pm1208-rgn
+        #modprobe pm1208-cif
+        #modprobe pm1208-mmz2
+
+	#insmod /opt/drivermm/pm1208-isp.ko
+	#insmod /opt/drivermm/pm1208-addon.ko
+	#insmod /opt/drivermm/pm1208-cifctl.ko
+	#insmod /opt/drivermm/pm1208-rgn.ko
+	#insmod /opt/drivermm/pm1208-cif.ko
+	#insmod /opt/drivermm/pm1208-mmz2.ko
+
+
+        
+        #mknod /dev/bd1-gpio c 240 0
+        mkdir -p /mnt/conf
+        /root/video_server/run_video_server.sh
+        ;;
+  stop)
+        echo -n "Stopping video server.."
+        echo "  -- empty --"
+        ;;
+  restart|reload)
+        "$0" stop
+        "$0" start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
+
+exit $?

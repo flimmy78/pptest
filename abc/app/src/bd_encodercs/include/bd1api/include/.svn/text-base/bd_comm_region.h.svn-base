@@ -1,0 +1,192 @@
+#ifndef __BD_COMM_REGION_H__
+#define __BD_COMM_REGION_H__
+
+#include "bd_common.h"
+#include "bd_comm_video.h"
+#include "bd_errno.h"
+#include "bd_defines.h"
+
+
+#ifdef __cplusplus
+#if __cplusplus
+extern "C"{
+#endif
+#endif /* End of #ifdef __cplusplus */
+
+
+
+typedef BD_U32 RGN_HANDLE;
+
+/* type of video regions */
+typedef enum bdRGN_TYPE_E
+{
+    OVERLAY_RGN = 0,     /* video overlay region */
+    COVER_RGN,
+    RGN_BUTT
+} RGN_TYPE_E;
+
+
+typedef struct bdOVERLAY_CHN_ATTR_S
+{
+    /* X:[0,4096],align:4,Y:[0,4096],align:4 */
+    POINT_S stPoint;
+    
+    /* background an foreground transparence when pixel format is ARGB1555 
+      * the pixel format is ARGB1555,when the alpha bit is 1 tbds alpha is value!
+      * range:[0,128]
+      */
+    BD_U32 u32FgAlpha;
+
+	/* background an foreground transparence when pixel format is ARGB1555 
+      * the pixel format is ARGB1555,when the alpha bit is 0 tbds alpha is value!
+      * range:[0,128]
+      */
+    BD_U32 u32BgAlpha;
+
+    BD_U32 u32Layer;   /* OVERLAY region layer range:[0,7]*/
+
+} OVERLAY_CHN_ATTR_S;
+
+
+typedef struct bdCOVER_CHN_ATTR_S
+{
+    /* X:[0,4096],align:4,Y:[0,4096],align:4 */
+    POINT_S stPoint;
+
+    BD_U32 u32Color;
+
+    BD_U32 u32Layer;   						/* COVER region layer range:[0,3] */
+
+} COVER_CHN_ATTR_S;
+
+
+typedef struct bdRGN_ATTR_U
+{
+    /* bitmap pixel format,now only support ARGB1555 or ARGB4444 */
+    PIXEL_FORMAT_E enPixelFmt;
+
+    /* background color, pixel format depends on "enPixelFmt" */
+    BD_U32 u32BgColor;
+
+    /* X:[0,4096],align:4,Y:[0,4096],align:4 */
+    POINT_S stPoint;
+
+    /* region size,W:[4,4096],align:2,H:[4,4096],align:2 */
+    SIZE_S stSize;
+
+} RGN_ATTR_U;
+
+typedef union bdRGN_CHN_ATTR_U
+{
+    OVERLAY_CHN_ATTR_S      stOverlayChn;      /* attribute of overlay region */
+
+    COVER_CHN_ATTR_S        stCoverChn;        /* attribute of cover region */
+
+} RGN_CHN_ATTR_U;
+
+/* attribute of a region */
+typedef struct bdRGN_ATTR_S
+{
+    RGN_TYPE_E enType;  /* region type */
+
+    RGN_ATTR_U unAttr;  /* region attribute */
+
+} RGN_ATTR_S;
+
+/* attribute of a region */
+typedef struct bdRGN_CHN_ATTR_S
+{
+    BD_BOOL           bShow;
+
+    RGN_TYPE_E        enType;     /* region type */
+
+    RGN_CHN_ATTR_U    unChnAttr;  /* region attribute */
+
+} RGN_CHN_ATTR_S;
+
+
+
+#define RGN_MAX_BMP_UPDATE_NUM 16
+
+typedef struct bdRGN_BMP_UPDATE_S
+{
+    POINT_S             stPoint;
+
+    BITMAP_S            stBmp;
+
+    BD_U32              u32Stride;
+
+} RGN_BMP_UPDATE_S;
+
+typedef struct bdRGN_BMP_UPDATE_CFG_S
+{
+    BD_U32              u32BmpCnt;
+
+    RGN_BMP_UPDATE_S    astBmpUpdate[RGN_MAX_BMP_UPDATE_NUM];
+
+} RGN_BMP_UPDATE_CFG_S;
+
+typedef struct bdRGN_CANVAS_INFO_S
+{
+    BD_U32         u32PhyAddr;
+
+    BD_U32         u32VirtAddr;
+
+    SIZE_S         stSize;              
+
+    BD_U32         u32Stride;
+
+    PIXEL_FORMAT_E enPixelFmt;  
+
+} RGN_CANVAS_INFO_S;
+
+
+
+/* invlalid device ID */
+#define BD_ERR_RGN_INVALID_DEVID     BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_INVALID_DEVID)
+/* invlalid channel ID */
+#define BD_ERR_RGN_INVALID_CHNID     BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_INVALID_CHNID)
+/* at lease one parameter is illagal ,eg, an illegal enumeration value  */
+#define BD_ERR_RGN_ILLEGAL_PARAM     BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_ILLEGAL_PARAM)
+/* channel exists */
+#define BD_ERR_RGN_EXIST             BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_EXIST)
+/*UN exist*/
+#define BD_ERR_RGN_UNEXIST           BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_UNEXIST)
+/* using a NULL point */
+#define BD_ERR_RGN_NULL_PTR          BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_NULL_PTR)
+/* try to enable or initialize system,device or channel, before configing attribute */
+#define BD_ERR_RGN_NOT_CONFIG        BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_NOT_CONFIG)
+/* operation is not supported by NOW */
+#define BD_ERR_RGN_NOT_SUPPORT       BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_NOT_SUPPORT)
+/* operation is not permitted ,eg, try to change stati attribute */
+#define BD_ERR_RGN_NOT_PERM          BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_NOT_PERM)
+/* failure caused by malloc memory */
+#define BD_ERR_RGN_NOMEM             BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_NOMEM)
+/* failure caused by malloc buffer */
+#define BD_ERR_RGN_NOBUF             BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_NOBUF)
+/* no data in buffer */
+#define BD_ERR_RGN_BUF_EMPTY         BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_BUF_EMPTY)
+/* no buffer for new data */
+#define BD_ERR_RGN_BUF_FULL          BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_BUF_FULL)
+/* bad address, eg. used for copy_from_user & copy_to_user */
+#define BD_ERR_RGN_BADADDR           BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_BADADDR)
+/* resource is busy, eg. destroy a venc chn without unregistering it */
+#define BD_ERR_RGN_BUSY              BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_BUSY)
+
+/* System is not ready,maybe not initialed or loaded.
+ * Returning the error code when opening a device file failed.
+ */
+#define BD_ERR_RGN_NOTREADY          BD_DEF_ERR(BD_ID_RGN, EN_ERR_LEVEL_ERROR, EN_ERR_SYS_NOTREADY)
+
+
+#ifdef __cplusplus
+#if __cplusplus
+}
+#endif
+#endif /* __cplusplus */
+
+
+#endif /* __BD_COMM_REGION_H__ */
+
+
+

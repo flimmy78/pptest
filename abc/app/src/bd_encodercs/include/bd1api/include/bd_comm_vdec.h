@@ -1,0 +1,106 @@
+#ifndef __BD_COMM_VDEC_H__
+#define __BD_COMM_VDEC_H__
+
+#ifdef __cplusplus
+#if __cplusplus
+extern "C"{
+#endif
+#endif /* __cplusplus */
+
+#define MAX_MSGQ			(MAX_VDEC_MSGQ)
+
+typedef struct bdVDEC_ATTR_JPEG_S
+{
+//    VIDEO_MODE_E     enMode;	/* video stream mode select */ - not support stream mode
+	BD_S32 reserve;
+}VDEC_ATTR_JPEG_S,*PTR_VDEC_ATTR_JPEG_S;
+
+
+typedef struct bdVDEC_ATTR_VIDEO_S
+{
+//    BD_U32       u32RefFrameNum;         /*ref pic num [1,16]*/
+//	VIDEO_MODE_E enMode;				 /*send by stream or by frame*/ - not support stream mode
+  	BD_S32	     s32SupportBFrame;       /*enable chnl to support BFrame decode, 0: disable support BFrame decode,1: enable support BFrame*/
+}VDEC_ATTR_VIDEO_S,*PTR_VDEC_ATTR_VIDEO_S;
+
+
+typedef struct bdVDEC_CHN_ATTR_S
+{
+	PAYLOAD_TYPE_E enType;				   /* video type to be decoded */
+//	BD_U32	 	u32type;				   /* video type to be decoded */
+	BD_U32   	u32BufSize		;		   /* stream buf size(Byte) */
+//    BD_U32 		u32Priority		; 		   /* priority */
+	BD_U32 		u32PicWidth		;		   /* max pic width */
+	BD_U32 		u32PicHeight	;		   /* max pic height */
+
+#if 0
+	union
+	{
+		VDEC_ATTR_JPEG_S stVdecJpegAttr;	/* structure with jpeg or mjpeg type  */
+		VDEC_ATTR_VIDEO_S stVdecVideoAttr;	/* structure with video ( h264/mpeg4) */
+	};
+#endif
+}VDEC_CHN_ATTR_S;
+
+
+typedef struct bdVDEC_DECODE_ERROR_S
+{
+	BD_S32 s32FormatErr;          /* format error. eg: do not support filed */
+    BD_S32 s32PicSizeErrSet;      /* picture width or height is larger than chnnel width or height*/
+	BD_S32 s32StreamUnsprt;       /* unsupport the stream specification */
+	BD_S32 s32PackErr;            /* stream package error */
+	BD_S32 s32PrtclNumErrSet;     /* protocol num is not enough. eg: slice, pps, sps */
+	BD_S32 s32RefErrSet;          /* refrence num is not enough */
+	BD_S32 s32PicBufSizeErrSet;   /* the buffer size of picture is not enough */	
+}VDEC_DECODE_ERROR_S;
+
+
+typedef struct bdVDEC_CHN_STAT_S
+{
+//	PAYLOAD_TYPE_E enType;				 /* video type to be decoded */	
+	BD_U32	u32type;					 /* video type to be decoded */	
+	BD_U32  u32RecvStreamFrames;         /* how many frames of stream has been received. valid when send by frame. */
+	BD_U32	u32DecodedStreamFrames;	/* how many frames of stream has been decoded. */
+	BD_U32	u32DisplayedStreamFrames;	/* how many frames of stream has been released with decoded. */
+//	VDEC_DECODE_ERROR_S stVdecDecErr;    /* information about decode error */	
+}VDEC_CHN_STAT_S;
+
+
+
+typedef struct bdVDEC_CHN_PARAM_S
+{
+    BD_S32 s32ChanErrThr;	     /* threshold for stream error process, 0: discard with any error, 100 : keep data with any error */
+    BD_S32 s32ChanStrmOFThr;     /* threshold for stream overflow, 0~ , 0: nothing to do when stream is overflow */
+    BD_S32 s32DecMode; 		     /* decode mode , 0: deocde IPB frames, 1: only decode I frame & P frame , 2: only decode I frame */
+    BD_S32 s32DecOrderOutput;    /* frames output order ,0: the same with display order , 1: the same width decoder order */ 
+//    VIDEO_FORMAT_E  enVideoFormat;
+//    COMPRESS_MODE_E	enCompressMode;
+}VDEC_CHN_PARAM_S;
+
+typedef struct bdVDEC_BITSTREAM_S
+{
+    BD_U8* 	pu8Addr;			/* stream address */
+    BD_U32  u32Len;				/* stream len */
+    BD_U64  u64PTS;             /* time stamp */
+    BD_BOOL bEndOfFrame;        /* is the end of a frame */
+    BD_BOOL bEndOfStream;       /* is the end of all stream */
+}VDEC_BITSTREAM_S;
+
+typedef struct VDEC_SYS_ATTR_S
+{
+//	IMG_UINT32	u32ChnNum;
+	BD_BOOL	bDump;
+	BD_BOOL	bScale;
+	BD_U32	u32Width;	//Display, On bScale is Enable
+	BD_U32	u32Height;	//Display, On bScale is Enable
+}VDEC_SYS_ATTR_S;
+
+#ifdef __cplusplus
+#if __cplusplus
+}
+#endif
+#endif /* __cplusplus */
+
+
+#endif
+

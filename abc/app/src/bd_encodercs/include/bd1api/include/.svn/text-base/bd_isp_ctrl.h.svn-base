@@ -1,0 +1,41 @@
+#ifndef __BD_ISP_CTRL_H_
+#define __BD_ISP_CTRL_H_	1
+
+#include <bd_sns_ctrl.h>
+
+#define ISP_INTF_BAYER			0
+#define ISP_INTF_LVDS			1 
+#define ISP_INTF_MAX			(ISP_INTF_LVDS+1)
+
+#define ISP_SUPPORT_BAYER		0x01
+#define ISP_SUPPORT_LVDS		0x02
+
+struct isp_image_attr {
+	unsigned char seq;
+	unsigned short startx;
+	unsigned short width;
+	unsigned short delayx;
+	unsigned short starty;
+	unsigned short height;
+	unsigned short delayy;
+};
+
+struct isp_gain_attr {
+	unsigned short dagin;
+	unsigned short again;
+};
+
+struct isp_ctrl_info {
+	const unsigned short chip_id;			// chip id
+	const char *name;						// isp name
+	const unsigned char chip_addr;			// isp i2c address
+	
+	const unsigned char intf_supported;
+	const unsigned short *intf_mode[ISP_INTF_MAX];
+
+	void (*set_image_attr)(struct isp_image_attr* attr);	
+	int (*set_gain_attr)(struct isp_gain_attr *attr);
+};
+
+
+#endif

@@ -1,0 +1,7 @@
+#ifndef __BD_API_SNS_H_
+#define __BD_API_SNS_H_	1
+
+
+BD_S32 BD_MPI_Sensor_Init(BD_U32 u32Slot, BD_U32 u32Spwdn, BD_U32 u32ScanType, BD_U32 u32Interface, BD_U32 u32I2cChn);
+
+#endif

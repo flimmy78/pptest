@@ -1,0 +1,2471 @@
+#ifndef SENSOR_PC3089N_H_
+#define SENSOR_PC3089N_H_
+
+#include <bd_sns_ctrl.h>
+
+#if defined(SENSOR_ESTYPE)
+
+/* PC3089N */
+static const unsigned short init_pc3089n_ntsc_bt601_config[] = {
+	0x0300 ,
+	0x2D01 , 
+	0x2801 , 
+	0x2990 , 
+	0x2EFF , 
+	0x0300 ,
+	0x0402 ,	
+	0x0500 ,	
+	0x2500 ,	
+	0x0603 ,	
+	0x0759 ,	
+	0x0802 ,	
+	0x090C ,	
+	0x0A02 ,	
+	0x0B0C ,	
+	0x1400 ,	
+	0x1519 ,	
+	0x1601 ,	
+	0x17FC ,	
+	0x0300 ,
+	0x4F08 ,	
+	0x5107 ,	
+	0x52D1 ,	
+	0x5306 ,	
+	0x5485 ,	
+	0x5900 ,	
+	0x5A83 ,	
+	0x5B45 ,	
+	0x5C00 ,	
+	0x5D9D ,	
+	0x5E86 ,	
+	0x5F03 ,	
+	0x6013 ,	
+	0x0304 ,
+	0x1202 ,	
+	0x1307 ,	
+	0x1402 ,	
+	0x1507 ,	
+	0x1602 ,	
+	0x1707 ,	
+	0x0301 ,
+	0x1D88 ,
+	0x0301 ,
+	0x6903 ,
+	0x0301 ,
+	0x2503 ,
+	0x0300 ,
+	0x3A28 ,
+	0x0302 ,
+	0x8A01 ,
+	0x0300 ,
+	0x3660 ,
+#if 1	
+	0x0304 ,
+	0x0565 ,
+	0x3B44 ,
+	0x3C44 ,
+	0x3D44 ,
+	0x3E40 ,
+	0x3F20 ,
+	0x4040 ,
+	0x0304 ,
+	0x1202 ,
+	0x1307 ,
+	0x1402 ,
+	0x1507 ,
+	0x1602 ,
+	0x1707 ,
+	0x1B01 ,
+	0x1C91 ,
+	0x1D6A ,
+	0x1E01 ,
+	0x1F91 ,
+	0x206A ,
+	0x0304 ,
+	0x4804 ,
+	0x4904 ,
+	0x4A08 ,
+	0x0304 ,
+	0x3410 ,
+	0x0304 ,
+	0x1A28 ,
+	0x0304 ,
+	0x0E80 ,
+	0x0FA0 ,
+	0x1080 ,
+	0x0302 ,
+	0x3D00 ,
+	0x3E05 ,
+	0x3F12 ,
+	0x4020 ,
+	0x412C ,
+	0x423D ,
+	0x434C ,
+	0x4465 ,
+	0x4576 ,
+	0x4699 ,
+	0x47B6 ,
+	0x48CE ,
+	0x49E0 ,
+	0x4AF0 ,
+	0x4BFF ,
+	0x0302 ,
+	0x4C00 ,
+	0x4D03 ,
+	0x4E0C ,
+	0x4F18 ,
+	0x5022 ,
+	0x5134 ,
+	0x5243 ,
+	0x535A ,
+	0x546D ,
+	0x558D ,
+	0x56A8 ,
+	0x57C0 ,
+	0x58D7 ,
+	0x59EC ,
+	0x5AFF ,
+	0x0302 ,
+	0x5B00 ,
+	0x5C06 ,
+	0x5D18 ,
+	0x5E2C ,
+	0x5F3C ,
+	0x6054 ,
+	0x6165 ,
+	0x627D ,
+	0x638F ,
+	0x64AB ,
+	0x65C1 ,
+	0x66D3 ,
+	0x67E3 ,
+	0x68F2 ,
+	0x69FF ,
+	0x0302 ,
+	0x6A00 ,
+	0x6B04 ,
+	0x6C11 ,
+	0x6D20 ,
+	0x6E2D ,
+	0x6F42 ,
+	0x7052 ,
+	0x716A ,
+	0x727D ,
+	0x739B ,
+	0x74B4 ,
+	0x75C9 ,
+	0x76DD ,
+	0x77EF ,
+	0x78FF ,
+	0x0304 ,
+	0x7500 ,
+	0x7600 ,
+	0x77FF ,
+	0x78FF ,
+	0x7900 ,
+	0x7A00 ,
+	0x7B90 ,
+	0x7C90 ,
+	0x7D00 ,
+	0x7E80 ,
+	0x7F01 ,
+	0x8000 ,
+	0x0304 ,
+	0x5104 ,
+	0x52F0 ,
+	0x5302 ,
+	0x5402 ,
+	0x5540 ,
+	0x56C0 ,
+	0x5708 ,
+	0x586E ,
+	0x5945 ,
+	0x0304 ,
+	0x5A27 ,
+	0x5B4F ,
+	0x5C64 ,
+	0x5DC8 ,
+	0x5E3C ,
+	0x5F3C ,
+	0x604F ,
+	0x6178 ,
+	0x6243 ,
+	0x63A3 ,
+	0x6428 ,
+	0x653C ,
+	0x0304 ,
+	0x6E34 ,
+	0x6F5A ,
+	0x7060 ,
+	0x0304 ,
+	0x6880 ,
+	0x6978 ,
+	0x6A80 ,
+	0x6B7C ,
+	0x0302 ,
+	0x332B ,
+	0x3484 ,
+	0x3587 ,
+	0x368A ,
+	0x373A ,
+	0x388F ,
+	0x3983 ,
+	0x3A8F ,
+	0x3B32 ,
+	0x0303 ,
+	0x044A ,
+	0x0508 ,
+	0x0600 ,
+	0x0748 ,
+	0x083E ,
+	0x0980 ,
+	0x0A86 ,
+	0x0B3E ,
+	0x0C3E ,
+	0x0D80 ,
+	0x0E86 ,
+	0x0F3E ,
+	0x0303 ,
+	0x1920 ,
+	0x0303 ,
+	0x1634 ,
+	0x175A ,
+	0x1860 ,
+	0x0302 ,
+	0x0801 ,
+	0x0902 ,
+	0x0B82 ,
+	0x0302 ,
+	0x3040 ,
+	0x3140 ,
+	0x0303 ,
+	0x6510 ,
+	0x6618 ,
+	0x6718 ,
+	0x0303 ,
+	0x6908 ,
+	0x6A08 ,
+	0x6B10 ,
+	0x0303 ,
+	0x6D30 ,
+	0x6E18 ,
+	0x6F10 ,
+	0x0303 ,
+	0x7140 ,
+	0x7220 ,
+	0x7318 ,
+	0x0303 ,
+	0xF130 ,
+	0xF220 ,
+	0xF320 ,
+	0x0303 ,
+	0xF520 ,
+	0xF620 ,
+	0xF720 ,
+	0x0303 ,
+	0xF930 ,
+	0xFA30 ,
+	0xFB30 ,
+	0x0302 ,
+	0x0821 ,
+	0x0303 ,
+	0xB540 ,
+	0xB640 ,
+	0xB738 ,
+	0xB828 ,
+	0xB918 ,
+	0xBA10 ,
+	0xBB00 ,
+	0x0303 ,
+	0xBD00 ,
+	0xBE1F ,
+	0xBF3F ,
+	0x0303 ,
+	0xA17F ,
+	0xA22E ,
+	0xA310 ,
+	0x0304 ,
+	0x8D00 ,
+	0x8E05 ,
+	0x8F00 ,
+	0x9010 ,
+	0x9100 ,
+	0x9220 ,
+	0x0302 ,
+	0x9500 ,
+	0x9600 ,
+	0x9708 ,
+	0x0303 ,
+	0x2600 ,
+	0x2710 ,
+	0x2830 ,
+	0x0303 ,
+	0x2A00 ,
+	0x2B0C ,
+	0x2C1C ,
+	0x0303 ,
+	0x5600 ,
+	0x5700 ,
+	0x5800 ,
+	0x0303 ,
+	0x7700 ,
+	0x7810 ,
+	0x7910 ,
+	0x0303 ,
+	0x7B1C ,
+	0x7C26 ,
+	0x7D36 ,
+	0x0304 ,
+	0x82F8 ,
+	0x0301 ,
+	0xAA40 ,
+	0xAB40 ,
+	0xAC48 ,
+	0x0303 ,
+	0x9B40 ,
+	0x9C3D ,
+	0x9D38 ,
+	0x0303 ,
+	0xCE00 ,
+	0x0303 ,
+	0xCF08 ,
+	0xD018 ,
+	0xD108 ,
+	0xD218 ,
+	0xD310 ,
+	0xD430 ,
+	0xD5B0 ,
+	0xD60A ,
+	0xD7C0 ,
+#endif	
+	0xFFFF ,
+};
+
+/* PC7030K */
+static const unsigned short init_pc7030k_ntsc_bt656_config[] = {
+
+	0x0300 ,
+	0x2d01 ,
+	0x2801 ,
+	0x2990 ,
+	0x2eff ,
+	0x0302 ,
+	0x9502 ,
+	0x9602 ,
+	0x9702 ,
+	0x0300 ,
+	0x0400 ,
+	0x0500 ,
+	0x2520 ,
+	0x0603 ,
+	0x0759 ,
+	0x0802 ,
+	0x090c ,
+	0x0a02 ,
+	0x0b0c ,
+	0x1400 ,
+	0x1515 ,
+	0x1601 ,
+	0x1706 ,
+	0x1801 ,
+	0x191d ,
+	0x1a02 ,
+	0x1b0d ,
+	0x0300 ,
+	0x4f08 ,
+	0x5103 ,
+	0x52e8 ,
+	0x5303 ,
+	0x5442 ,
+	0x5901 ,
+	0x5a03 ,
+	0x5b80 ,
+	0x5c01 ,
+	0x5d3a ,
+	0x5ef5 ,
+	0x5f06 ,
+	0x6026 ,
+	0x0304 ,
+	0x1202 ,
+	0x1307 ,
+	0x1402 ,
+	0x1507 ,
+	0x1602 ,
+	0x1707 ,
+	0x1800 ,
+	0x1900 ,
+	0x1a0c ,
+	0x1b01 ,
+	0x1c85 ,
+	0x1d40 ,
+	0x1e01 ,
+	0x1f85 ,
+	0x2040 ,
+	0x0306 ,
+	0x3200 ,
+	0x3301 ,
+	0x3401 ,
+	0x350a ,
+	0x0306 ,
+	0xb700 ,
+	0xbaf0 ,
+	0xbb2a ,
+	0xbc80 ,
+	0xbd82 ,
+	0xbe6f ,
+	0xbf9c ,
+	0xc348 ,
+	0xc5cd ,
+	0xc76d ,
+	0xf300 ,
+	0xaa12 ,
+	0xab00 ,
+	0xad11 ,
+	0xae03 ,
+	0xaf05 ,
+	0xe689 ,
+	0xeb05 ,
+	0x0300 ,
+	0x3306 ,
+	0x3402 ,
+	0x0300 ,
+	0x3668 ,
+	0x3a28 ,
+	0x0301 ,
+	0x2504 ,
+	0x6903 ,
+	0x0301 ,
+	0xa888 ,
+	0x0300 ,
+	0x4f08 ,
+	0x0300 ,
+	0x5901 ,
+	0x5a03 ,
+	0x5b80 ,
+	0x0304 ,
+	0xb010 ,
+	0x0304 ,
+	0x1202 ,
+	0x1307 ,
+	0x1402 ,
+	0x1507 ,
+	0x1602 ,
+	0x1707 ,
+	0x1a28 ,
+	0x1b02 ,
+	0x1c47 ,
+	0x1de0 ,
+	0x1e02 ,
+	0x1f47 ,
+	0x20e0 ,
+	0x0301 ,
+	0xc309 ,
+	0xc41f ,
+	0xc604 ,
+	0xc780 ,
+	0x0304 ,
+	0x4808 ,
+	0x4908 ,
+	0x4a05 ,
+	0x0304 ,
+	0x3b90 ,
+	0x3c70 ,
+	0x3d70 ,
+	0x3e70 ,
+	0x3f20 ,
+	0x4038 ,
+	0x0304 ,
+	0x2c66 ,
+	0x0304 ,
+	0x4108 ,
+	0x4210 ,
+	0x431a ,
+	0x4425 ,
+	0x2e08 ,
+	0x0302 ,
+	0x3d00 ,
+	0x3e05 ,
+	0x3f14 ,
+	0x4025 ,
+	0x4134 ,
+	0x424b ,
+	0x435b ,
+	0x4473 ,
+	0x4586 ,
+	0x46a3 ,
+	0x47ba ,
+	0x48ce ,
+	0x49e0 ,
+	0x4af0 ,
+	0x4bff ,
+	0x0302 ,
+	0x4c00 ,
+	0x4d06 ,
+	0x4e0b ,
+	0x4f10 ,
+	0x5015 ,
+	0x511e ,
+	0x5227 ,
+	0x5339 ,
+	0x5449 ,
+	0x556a ,
+	0x5689 ,
+	0x57a8 ,
+	0x58c6 ,
+	0x59e3 ,
+	0x5aff ,
+	0x0302 ,
+	0x6a00 ,
+	0x6b11 ,
+	0x6c1b ,
+	0x6d23 ,
+	0x6e2a ,
+	0x6f37 ,
+	0x7042 ,
+	0x7156 ,
+	0x7268 ,
+	0x7387 ,
+	0x74a3 ,
+	0x75bc ,
+	0x76d4 ,
+	0x77ea ,
+	0x78ff ,
+	0x0302 ,
+	0x8d40 ,
+	0x0304 ,
+	0x7530 ,
+	0x76ff ,
+	0x7700 ,
+	0x78a0 ,
+	0x0304 ,
+	0x5108 ,
+	0x52f8 ,
+	0x5302 ,
+	0x5406 ,
+	0x5520 ,
+	0x56c0 ,
+	0x5704 ,
+	0x586e ,
+	0x5945 ,
+	0x0304 ,
+	0x5a23 ,
+	0x5b55 ,
+	0x5c70 ,
+	0x5dc3 ,
+	0x5e2d ,
+	0x5f2d ,
+	0x6046 ,
+	0x6178 ,
+	0x6241 ,
+	0x63a0 ,
+	0x6432 ,
+	0x652d ,
+	0x0304 ,
+	0x7306 ,
+	0x7406 ,
+	0x0302 ,
+	0x3322 ,
+	0x3481 ,
+	0x3580 ,
+	0x368a ,
+	0x3732 ,
+	0x3888 ,
+	0x3983 ,
+	0x3a9c ,
+	0x3b3f ,
+	0x0303 ,
+	0x132c ,
+	0x0302 ,
+	0x2840 ,
+	0x2980 ,
+	0x0302 ,
+	0x0820 ,
+	0x0906 ,
+	0x0b83 ,
+	0x0303 ,
+	0xb580 ,
+	0xb660 ,
+	0xb730 ,
+	0xb820 ,
+	0xb920 ,
+	0xba10 ,
+	0xbb10 ,
+	0x0304 ,
+	0x3408 ,
+	0x0304 ,
+	0x8b00 ,
+	0x8c04 ,
+	0x8d00 ,
+	0x8e20 ,
+	0x8f00 ,
+	0x9040 ,
+	0x0304 ,
+	0x9100 ,
+	0x9220 ,
+	0x9300 ,
+	0x9440 ,
+	0x9500 ,
+	0x9680 ,
+	0x0303 ,
+	0x6504 ,
+	0x6610 ,
+	0x6720 ,
+	0x0303 ,
+	0x6901 ,
+	0x6a04 ,
+	0x6b06 ,
+	0x0303 ,
+	0xa17f ,
+	0xa210 ,
+	0xa320 ,
+	0x0303 ,
+	0xa500 ,
+	0xa600 ,
+	0xa700 ,
+	0x0302 ,
+	0x2448 ,
+	0x2528 ,
+	0x2628 ,
+	0x0303 ,
+	0x2600 ,
+	0x2710 ,
+	0x2840 ,
+	0x0303 ,
+	0x7700 ,
+	0x7808 ,
+	0x790e ,
+	0x0302 ,
+	0x9500 ,
+	0x9600 ,
+	0x9700 ,
+	0x0303 ,
+	0xbd00 ,
+	0xbe00 ,
+	0xbf3f ,
+	0x0302 ,
+	0x0a35 ,
+	0x0304 ,
+	0x82f8 ,
+	0x0303 ,
+	0x9780 ,
+	0x9800 ,
+	0x9900 ,
+	0x0303 ,
+	0x9b42 ,
+	0x9c3a ,
+	0x9d32 ,
+	0x0304 ,
+	0x82e8 ,
+	0x0304 ,
+	0x8602 ,
+	0x0301 ,
+	0xaa28 ,
+	0xab38 ,
+	0xac50 ,
+	0xFFFF ,
+};
+
+static const unsigned short init_pc7030k_pal_bt656_config[] = {
+	0x0300 ,
+	0x2d01 ,
+	0x2801 ,
+	0x2990 ,
+	0x2eff ,
+	0x0302 ,
+	0x9502 ,
+	0x9602 ,
+	0x9702 ,
+	0x0300 ,
+	0x0401 ,
+	0x0500 ,
+	0x2520 ,
+	0x0604 ,
+	0x070d ,
+	0x0802 ,
+	0x0907 ,
+	0x0a02 ,
+	0x0b07 ,
+	0x1400 ,
+	0x1515 ,
+	0x1601 ,
+	0x1736 ,
+	0x1801 ,
+	0x194f ,
+	0x1a02 ,
+	0x1b6f ,
+	0x0300 ,
+	0x4f04 ,
+	0x5104 ,
+	0x52bd ,
+	0x5303 ,
+	0x54f0 ,
+	0x5900 ,
+	0x5ad8 ,
+	0x5beb ,
+	0x5c01 ,
+	0x5d01 ,
+	0x5e00 ,
+	0x5f05 ,
+	0x6015 ,
+	0x0304 ,
+	0x1202 ,
+	0x1302 ,
+	0x1402 ,
+	0x1502 ,
+	0x1602 ,
+	0x1702 ,
+	0x1800 ,
+	0x1900 ,
+	0x1a0c ,
+	0x1b01 ,
+	0x1c81 ,
+	0x1d80 ,
+	0x1e01 ,
+	0x1f81 ,
+	0x2080 ,
+	0x0306 ,
+	0x3200 ,
+	0x3301 ,
+	0x3401 ,
+	0x3539 ,
+	0x0306 ,
+	0xb701 ,
+	0xbafc ,
+	0xbb00 ,
+	0xbc9c ,
+	0xbd89 ,
+	0xbe75 ,
+	0xbfa6 ,
+	0xc35b ,
+	0xc5d7 ,
+	0xc745 ,
+	0xf301 ,
+	0xaa11 ,
+	0xab00 ,
+	0xad1e ,
+	0xae08 ,
+	0xaf0a ,
+	0xe699 ,
+	0xeb0a ,
+	0x0300 ,
+	0x3306 ,
+	0x3402 ,
+	0x0300 ,
+	0x3668 ,
+	0x3a28 ,
+	0x0301 ,
+	0x2504 ,
+	0x6903 ,
+	0x0301 ,
+	0xa888 ,
+	0x0300 ,
+	0x4f04 ,
+	0x0300 ,
+	0x5c01 ,
+	0x5d01 ,
+	0x5e00 ,
+	0x0304 ,
+	0xb010 ,
+	0x0304 ,
+	0x1202 ,
+	0x1302 ,
+	0x1402 ,
+	0x1502 ,
+	0x1602 ,
+	0x1702 ,
+	0x1a20 ,
+	0x1b02 ,
+	0x1c42 ,
+	0x1d40 ,
+	0x1e02 ,
+	0x1f42 ,
+	0x2040 ,
+	0x0301 ,
+	0xc309 ,
+	0xc409 ,
+	0xc604 ,
+	0xc780 ,
+	0x0304 ,
+	0x4808 ,
+	0x4908 ,
+	0x4a05 ,
+	0x0304 ,
+	0x3b90 ,
+	0x3c70 ,
+	0x3d70 ,
+	0x3e70 ,
+	0x3f20 ,
+	0x4038 ,
+	0x0304 ,
+	0x2c66 ,
+	0x0304 ,
+	0x4108 ,
+	0x4210 ,
+	0x431a ,
+	0x4425 ,
+	0x2e08 ,
+	0x0302 ,
+	0x3d00 ,
+	0x3e05 ,
+	0x3f14 ,
+	0x4025 ,
+	0x4134 ,
+	0x424b ,
+	0x435b ,
+	0x4473 ,
+	0x4586 ,
+	0x46a3 ,
+	0x47ba ,
+	0x48ce ,
+	0x49e0 ,
+	0x4af0 ,
+	0x4bff ,
+	0x0302 ,
+	0x4c00 ,
+	0x4d06 ,
+	0x4e0b ,
+	0x4f10 ,
+	0x5015 ,
+	0x511e ,
+	0x5227 ,
+	0x5339 ,
+	0x5449 ,
+	0x556a ,
+	0x5689 ,
+	0x57a8 ,
+	0x58c6 ,
+	0x59e3 ,
+	0x5aff ,
+	0x0302 ,
+	0x6a00 ,
+	0x6b11 ,
+	0x6c1b ,
+	0x6d23 ,
+	0x6e2a ,
+	0x6f37 ,
+	0x7042 ,
+	0x7156 ,
+	0x7268 ,
+	0x7387 ,
+	0x74a3 ,
+	0x75bc ,
+	0x76d4 ,
+	0x77ea ,
+	0x78ff ,
+	0x0302 ,
+	0x8d40 ,
+	0x0304 ,
+	0x7530 ,
+	0x76ff ,
+	0x7700 ,
+	0x78a0 ,
+	0x0304 ,
+	0x5108 ,
+	0x52f8 ,
+	0x5302 ,
+	0x5406 ,
+	0x5520 ,
+	0x56c0 ,
+	0x5704 ,
+	0x586e ,
+	0x5945 ,
+	0x0304 ,
+	0x5a23 ,
+	0x5b55 ,
+	0x5c70 ,
+	0x5dc3 ,
+	0x5e2d ,
+	0x5f2d ,
+	0x6046 ,
+	0x6178 ,
+	0x6241 ,
+	0x63a0 ,
+	0x6432 ,
+	0x652d ,
+	0x0304 ,
+	0x7306 ,
+	0x7406 ,
+	0x0302 ,
+	0x3322 ,
+	0x3481 ,
+	0x3580 ,
+	0x368a ,
+	0x3732 ,
+	0x3888 ,
+	0x3983 ,
+	0x3a9c ,
+	0x3b3f ,
+	0x0303 ,
+	0x1334 ,
+	0x0302 ,
+	0x2840 ,
+	0x2980 ,
+	0x0302 ,
+	0x0820 ,
+	0x0906 ,
+	0x0b83 ,
+	0x0303 ,
+	0xb580 ,
+	0xb660 ,
+	0xb730 ,
+	0xb820 ,
+	0xb920 ,
+	0xba10 ,
+	0xbb10 ,
+	0x0304 ,
+	0x3408 ,
+	0x0304 ,
+	0x8b00 ,
+	0x8c04 ,
+	0x8d00 ,
+	0x8e20 ,
+	0x8f00 ,
+	0x9040 ,
+	0x0304 ,
+	0x9100 ,
+	0x9220 ,
+	0x9300 ,
+	0x9440 ,
+	0x9500 ,
+	0x9680 ,
+	0x0303 ,
+	0x6504 ,
+	0x6610 ,
+	0x6720 ,
+	0x0303 ,
+	0x6901 ,
+	0x6a04 ,
+	0x6b06 ,
+	0x0303 ,
+	0xa17f ,
+	0xa210 ,
+	0xa320 ,
+	0x0303 ,
+	0xa500 ,
+	0xa600 ,
+	0xa700 ,
+	0x0302 ,
+	0x2448 ,
+	0x2528 ,
+	0x2628 ,
+	0x0303 ,
+	0x2600 ,
+	0x2710 ,
+	0x2840 ,
+	0x0303 ,
+	0x7700 ,
+	0x7808 ,
+	0x7910 ,
+	0x0302 ,
+	0x9500 ,
+	0x9600 ,
+	0x9700 ,
+	0x0303 ,
+	0xbd00 ,
+	0xbe00 ,
+	0xbf3f ,
+	0x0302 ,
+	0x0a35 ,
+	0x0304 ,
+	0x82f8 ,
+	0x0303 ,
+	0x9780 ,
+	0x9800 ,
+	0x9900 ,
+	0x0303 ,
+	0x9b42 ,
+	0x9c3a ,
+	0x9d32 ,
+	0x0304 ,
+	0x82e8 ,
+	0x0304 ,
+	0x8602 ,
+	0x0301 ,
+	0xaa28 ,
+	0xab38 ,
+	0xac50 ,
+	0xFFFF ,
+};
+
+/* PO3100K */
+static const unsigned short init_po3100k_ntsc_bt1120_config[] = {
+	0xFFFF, 
+};
+
+/* PS1210K */
+static const unsigned short init_ps1210k_ntsc_bayer_config[] = {
+	0x0300, 
+	0x2998, 
+	0x0300, 
+	0x0503,
+#if 1	
+	0x0608, 
+	0x0797, 
+#else
+	0x060A, 
+	0x074F, 
+#endif
+	0x0804, 
+	0x0964, 
+	0x0a04, 
+	0x0b64, 
+	0x0c00, 
+	0x0d01, 
+	0x0e00, 
+	0x0f05, 
+	0x1007, 
+	0x118C, 
+	0x1204, 
+	0x134C, 
+	0x1400, 
+	0x150A, 
+	0x1604, 
+	0x1751, 
+	0x2510, 
+	0x3301, 
+	0x3402, 
+	0x36C8, 
+	0x3848, 
+	0x3A22, 
+	0x4121, 
+	0x4204, 
+	0x4010, 
+	0xFF32, 
+	0x4000, 
+	0x0301, 
+	0x2603, 
+	0x0301, 
+	0xC004, 
+	0xC15F, 
+	0xC200, 
+	0xC300, 
+	0xC440, 
+	0x0301, 
+	0x19C3, 
+	0x0302, 
+	0x9B20, 
+	0xFFFF, 
+};
+
+static const unsigned short init_ps1210k_ntsc_lvds_config[] = {
+	//////////////////////// BANK A
+	0x0300,
+	0x0503, // mirror/flip
+
+	0x0608, // framewidth_h
+	0x0797, // framewidth_l
+
+	0x2509, // clkdiv1
+	0x268B, // clkdiv2
+
+	0x3301, // pixelbias
+	0x3402, // compbias
+
+	0x3688, // TX_Bias; DCDC 4.96 V, LDO 4.37 V => DCDC 4.48 V, LDO 4.37 V ( C8h => 88h )
+	0x3848, // black_bias,range_sel 0.4 V
+	0x3A22, // main regulator output
+
+	0x4121, // pll_m_cnt (21)
+	0x4204, // pll_r_cnt (04)
+
+	0x4010, // pll_control   
+	0xFF0A, // delay 10ms
+	0x4000, // pll_control on
+
+	//////////////////////// BANK B
+	0x0301,
+	0x1644, // bayer_control_01 (frmvar_en,led_dsel)
+	0x19C3, // bayer_control_04
+	0x1E0E, // bayer_control_09 (bsmode)
+	0x0301,
+	0x2603, // blacksun_th_h
+	0x0302,
+	0x9B20,	// hsyncAllLines
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	// LVDS control
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////// BANK D
+	0x0303,
+	0x0504,	// lvds_control_1
+	0x0604,	// lvds_control_2
+	0x0700,	// lvds_control_3
+	0x0800,	// lvds_control_4
+	0x1303,  // lvds_bias_0 lvds_bgr 33
+	0x0303,
+	0x0402, // LVDS off, power down
+	0xFF0A, // delay 10ms
+	0x0442, // LVDS on
+	0xFFFF,
+};
+
+/* PS1210M */
+//#define USE_27MHZ_BYPASS	1
+//#define USE_HALF_CLK		1
+
+static const unsigned short init_ps1210m_ntsc_bayer_config[] = {
+	0x0300 , 
+	0x2998 , 
+	0x0C00 , 
+	0x0D01 , 
+	0x0E00 , 
+	0x0F02 , 
+	0x1007 , 
+	0x1190 , 
+	0x1204 , 
+	0x1347 , 
+#ifdef USE_HALF_CLK
+	0x2502 , 	// orig
+#else
+	0x2500 , 	// orig
+#endif	
+	0x26C3 ,
+#ifdef USE_27MHZ_BYPASS
+	0x4010 ,	// pll bypass mode
+#else	
+	/* PLL setting 27Mhz --> 74.25Mhz */
+	0x4104 ,
+	0x420b ,
+	0x403C ,
+	0xFFFE ,
+	0x4028 ,
+#endif
+	0x0503 , 
+	0x0302 , 
+	0x9B20 ,	// # sync_control_1[5] : hsyncAllLines       
+	0x0301 , 
+	0x19C3 , 
+	0x0300 , 
+	0x3301 , 
+	0x3402 , 
+	0x0301 , 
+	0x2603 , 
+	0x0301 , 
+	0xC004 , 
+	0xC14F , 
+	0xC200 , 
+	0xC300 , 
+	0xC440 , 
+	0xFFFF , 
+};
+
+/* PS3210M */	
+static const unsigned short init_ps3210m_ntsc_bayer_config[] = {
+	/* 20151222 */
+	0x0300,
+	0x2998,	// output Hi-z release
+	0x0300,
+	0x0503,	// mirror/flip
+	0x0608,	// framewidth_h        (08)
+	0x0797,	// framewidth_l        (97)
+	0x0C00,	// windowx1_h					(00)
+	0x0D0D,	// windowx1_l					(01)
+	0x0E00,	// windowy1_h					(00)
+	0x0F0E,	// windowy1_l					(02)
+	0x1007,	// windowx2_h					(07)
+	0x118C,	// windowx2_l					(8C)
+	0x1204,	// windowy2_h					(04)
+	0x1345,	// windowy2_l					(45)
+	0x1400,	// vsyncstartrow_f0_h	(00)
+	0x1519,	// vsyncstartrow_f0_l	(0D)
+	0x1604,	// vsyncstoprow_f0_h		(04)
+	0x1753,	// vsyncstoprow_f0_l		(53)
+	0x2521, // clkdiv1 (21)
+	0x4121, // pll_m_cnt (21)
+	0x4208, // pll_r_cnt (04)
+	0x4010, // pll_control
+	0xFF10,
+	0x4000, // pll_control on
+	0x0301,
+	0xC004,
+	0xC15F,
+	0xC200,
+	0xC300,
+	0x0301,	//////////////////////// BANK B
+	0x1644, // bayer_control_01 (frmvar_en,led_dsel)
+	0x1E0E, // bayer_control_09 (bsmode)
+	0x2604, // blacksunth_h
+	0xB740, // adcoffset
+	0x0301,	// B bank									//////////////////////////////////////////////////////// CDS
+	0x5708,	// lsenb start H									
+	0x587F,	// lsenb start L									
+	0x5908,	// lsenb stop H									
+	0x5A6F,	// lsenb stop L									
+	0x5300,	// ls rst start H									
+	0x5402,	// ls rst start L									
+	0x5508,	// ls rst stop H									
+	0x567F,	// ls rst stop L									
+	0x6700,	// ls txb start H									
+	0x68DC,	// ls txb start L									
+	0x6900,	// ls txb stop H									
+	0x6AF0,	// ls txb stop L									
+	0x5B00,	// sample start H									
+	0x5C00,	// sample start L									
+	0x5D08,	// sample stop H									
+	0x5E7F,	// sample stop L									
+	0x5F00,	// store start H									
+	0x6000,	// store start L									
+	0x6100,	// store stop H									
+	0x62C8,	// store stop L									
+	0x9900,	// tx illum start H									
+	0x9ADC,	// tx illum start L									
+	0x9B08,	// tx illum stop H									
+	0x9C7F,	// tx illum stop L
+	0x7B02,	// inven start H									
+	0x7CA8,	// inven start L									
+	0x7D07,	// inven stop H									
+	0x7EDA,	// inven stop L									
+	0x6F02,	// load start H									
+	0x70A8,	// load start L									
+	0x7107,	// load stop H									
+	0x72DA,	// load stop L									
+	0x7302,	// latch en start H									
+	0x74B2,	// latch en start L									
+	0x7507,	// latch en stop H									
+	0x76D0,	// latch en stop L									
+	0x7708,	// latch en start2 H									
+	0x7895,	// latch en start2 L									
+	0x7908,	// latch en stop2 H									
+	0x7A96,	// latch en stop2 L									
+	//0xB740	// adc offset									
+	0x8F00,	// adc offset stop H									
+	0x90D2,	// adc offset stop L									
+	0x8B02,	// ramp start H									
+	0x8CBC,	// ramp start L									
+	0x8D08,	// ramp stop H									
+	0x8E48,	// ramp stop L									
+	0x8708,	// transfer start H									
+	0x8834,	// transfer start L									
+	0x8908,	// transfer stop H									
+	0x8A3E,	// transfer stop L									
+	0x9508,	// refhold start H									
+	0x965C,	// refhold start L									
+	0x9708,	// refhold stop H									
+	0x988F,	// refhold stop L									
+	0x9108,	// atten rst start H									
+	0x925C,	// atten rst start L									
+	0x9308,	// atten rst stop H									
+	0x9497,	// atten rst stop L									
+	0x7F08,	// pbhold start H									
+	0x805C,	// pbhold start L									
+	0x8108,	// pbhold stop H									
+	0x828F,	// pbhold stop L									
+	0x8308,	// col pbhold start H									
+	0x845C,	// col pbhold start L									
+	0x8508,	// col pbhold stop H									
+	0x868F,	// col pbhold stop L									
+	0xB908,	// col pbhold2 start H									
+	0xBA5C,	// col pbhold2 start L									
+	0xBB08,	// col pbhold2 stop H									
+	0xBC8F,	// col pbhold2 stop L									
+	0xA10B,	// COFFSET H									
+	0xA2A0,	// COFFSET L									
+	0x3600,	// TG hsync start H									
+	0x37A2,	// TG hsync start L									
+	0x3808,	// TG hsync stop H									
+	0x3932,	// TG hsync stop L
+	0x3E00,	// blhstart_h
+	0x3FA2,	// blhstart_l
+	0x4008,	// blhstop_h
+	0x4132,	// blhstop_l									
+	0x0300,	////////////////////////////////////////////////////////////////////////////////////////////// ablc
+	0x3695, // ablc_pd [1], ablc_res_con [0] '0'
+	0x3B27, // ablc_step_con [5:3] '011'	 // 'x1 x2 x3' (5, 2.5, 1.25), calc : 1.25 + 5*x1 + 2.5*x2 + 1.25*x3
+	0x0301,
+	0x1F51,
+	0x20A9,
+	0x0300,	//////////////////////////////////////////////// gain 32x
+	0xF300,	// overOBP_x0
+	0xF404,	// overOBP_x1
+	0xF518,	// overOBP_x2
+	0xF620,	// overOBP_x3
+	0xF740,	// overOBP_x4
+	0xF800,	// overOBP_wt0
+	0xF918,	// overOBP_wt1
+	0xFA20,	// overOBP_wt2
+	0xFB20,	// overOBP_wt3
+	0xFC30,	// overOBP_wt4
+	0x0301,
+	0xA3E0, // blc_top_th
+	0xA470, // blc_bot_th
+	0xA502, // ablc_update
+	0x0301,	// Limiter reference fitting due to gain
+	0xF601,	// bs_ofst0
+	0xF70C,	// bs_ofst1
+	0xF81A,	// bs_ofst2
+	0xF924,	// bs_ofst3
+	0xFA28,	// bs_ofst4
+	0xFB2A,	// bs_ofst5
+	0xFC2C,	// bs_ofst6
+	0xFD3F,	// bs_ofst_max
+	0xFE00,	// bs_ofst_min
+	0x0302,	////////////////////////////////////////////////////////////////////////////////////////////// ablc
+	0x05DF,	////////////////////////////////////////////////////////////////////////////////////////////// ablc
+	0xFFFF, 
+};
+
+static const unsigned short init_ps3210m_ntsc_lvds_config[] = {
+	//////////////////////////////////////// start up ////////////////////////////////////////
+	//////////////////////// BANK A
+	0x0300,
+	0x0503, // mirror
+	0x0608, // framewidth_h
+	0x0797, // framewidth_l
+	0x2569, // clkdiv1
+	0x268B, // clkdiv2
+	0x1F04, // monitor
+	0x4121, // pll_m_cnt (21)
+	0x4204, // pll_r_cnt (04)
+	0x4010, // pll_control   
+	0xFF0A, // delay 10ms                
+	0x4000, // pll_control on
+	//////////////////////// BANK B
+	//////////////////////////////////////////////////////// CDS
+	0x0301,	// B bank									
+	0x5708,	// lsenb start H									
+	0x587F,	// lsenb start L									
+	0x5908,	// lsenb stop H									
+	0x5A6F,	// lsenb stop L									
+	0x5300,	// ls rst start H									
+	0x5402,	// ls rst start L									
+	0x5508,	// ls rst stop H									
+	0x567F,	// ls rst stop L									
+	0x6700,	// ls txb start H									
+	0x68DC,	// ls txb start L									
+	0x6900,	// ls txb stop H									
+	0x6AF0,	// ls txb stop L									
+	0x5B00,	// sample start H									
+	0x5C00,	// sample start L									
+	0x5D08,	// sample stop H									
+	0x5E7F,	// sample stop L									
+	0x5F00,	// store start H									
+	0x6000,	// store start L									
+	0x6100,	// store stop H									
+	0x62C8,	// store stop L									
+	0x9900,	// tx illum start H									
+	0x9ADC,	// tx illum start L									
+	0x9B08,	// tx illum stop H									
+	0x9C7F,	// tx illum stop L
+	0x7B02,	// inven start H									
+	0x7CA8,	// inven start L									
+	0x7D07,	// inven stop H									
+	0x7EDA,	// inven stop L									
+	0x6F02,	// load start H									
+	0x70A8,	// load start L									
+	0x7107,	// load stop H									
+	0x72DA,	// load stop L									
+	0x7302,	// latch en start H									
+	0x74B2,	// latch en start L									
+	0x7507,	// latch en stop H									
+	0x76D0,	// latch en stop L									
+	0x7708,	// latch en start2 H									
+	0x7895,	// latch en start2 L									
+	0x7908,	// latch en stop2 H									
+	0x7A96,	// latch en stop2 L									
+	//0xB740,	// adc offset									
+	0x8F00,	// adc offset stop H									
+	0x90D2,	// adc offset stop L									
+	0x8B02,	// ramp start H									
+	0x8CBC,	// ramp start L									
+	0x8D08,	// ramp stop H									
+	0x8E48,	// ramp stop L									
+	0x8708,	// transfer start H									
+	0x8834,	// transfer start L									
+	0x8908,	// transfer stop H									
+	0x8A3E,	// transfer stop L									
+	0x9508,	// refhold start H									
+	0x965C,	// refhold start L									
+	0x9708,	// refhold stop H									
+	0x988F,	// refhold stop L									
+	0x9108,	// atten rst start H									
+	0x925C,	// atten rst start L									
+	0x9308,	// atten rst stop H									
+	0x9497,	// atten rst stop L									
+	0x7F08,	// pbhold start H									
+	0x805C,	// pbhold start L									
+	0x8108,	// pbhold stop H									
+	0x828F,	// pbhold stop L									
+	0x8308,	// col pbhold start H									
+	0x845C,	// col pbhold start L									
+	0x8508,	// col pbhold stop H									
+	0x868F,	// col pbhold stop L									
+	0xB908,	// col pbhold2 start H									
+	0xBA5C,	// col pbhold2 start L									
+	0xBB08,	// col pbhold2 stop H									
+	0xBC8F,	// col pbhold2 stop L									
+	0xA10B,	// COFFSET H									
+	0xA2A0,	// COFFSET L									
+	0x3600,	// TG hsync start H									
+	0x37A2,	// TG hsync start L									
+	0x3808,	// TG hsync stop H									
+	0x3932,	// TG hsync stop L
+	0x3E00,	// blhstart_h
+	0x3FA2,	// blhstart_l
+	0x4008,	// blhstop_h
+	0x4132,	// blhstop_l
+	//////////////////////////////////////////////////////////////////////////////////////////////
+	0x0301,
+	0x1604, // bayer_control_01 (led_dsel)
+	0x1E0E, // bayer_control_09 (bsmode)
+	0x2604, // blacksunth_h
+	0xB740, // adcoffset
+	////////////////////////////////////////////////////////////////////////////////////////////// ablc
+	0x0300,
+	0x3695, // ablc_pd [1], ablc_res_con [0]
+	0x3B27, // ablc_step_con [5:3]
+	0x0301,
+	0x1F51, // bayer_control_10 (ablc_en)
+	0x20A9,	// bayer_control_11 (bs_ofst_en)
+	0x0300,
+	0xF300,	// overOBP_x0
+	0xF404,	// overOBP_x1
+	0xF518,	// overOBP_x2
+	0xF620,	// overOBP_x3
+	0xF740,	// overOBP_x4
+	0xF800,	// overOBP_wt0
+	0xF918,	// overOBP_wt1
+	0xFA20,	// overOBP_wt2
+	0xFB20,	// overOBP_wt3
+	0xFC30,	// overOBP_wt4
+	0x0301,
+	0xA3E0, // blc_top_th
+	0xA470, // blc_bot_th
+	0xA502, // ablc_update
+	////////////////////////////////////////////////////////////////////////////////////////////// limiter
+	0x0301,	// Limiter reference fitting due to gain
+	0xF601,	// bs_ofst0
+	0xF70C,	// bs_ofst1
+	0xF81A,	// bs_ofst2
+	0xF924,	// bs_ofst3
+	0xFA28,	// bs_ofst4
+	0xFB2A,	// bs_ofst5
+	0xFC2C,	// bs_ofst6
+	0xFD3F,	// bs_ofst_max
+	0xFE00,	// bs_ofst_min
+	//////////////////////// BANK C
+	0x0302,
+	0x9B20,	// hsyncAllLines
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	// LVDS control
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////// BANK D
+	0x0303,
+	0x0504,	// lvds_control_1
+	0x0604,	// lvds_control_2
+	0x0700,	// lvds_control_3
+	0x0800,	// lvds_control_4
+	0x1303, // lvds_bias_0 lvds_bgr 33
+	0x0303,
+	0x040E, // LVDS off
+	0xFF0A, // delay 10ms
+	0x044E, // LVDS on
+	0xFFFF, 
+};
+
+/* PS3210P */	
+static const unsigned short init_ps3210p_ntsc_bayer_config[] = {
+	0xFFFF,
+};
+
+/* PV1219M */	
+static const unsigned short init_pv1219m_ntsc_bayer_config[] = {
+	0x0300, 
+	0x2F01,  // pad_control7        (01)
+	0x2A01,  // pad_control2        (00)
+	0x2B9C,  // pad_control3        (00)
+	0x2E03,  // pad_control6        (00)
+	0x30FF,  // pad_control8        (00)
+	0x31FF,  // pad_control9        (00)
+	0x3B45,  // analog_control_05   (41)
+	0x2500,  // clkdiv2							(01)
+	0x3F50,  // pll0_control1
+	0xFF10, 
+	0x3F40,  // pll0_control1
+	0x0300, 
+	0x0608,  // framewidth_h
+	0x0797,  // framewidth_l
+	0x400B,  // pll0_m_cnt  
+	0x4101,  // pll0_r_cnt  
+	0x24C1,  // clkdiv1     
+	0x4A00,  // flicker_control1
+	0x5401,  // fd_period_a_h
+	0x5517,  // fd_period_a_m
+	0x56C0,  // fd_period_a_l
+	0x5701,  // fd_period_b_h
+	0x5851,  // fd_period_b_m
+	0x5980,  // fd_period_b_l
+	0x4C03,  // fd_a_step_h  
+	0x4DA4,  // fd_a_step_l  
+	0x4E03,  // fd_b_step_h  
+	0x4F09,  // fd_b_step_l  
+	0x0300, 
+	0x0402, 	// chip mode (00 : SMPTE, 01 : sampling, 02 : ccir601)
+	0x0503, 
+	//	0x1517,  // vsyncstartrow_l
+	0x2442,  // clkdiv1 [7]:p_pp_equal, adc_clkdiv
+	0x0303, 	//Image format control
+	0xB681, 
+	0x0300, 
+	0x1E04,  // monitor
+	0x0307, 
+	0x14C0,  // smp296_ctrl1 
+	0x0300,  ////////////////////////// Start Settings //////////////////////////////// //Bias control
+	0x3503,  // pixelbias
+	0x3603,  // compbias
+	0x37E8,  // tx_bypass
+	0x385E,   // PCP 010 4.06v, PCP Ldo 111 4.41v
+	0x39BC,   // NCP 10100 -1.105v
+	0x3B80,   // NCP Ldo 11000 -0.97v 
+	0x3A40,   // Rangesel 000000
+	0x0301, 
+	0xB740,  // adcoffset
+	0x0301, 
+	0xF63C,  //bs_ofst0	
+	0x0301, 	// B bank	//////////////////////////////////////////////////////////////////////// cds
+	0x5708, 	// lsenb edge1 H (2175)
+	0x587F, 	// lsenb edge1 L
+	0x5908, 	// lsenb edge2 H (2195)
+	0x5A93, 	// lsenb edge2 L
+	0x5300, 	// ls_rst edge1 H (20)
+	0x5414, 	// ls_rst edge1 L
+	0x5508, 	// ls_rst edge2 H (2175)
+	0x567F, 	// ls_rst edge2 L
+	0x6700, 	// ls_txb edge1 H (230)
+	0x68E6, 	// ls_txb edge1 L
+	0x6901, 	// ls_txb edge2 H (260)
+	0x6A04, 	// ls_txb edge2 L
+	0x5B00, 	// sample edge1 H (0)
+	0x5C00, 	// sample edge1 L
+	0x5D03, 	// sample edge2 H (800)
+	0x5E20, 	// sample edge2 L
+	0x5F00, 	// store edge1 H (0)
+	0x6000, 	// store edge1 L
+	0x6100, 	// store edge2 H (220)
+	0x62DC, 	// store edge2 L
+	0x9900, 	// tx_illum edge1 H (230)
+	0x9AE6, 	// tx_illum edge1 L
+	0x9B03, 	// tx_illum edge2 H (800)
+	0x9C20, 	// tx_illum edge2 L
+	0x7B03, 	// inv_en edge1 H (870)
+	0x7C66, 	// inv_en edge1 L
+	0x7D08, 	// inv_en edge2 H (2174)
+	0x7E7E, 	// inv_en edge2 L
+	0x6F03, 	// load edge1 H (872)
+	0x7068, 	// load edge1 L
+	0x7108, 	// load edge2 H (2172)
+	0x727C, 	// load edge2 L
+	0x7303, 	// latch_en edge1 H (874)
+	0x746A, 	// latch_en edge1 L
+	0x7508, 	// latch_en edge2 H (2170)
+	0x767A, 	// latch_en edge2 L
+	0x7708, 	// latch_en edge3 H (2196)
+	0x7894, 	// latch_en edge3 L
+	0x7908, 	// latch_en edge4 H (2198)
+	0x7A96, 	// latch_en edge4 L
+	0x8F00, 	// vramp edge1 H (225)
+	0x90E1, 	// vramp edge1 L
+	0x8B03, 	// vramp edge2 H (890)
+	0x8C7A, 	// vramp edge2 L
+	0x8D08, 	// vramp edge4 H (2175)
+	0x8E7F, 	// vramp edge4 L
+	0x8708, 	// transfer edge1 H (2175)
+	0x887F, 	// transfer edge1 L
+	0x8908, 	// transfer edge2 H (2180)
+	0x8A84, 	// transfer edge2 L
+	0x9500, 	// refhold edge1 H (2)
+	0x9602, 	// refhold edge1 L
+	0x9700, 	// refhold edge2 H (30)
+	0x981E, 	// refhold edge2 L
+	0x9100, 	// atten_rst edge1 H (0)
+	0x9200, 	// atten_rst edge1 L
+	0x9300, 	// atten_rst edge2 H (50)
+	0x9432, 	// atten_rst edge2 L
+	0x7F00, 	// pbhold edge1 H (2)
+	0x8002, 	// pbhold edge1 L
+	0x8100, 	// pbhold edge2 H (30)
+	0x821E, 	// pbhold edge2 L
+	0x8300, 	// col_pbhold edge1 H (2)
+	0x8402, 	// col_pbhold edge1 L
+	0x8500, 	// col_pbhold edge2 H (30)
+	0x861E, 	// col_pbhold edge2 L
+	0xB900, 	// col_pbhold2 edge1 H (2)
+	0xBA02, 	// col_pbhold2 edge1 L
+	0xBB00, 	// col_pbhold2 edge2 H (30)
+	0xBC1E, 	// col_pbhold2 edge2 L
+	0x3600, 	// tg hsync edge1 H (226)
+	0x37E2, 	// tg hsync edge1 L
+	0x3808, 	// tg hsync edge2 H (2162)
+	0x3972, 	// tg hsync edge2 L
+	0xA10B, 	// tg hsync COffset H (2912)
+	0xA260, 	// tg hsync COffset L
+	0x3E00, 	// blhstart H
+	0x3FE2, 	// blhstart L
+	0x4008, 	// blhstop H
+	0x4172, 	// blhstop L
+	0xFFFF,  
+};
+
+/* PV2109M */	
+static const unsigned short init_pv2109m_ntsc_bayer_config[] = {
+	/*20151221*/
+	0x0300,
+	0x2F01, // pad_control7        (01)
+	0x2A01, // pad_control2        (00)
+	0x2B9C, // pad_control3        (00)
+	0x2E03, // pad_control6        (00)
+	0x30FF, // pad_control8        (00)
+	0x31FF, // pad_control9        (00)
+	0x3B45, // analog_control_05   (41)
+	0x2500, // clkdiv2							(01)
+	0x3F50, // pll0_control1
+	0xFF10,
+	0x3F40, // pll0_control1
+	0x0300,
+	0x0606, // framewidth_h
+	0x0771, // framewidth_l
+	0x400B, // pll0_m_cnt  
+	0x4102, // pll0_r_cnt  
+	0x2462, // clkdiv1     
+	0x4A08, // flicker_control1
+	0x5400, // fd_period_a_h
+	0x55BA, // fd_period_a_m
+	0x5600, // fd_period_a_l
+	0x5700, // fd_period_b_h
+	0x58E1, // fd_period_b_m
+	0x5900, // fd_period_b_l
+	0x4C05, // fd_a_step_h  
+	0x4D79, // fd_a_step_l  
+	0x4E04, // fd_b_step_h  
+	0x4F8D, // fd_b_step_l  
+	0x0300,
+	0x0402,	// chip mode (00 : SMPTE, 01 : sampling, 02 : ccir601)
+	0x0503,
+	0x1517, // vsyncstartrow_l
+	0x2442, // clkdiv1 [7]:p_pp_equal, adc_clkdiv
+	0x0303,	//Image format control
+	0xB681,
+	0x0300,
+	0x1E04, // monitor
+	0x0301,
+	0x1604, // led_dsel
+	0x0302,
+	0x1C14, // dpc_offset
+	0x0300,
+	0x3501, // pixelbias
+	0x3603, // compbias
+	0x374F, // only PCP bypass
+	0x39BC,  // NCP 10111 about -1.2v
+	0x3BB8,  // NCP Ldo 10111 -0.95v 
+	0x3A40,  // Rangesel 000000
+	0x0301,
+	0xB740, // adcoffset
+	0x0301,
+	0xF630, //bs_ofst0	
+	0x0301,	// B bank	//////////////////////////////////////////////////////////////////////// cds
+	0x5706,	// lsenb edge1 H (1631)
+	0x585F,	// lsenb edge1 L
+	0x5906,	// lsenb edge2 H (1648)
+	0x5A70,	// lsenb edge2 L
+	0x5300,	// ls_rst edge1 H (2)
+	0x5402,	// ls_rst edge1 L
+	0x5506,	// ls_rst edge2 H (1631)
+	0x565F,	// ls_rst edge2 L
+	0x6700,	// ls_txb edge1 H (135)
+	0x6887,	// ls_txb edge1 L
+	0x6900,	// ls_txb edge2 H (175)
+	0x6AAF,	// ls_txb edge2 L
+	0x5B00,	// sample edge1 H (0)
+	0x5C00,	// sample edge1 L
+	0x5D06,	// sample edge2 H (1631)
+	0x5E5F,	// sample edge2 L
+	0x5F00,	// store edge1 H (0)
+	0x6000,	// store edge1 L
+	0x6100,	// store edge2 H (125)
+	0x627D,	// store edge2 L
+	0x9900,	// tx_illum edge1 H (125)
+	0x9A7D,	// tx_illum edge1 L
+	0x9B06,	// tx_illum edge2 H (1631)
+	0x9C5F,	// tx_illum edge2 L
+	0x7B00,	// inv_en edge1 H (185)
+	0x7CB9,	// inv_en edge1 L
+	0x7D06,	// inv_en edge2 H (1615)
+	0x7E4F,	// inv_en edge2 L
+	0x6F00,	// load edge1 H (187)
+	0x70BB,	// load edge1 L
+	0x7106,	// load edge2 H (1613)
+	0x724D,	// load edge2 L
+	0x7300,	// latch_en edge1 H (190)
+	0x74BE,	// latch_en edge1 L
+	0x7506,	// latch_en edge2 H (1611)
+	0x764B,	// latch_en edge2 L
+	0x7706,	// latch_en edge3 H (1647)
+	0x786F,	// latch_en edge3 L
+	0x7906,	// latch_en edge4 H (1648)
+	0x7A70,	// latch_en edge4 L
+	0x8F00,	// vramp edge1 H (130)
+	0x9082,	// vramp edge1 L
+	0x8B00,	// vramp edge2 H (190)
+	0x8CBE,	// vramp edge2 L
+	0x8D06,	// vramp edge4 H (1632)
+	0x8E60,	// vramp edge4 L
+	0x8706,	// transfer edge1 H (1621)
+	0x8855,	// transfer edge1 L
+	0x8906,	// transfer edge2 H (1628)
+	0x8A5C,	// transfer edge2 L
+	0x9506,	// refhold edge1 H (1632)
+	0x9660,	// refhold edge1 L
+	0x9706,	// refhold edge2 H (1643)
+	0x986B,	// refhold edge2 L
+	0x9106,	// atten_rst edge1 H (1630)
+	0x925E,	// atten_rst edge1 L
+	0x9306,	// atten_rst edge2 H (1649)
+	0x9471,	// atten_rst edge2 L
+	0x7F06,	// pbhold edge1 H (1632)
+	0x8060,	// pbhold edge1 L
+	0x8106,	// pbhold edge2 H (1643)
+	0x826B,	// pbhold edge2 L
+	0x8306,	// col_pbhold edge1 H (1632)
+	0x8460,	// col_pbhold edge1 L
+	0x8506,	// col_pbhold edge2 H (1643)
+	0x866B,	// col_pbhold edge2 L
+	0xB906,	// col_pbhold2 edge1 H (1632)
+	0xBA60,	// col_pbhold2 edge1 L
+	0xBB06,	// col_pbhold2 edge2 H (1643)
+	0xBC6B,	// col_pbhold2 edge2 L
+	0x3600,	// tg hsync edge1 H (190)
+	0x37BE,	// tg hsync edge1 L
+	0x3805,	// tg hsync edge2 H (1486)
+	0x39CE,	// tg hsync edge2 L
+	0xA10C,	// tg hsync COffset H (3268)
+	0xA2C4,	// tg hsync COffset L
+	0xFFFF , 
+};
+
+#else	// type CS
+
+/* PC3089N */
+static const unsigned short init_pc3089n_ntsc_bt601_config[] = {
+	0xFFFF ,
+};
+
+/* PC7030K */
+static const unsigned short init_pc7030k_ntsc_bt656_config[] = {
+	0xFFFF ,
+};
+
+static const unsigned short init_pc7030k_pal_bt656_config[] = {
+	0xFFFF ,
+};
+
+/* PO3100K */
+static const unsigned short init_po3100k_ntsc_bt1120_config[] = {
+	0xFFFF, 
+};
+
+/* PS1210K */
+static const unsigned short init_ps1210k_ntsc_bayer_config[] = {		// cs
+	0x0300, 
+#if 0	
+	0x28f0,
+	0x29F8, 
+#else
+	0x2842,
+	0x2998, 
+#endif
+	0x0300, 
+	0x0503, 
+	0x0608,
+	0x0797,
+	0x0804,
+	0x0964,
+	0x0a04, 
+	0x0b64, 
+	0x0c00,	// # windowx1_h   , default(00), pi2008(00)
+	0x0d01,	// # windowx1_l   , default(05)  pi2008(01)
+	0x0e00,	// # windowy1_h   , default(00)  pi2008(00)
+	0x0f05,	// # windowy1_l   , default(05)  pi2008(01)
+	0x1007,	// # windowx2_h   , default(07)  pi2008(07)
+	0x1190,	// # windowx2_l   , default(84)  pi2008(80)
+	0x1204,	// # windowy2_h   , default(04)  pi2008(04)
+	0x134C,	// # windowy2_l   , default(3C)  pi2008(38)
+	0x1400,	// # vsyncstartrow_f0_h  , default(00)  
+	0x150A,	// # vsyncstartrow_f0_l  , default(1a)   , pi2008(0b)
+	0x1604,	// # vsyncstoprow_f0_h   , default(04)   
+	0x1751,	// # vsyncstoprow_f0_l   , default(51)   , pi2008(43)
+	0x2510, 
+	0x3301, 
+	0x3402, 
+	0x36C8, 
+	0x3848, 
+	0x3A22, 
+	0x4121, 
+	0x4204, 
+	0x4010, 
+	0xFF32, 
+	0x4000, 
+	0x0301, 
+	0x2603, 
+	0x0301, 
+	0xC004, 
+	0xC15F, 
+	0xC200, 
+	0xC300, 
+	0xC440, 
+	0x0301, 
+	0x19C3, 
+	0x0302, 
+	0x9B20, 
+	0xFFFF, 
+};
+
+static const unsigned short init_ps1210k_ntsc_lvds_config[] = {			// cs
+	0x0300,
+#if defined(PS1210K_LVDS_FLIP_MIRROR) && defined(PS1210K_LVDS_MIRROR)	 
+	0x0503,	// # mirror/flip	11
+#elif defined(PS1210K_LVDS_MIRROR)
+	0x0501,	// # mirror			01
+#elif defined(PS1210K_LVDS_FLIP)
+	0x0502,
+#else	
+	0x0500,
+#endif
+	0x0608,
+	0x0797,
+	0x0804,
+	0x0964,
+	0x0a04, 
+	0x0b64, 
+	0x0c00,	// # windowx1_h   , default(00), pi2008(00)
+	0x0d01,	// # windowx1_l   , default(05)  pi2008(01)
+	0x0e00,	// # windowy1_h   , default(00)  pi2008(00)
+	0x0f05,	// # windowy1_l   , default(05)  pi2008(01)
+	0x1007,	// # windowx2_h   , default(07)  pi2008(07)
+	0x1190,	// # windowx2_l   , default(84)  pi2008(80)
+	0x1204,	// # windowy2_h   , default(04)  pi2008(04)
+	0x134C,	// # windowy2_l   , default(3C)  pi2008(38)
+	0x1400,	// # vsyncstartrow_f0_h  , default(00)  
+	0x150A,	// # vsyncstartrow_f0_l  , default(1a)   , pi2008(0b)
+	0x1604,	// # vsyncstoprow_f0_h   , default(04)   
+	0x1751,	// # vsyncstoprow_f0_l   , default(51)   , pi2008(43)
+	0x2509,	// # clkdiv1
+	0x268B,	// # clkdiv2
+	0x3301,	// # pixelbias
+	0x3402,	// # compbias
+	0x36C8,	// # TX_Bias; DCDC 4.96 V, LDO 4.37 V
+	0x3848,	// # black_bias,range_sel 0.4 V
+	0x3A22,	// # main regulator output
+	0x4010,	// #pll_control			// bypass mode????
+	0x0301,
+	0x19C3,	// # bayer_control_04
+	0xC004, 	// # inttime_h  
+	0xC14F,	// # inttime_m  
+	0xC200,	// # inttime_l  
+	0xC300,	// # globalgain 
+	0xC440,	// # digitalgain
+	0x0301,	
+	0x2603,	// # blacksun_th_h
+	0x0302,
+#if defined(PS1210K_LVDS_FLIP_MIRROR) && defined(PS1210K_LVDS_MIRROR)	 
+	0x05DE,	// add bayer sequence??????		10
+#elif defined(PS1210K_LVDS_MIRROR)
+	0x05DC,	// add bayer sequence??????		00
+#elif defined(PS1210K_LVDS_FLIP)
+	0x05DC,	// add bayer sequence??????		00
+#else
+	0x05DC,	
+#endif	
+	0x9B20,	// sync control
+	0x0303,
+	0x0504,	//	# lvds_control_1
+	0x0604,	//	# lvds_control_2
+	0x0700,	//	# lvds_control_3
+	0x0800,	//	# lvds_control_4
+	0x1303,	// # lvds_bias_0 lvds_bgr 33
+	0x0300,
+	0x4000, // #pll_control
+	0x0303,
+	0x0402,	// # LVDS off, power down
+	0xFF0F,
+	0x0442,	// # LVDS on
+	0xFFFF,
+};
+
+/* PS1210M */
+static const unsigned short init_ps1210m_ntsc_bayer_config[] = {
+	0xFFFF , 
+};
+
+/* PS3210M */	
+static const unsigned short init_ps3210m_ntsc_bayer_config[] = {
+	0x0300, 
+	0x0503, 
+	0x0608, // framewidth_h
+	0x0797, // framewidth_l
+	0x0608,
+	0x0797,
+	0x0804,
+	0x0964,
+	0x0a04, 
+	0x0b64, 
+	0x0c00,	// # windowx1_h   , default(00), pi2008(00)
+	0x0d01,	// # windowx1_l   , default(05)  pi2008(01)
+	0x0e00,	// # windowy1_h   , default(00)  pi2008(00)
+	0x0f05,	// # windowy1_l   , default(05)  pi2008(01)
+	0x1007,	// # windowx2_h   , default(07)  pi2008(07)
+	0x1190,	// # windowx2_l   , default(84)  pi2008(80)
+	0x1204,	// # windowy2_h   , default(04)  pi2008(04)
+	0x134C,	// # windowy2_l   , default(3C)  pi2008(38)
+	0x1400,	// # vsyncstartrow_f0_h  , default(00)  
+	0x150A,	// # vsyncstartrow_f0_l  , default(1a)   , pi2008(0b)
+	0x1604,	// # vsyncstoprow_f0_h   , default(04)   
+	0x1751,	// # vsyncstoprow_f0_l   , default(51)   , pi2008(43)
+	0x0300,
+	0x2998,// output Hi-z release, pae_en
+	0x0302,
+	0x9B20, // sync_control_1[5] : hsyncAllLines       
+	0x0301,
+	0x19C3, // bayer_control_04
+	0x0300,
+	0x3301, // pixelbias
+	0x3402, // compbias
+	0x0301,
+	0x2603, // blacksun_th_h
+	0x0301,
+	0xC004, // inttime_h  
+	0xC14F, // inttime_m  
+	0xC200, // inttime_l  
+	0xC300, // globalgain 
+	0xC440, // digitalgain
+	0x0302,
+	0x9B20, 
+	0x0300, 
+	0x2569, // clkdiv1
+	0x268B, // clkdiv2
+	0x4121, // pll_m_cnt (21)
+	0x4204, // pll_r_cnt (04)
+	0x4010, // pll_control   
+	0xFF0A, // delay 10ms                
+	0x4000, //pll_control
+	0xFFFF, 
+};
+
+static const unsigned short init_ps3210m_ntsc_lvds_config[] = {
+	0x0300,
+	0x0503, // mirror
+	0x0608, // framewidth_h
+	0x0797, // framewidth_l
+	0x0608,
+	0x0797,
+	0x0804,
+	0x0964,
+	0x0a04, 
+	0x0b64, 
+	0x0c00,	// # windowx1_h   , default(00), pi2008(00)
+	0x0d01,	// # windowx1_l   , default(05)  pi2008(01)
+	0x0e00,	// # windowy1_h   , default(00)  pi2008(00)
+	0x0f05,	// # windowy1_l   , default(05)  pi2008(01)
+	0x1007,	// # windowx2_h   , default(07)  pi2008(07)
+	0x1190,	// # windowx2_l   , default(84)  pi2008(80)
+	0x1204,	// # windowy2_h   , default(04)  pi2008(04)
+	0x134C,	// # windowy2_l   , default(3C)  pi2008(38)
+	0x1400,	// # vsyncstartrow_f0_h  , default(00)  
+	0x150A,	// # vsyncstartrow_f0_l  , default(1a)   , pi2008(0b)
+	0x1604,	// # vsyncstoprow_f0_h   , default(04)   
+	0x1751,	// # vsyncstoprow_f0_l   , default(51)   , pi2008(43)
+	0x2569, // clkdiv1
+	0x268B, // clkdiv2
+	0x4010, //pll_control
+	0x0301,
+	0x3600, //tghstart_h	00  
+	0x37A2, //tghstart_l	C2
+	0x3808, //tghstop_h	08    
+	0x3932, //tghstop_l	52  
+	0x3E00, // blhstart_h
+	0x3FA2, // blhstart_l
+	0x4008, // blhstop_h
+	0x4132, // blhstop_l
+	0xA10B, // coffset_h 0B
+	0xA2A2, // coffset_l 82
+	0x0301,
+	0x1604, // bayer_control_01 (led_dsel)
+	0x1E0E, // bayer_control_09 (bsmode)
+	0x0301,
+	0x20CB,	// bs_ofst_en
+	0x0301,	// Limiter reference fitting due to gain
+	0xF601,	// bs_ofst0
+	0xF701,	// bs_ofst1
+	0xF801,	// bs_ofst2
+	0xF901,	// bs_ofst3
+	0xFA20,	// bs_ofst4
+	0xFB2E,	// bs_ofst5
+	0xFC2E,	// bs_ofst6 
+	0xFD3F,	// bs_ofst_max
+	0xFE00,	// bs_ofst_min
+	0xB730, // adcoffset
+	0x0302,
+	0x9B20,	// sync control
+	0x0303,
+	0x0504,	// lvds_control_1
+	0x0604,	// lvds_control_2
+	0x0700,	// lvds_control_3
+	0x0800,	// lvds_control_4
+	0x1303, // lvds_bias_0 lvds_bgr 33
+	0x0300,
+	0x4000, //pll_control
+	0x0303,
+	0x040E, // LVDS off
+	0x0303,
+	0x044E, // LVDS on
+	0xFFFF, 
+};
+
+/* PS3210P */	
+
+static const unsigned short init_ps3210p_ntsc_bayer_config[] = {
+	/* 7 team test code */
+	0x0300, //    
+	0x2998, //	# output Hi-z release
+	0x2842, // # pad_drv, pclk_delay
+	0x0301, //
+	0x1843, // # blacksun
+	0xB400, // # maxmbl
+	0x0300, //
+	0x0503, //	# mirror/flip
+
+	0x0608,  //	# framewidth_h        (08)
+	0x0797,  //	# framewidth_l        (97)
+#if 0
+	// 1936x1096
+	0x0C00,  // # windowx1_h
+	0x0D01,  // # windowx1_l
+	0x0E00,  // # windowy1_h
+	0x0F02,  // # windowy1_l
+	0x1007,  // # windowx2_h
+	0x118C,  // # windowx2_l
+	0x1204,  // # windowy2_h
+	0x1345,  // # windowy2_l
+	0x1400,  // # vsyncstartrow_f0_h
+	0x1514,  // # vsyncstartrow_f0_l
+	0x1604,  // # vsyncstoprow_f0_h
+	0x1758,  // # vsyncstoprow_f0_l
+#else
+	/* from lvds output */	
+	0x0c00,	// # windowx1_h   , default(00), pi2008(00)
+	0x0d01,	// # windowx1_l   , default(05)  pi2008(01)
+	0x0e00,	// # windowy1_h   , default(00)  pi2008(00)
+	0x0f05,	// # windowy1_l   , default(05)  pi2008(01)
+	0x1007,	// # windowx2_h   , default(07)  pi2008(07)
+	0x1190,	// # windowx2_l   , default(84)  pi2008(80)
+	0x1204,	// # windowy2_h   , default(04)  pi2008(04)
+	0x134C,	// # windowy2_l   , default(3C)  pi2008(38)
+	0x1400,	// # vsyncstartrow_f0_h  , default(00)  
+	0x150A,	// # vsyncstartrow_f0_l  , default(1a)   , pi2008(0b)
+	0x1604,	// # vsyncstoprow_f0_h   , default(04)   
+	0x1751,	// # vsyncstoprow_f0_l   , default(51)   , pi2008(43)
+#endif
+	0x4121, // # pll_m_cnt (21)
+	0x4204, // # pll_r_cnt (04)
+	0x4010, // # pll_control $0010
+	0x4000, // # pll_control on
+	0x0301, //
+	0xC004, //
+	0xC15E, //
+	0xC200, //
+	0xC360, //
+	0x0300, //
+	0xD100, //	# adc_rst_start_h (08)
+	0xD200, //	# adc_rst_start_l (94)
+	0xD30A, //	# adc_rst_stop_h  (08)
+	0xD400, //	# adc_rst_stop_l  (96)
+	0x0301, //	# B bank
+	0x5708, //	# lsenb edge1 H (2137)
+	0x5887, //	# lsenb edge1 L
+	0x5908, //	# lsenb edge2 H (2199)
+	0x5A97, //	# lsenb edge2 L
+	0x5300, //	# ls_rst(rst_sel=1) edge1 H (1)
+	0x5401, //	# ls_rst(rst_sel=1) edge1 L
+	0x5508, //	# ls_rst(rst_sel=1) edge2 H (2175)
+	0x5656, //	# ls_rst(rst_sel=1) edge2 L
+	0x6700, //	# ls_txb edge1 H (175)
+	0x68AF, //	# ls_txb edge1 L
+	0x6900, //	# ls_txb edge2 H (225)
+	0x6AE1, //	# ls_txb edge2 L
+	0x5B00, //	# sample edge1 H (13)
+	0x5C0D, //	# sample edge1 L
+	0x5D08, //	# sample edge2 H (2120)
+	0x5E48, //	# sample edge2 L
+	0x5F00, //	# store edge1 H (18)
+	0x6012, //	# store edge1 L
+	0x6100, //	# store edge2 H (149)
+	0x6295, //	# store edge2 L
+	0xB100, //	# ablc_en edge1 H (155)
+	0xB29B, //	# ablc_en edge1 L
+	0x0300, //	# A bank
+	0xC500, //	# store_cobp edge1 H (18)
+	0xC612, //	# store_cobp edge1 L
+	0xC700, //	# store_cobp edge2 H (169)
+	0xC8A9, //	# store_cobp edge2 L
+	0x0301, //	# B bank
+	0x9900, //	# tx_illum edge1 H (175)
+	0x9AAF, //	# tx_illum edge1 L
+	0x9B08, //	# tx_illum edge2 H (2120)
+	0x9C48, //	# tx_illum edge2 L
+	0x0300, //	# A bank
+	0xC908, //	# black_load edge1 H (2160)
+	0xCA70, //	# black_load edge1 L
+	0xCB08, //	# black_load edge2 H (2143)
+	0xCC5F, //	# black_load edge2 L
+	0xCD08, //	# limiter_en edge1 H (2185)
+	0xCE89, //	# limiter_en edge1 L
+	0xCF08, //	# limiter_en edge2 H (2175)
+	0xD07F, //	# limiter_en edge2 L
+	0x0301, //	# B bank
+	0x7B00, //	# inv_en edge1 H (0)
+	0x7C00, //	# inv_en edge1 L
+	0x7D08, //	# inv_en edge2 H (2200)
+	0x7E98, //	# inv_en edge2 L
+	0x6F00, //	# load edge1 H (238)
+	0x70EE, //	# load edge1 L
+	0x7107, //	# load edge2 H (2002)
+	0x72D2, //	# load edge2 L
+	0x7300, //	# latch_en edge1 H (240)
+	0x74F0, //	# latch_en edge1 L
+	0x7507, //	# latch_en edge2 H (2000)
+	0x76D0, //	# latch_en edge2 L
+	0x7708, //	# latch_en edge3 H (2196)
+	0x7894, //	# latch_en edge3 L
+	0x7908, //	# latch_en edge4 H (2198)
+	0x7A96, //	# latch_en edge4 L
+	0x8F00, //	# vramp edge1 H (243)
+	0x90F3, //	# vramp edge1 L
+	0x8B01, //	# vramp edge2 H (263)
+	0x8C07, //	# vramp edge2 L
+	0x8D08, //	# vramp edge4 H (2110)
+	0x8E3E, //	# vramp edge4 L
+	0x0300, //	# A bank
+	0xD100, //	# adc_rstb edge1 H (0)
+	0xD200, //	# adc_rstb edge1 L
+	0xD308, //	# adc_rstb edge2 H (2300)
+	0xD4FC, //	# adc_rstb edge2 L
+	0x0301, //	# B bank
+	0x8708, //	# transfer edge1 H (2188)
+	0x888C, //	# transfer edge1 L
+	0x8908, //	# transfer edge2 H (2194)
+	0x8A92, //	# transfer edge2 L
+	0x9508, //	# refhold edge1 H (2140)
+	0x965C, //	# refhold edge1 L
+	0x9708, //	# refhold edge2 H (2191)
+	0x988F, //	# refhold edge2 L
+	0x9108, //	# atten_rst edge1 H (2140)
+	0x925C, //	# atten_rst edge1 L
+	0x9308, //	# atten_rst edge2 H (2199)
+	0x9497, //	# atten_rst edge2 L
+	0x7F08, //	# pbhold edge1 H (2140)
+	0x805C, //	# pbhold edge1 L
+	0x8108, //	# pbhold edge2 H (2191)
+	0x828F, //	# pbhold edge2 L
+	0x8308, //	# col_pbhold edge1 H (2140)
+	0x845C, //	# col_pbhold edge1 L
+	0x8508, //	# col_pbhold edge2 H (2191)
+	0x868F, //	# col_pbhold edge2 L
+	0xB908, //	# col_pbhold2 edge1 H (2140)
+	0xBA5C, //	# col_pbhold2 edge1 L
+	0xBB08, //	# col_pbhold2 edge2 H (2191)
+	0xBC8F, //	# col_pbhold2 edge2 L
+	0x3600, //	# hsync edge1 H (250)
+	0x37FA, //	# hsync edge1 L
+	0x3808, //	# hsync edge2 H (2186)
+	0x398A, //	# hsync edge2 L
+	0xA10B, //	# hsync COffset H (2884)
+	0xA244, //	# hsync COffset L
+	0x3E00, //	# blhsync edge1 H (250)
+	0x3FFA, //	# blhsync edge1 L
+	0x4008, //	# blhsync edge2 H (2186)
+	0x418A, //	# blhsync edge2 L
+	0xA10B, //	# blhsync COffset H (2884)
+	0xA244, //	# blhsync COffset L
+	0x4200, //	# cobp sync edge1 H (150)
+	0x4396, //	# cobp sync edge1 L
+	0x4400, //	# cobp sync edge2 H (246)
+	0x45F6, //	# cobp sync edge2 L
+	0xFFFF, 
+};
+
+/* PV1219M */	
+static const unsigned short init_pv1219m_ntsc_bayer_config[] = {
+	0xFFFF,  
+};
+
+/* PV2109M */	
+static const unsigned short init_pv2109m_ntsc_bayer_config[] = {
+	0xFFFF , 
+};
+
+#endif
+
+
+
+/* 720x480i */
+static struct sensor_ctrl_info init_sensor_values[] = {
+	/* PC3089N */
+	[SNS_PC3089N] = {
+		.chip_id = 0x3089,
+		.name = "pc3089n",
+		.chip_addr = 0x33,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = (SNS_SUPPORT_NTSC),
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+				.intf_supported = (SNS_SUPPORT_BT601),
+				.intf_mode = 
+				{
+					0, 0, 0, 0, init_pc3089n_ntsc_bt601_config,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = 0,
+				.intf_mode = {
+					0, 0, 0, 0, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+	/* PC7030K */
+	[SNS_PC7030K] = {
+		.chip_id = 0x7030,
+		.name = "pc7030k",
+		.chip_addr = 0x32,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = (SNS_SUPPORT_NTSC|SNS_SCAN_PAL),
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+				.intf_supported = (SNS_SUPPORT_BT656),
+				.intf_mode = 
+				{
+					0, 0, 0, init_pc7030k_ntsc_bt656_config, 0,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = (SNS_SUPPORT_BT656),
+				.intf_mode = {
+					0, 0, 0, init_pc7030k_pal_bt656_config, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+	/* PO3100K */
+	[SNS_PO3100K] = {
+		.chip_id = 0x3100,
+		.name = "po3100k",
+		.chip_addr = 0x77,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = SNS_SUPPORT_NTSC,
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+				.intf_supported = (SNS_SUPPORT_BT1120),
+				.intf_mode = 
+				{
+					0, 0, init_po3100k_ntsc_bt1120_config, 0, 0,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = 0,
+				.intf_mode = {
+					0, 0, 0, 0, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+	/* PS1210K */
+	[SNS_PS1210K] = {
+		.chip_id = 0x1210,
+		.name = "ps1210k",
+		.chip_addr = 0x77,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = (SNS_SUPPORT_NTSC),
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+#if defined(SENSOR_ESTYPE)
+				.intf_supported = (SNS_SUPPORT_BAYER),
+#else
+				.intf_supported = (SNS_SUPPORT_BAYER | SNS_SUPPORT_LVDS),
+#endif
+				.intf_mode = 
+				{
+					init_ps1210k_ntsc_bayer_config, init_ps1210k_ntsc_lvds_config, 0, 0, 0,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = 0,
+				.intf_mode = {
+					0, 0, 0, 0, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+	/* PS1210M */
+	[SNS_PS1210M] = {
+		.chip_id = 0x1210,
+		.name = "ps1210m",
+		.chip_addr = 0x77,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = (SNS_SUPPORT_NTSC),
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+#if defined(SENSOR_ESTYPE)
+				.intf_supported = (SNS_SUPPORT_BAYER),
+#else
+				.intf_supported = 0,
+#endif
+				.intf_mode = 
+				{
+					init_ps1210m_ntsc_bayer_config, 0, 0, 0, 0,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = 0,
+				.intf_mode = {
+					0, 0, 0, 0, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+	/* PS3210M */
+	[SNS_PS3210M] = {
+		//	.chip_id = 0x3210,
+		.chip_id = 0x3120,
+		.name = "ps3210m",
+		.chip_addr = 0x77,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = (SNS_SUPPORT_NTSC),
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+#if defined(SENSOR_ESTYPE)
+				.intf_supported = (SNS_SUPPORT_BAYER),
+#else
+				.intf_supported = (SNS_SUPPORT_BAYER | SNS_SUPPORT_LVDS),
+#endif
+				.intf_mode = 
+				{
+					init_ps3210m_ntsc_bayer_config, init_ps3210m_ntsc_lvds_config, 0, 0, 0,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = 0,
+				.intf_mode = {
+					0, 0, 0, 0, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+	/* PS3210P */	
+	[SNS_PS3210P] = {
+		.chip_id = 0x3210,
+		.name = "ps3210p",
+		.chip_addr = 0x77,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = (SNS_SUPPORT_NTSC),
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+#if defined(SENSOR_ESTYPE)
+				.intf_supported = 0,
+#else
+				.intf_supported = (SNS_SUPPORT_BAYER),
+#endif
+				.intf_mode = 
+				{
+					init_ps3210p_ntsc_bayer_config, 0, 0, 0, 0,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = 0,
+				.intf_mode = {
+					0, 0, 0, 0, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+	/* PV1219M */	
+	[SNS_PV1219M] = {
+		.chip_id = 0x1219,
+		.name = "pv1219m",
+		.chip_addr = 0x76,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = (SNS_SUPPORT_NTSC),
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+#if defined(SENSOR_ESTYPE)
+				.intf_supported = (SNS_SUPPORT_BAYER),
+#else
+				.intf_supported = 0,
+#endif
+				.intf_mode = 
+				{
+					init_pv1219m_ntsc_bayer_config, 0, 0, 0, 0,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = 0,
+				.intf_mode = {
+					0, 0, 0, 0, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+	/* PV2109M */
+	[SNS_PV2109M] = {
+		.chip_id = 0x2109,
+		.name = "pv2109m",
+		.chip_addr = 0x32,
+		.use_16bit_addr = 0,
+		.use_16bit_data = 0,
+		.scan_supported = (SNS_SUPPORT_NTSC),
+		.scan_mode = {
+			[SNS_SCAN_NTSC] = {
+#if defined(SENSOR_ESTYPE)
+				.intf_supported = (SNS_SUPPORT_BAYER),
+#else
+				.intf_supported = 0,
+#endif
+				.intf_mode = 
+				{
+					init_pv2109m_ntsc_bayer_config, 0, 0, 0, 0,
+				},
+			},
+			[SNS_SCAN_PAL] = {
+				.intf_supported = 0,
+				.intf_mode = {
+					0, 0, 0, 0, 0,
+				},
+			},
+		},
+		.set_image_attr = 0,
+		.set_gain_attr = 0,
+	},
+};
+
+
+#endif

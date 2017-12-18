@@ -1,0 +1,558 @@
+#ifndef __BD_COMM_VI_H__
+#define __BD_COMM_VI_H__
+
+#include "bd_common.h"
+#include "bd_errno.h"
+#include "bd_comm_video.h"
+
+
+#ifdef __cplusplus
+#if __cplusplus
+extern "C"
+{
+#endif
+#endif /* __cplusplus */
+
+#define VI_INVALID_FRMRATE  (-1UL)
+#define VIU_MAX_USER_FRAME_DEPTH 8
+
+typedef enum bdEN_VIU_ERR_CODE_E
+{
+    ERR_VI_FAILED_NOTENABLE = 64,   /* device or channel not enable*/
+    ERR_VI_FAILED_NOTDISABLE,       /* device not disable*/
+    ERR_VI_FAILED_CHNOTDISABLE,     /* channel not disable*/
+    ERR_VI_CFG_TIMEOUT,             /* config timeout*/
+    ERR_VI_NORM_UNMATCH,            /* video norm of ADC and VIU is unmatch*/
+    ERR_VI_INVALID_WAYID,           /* invlalid way ID     */
+    ERR_VI_INVALID_PHYCHNID,        /* invalid phychn id*/
+    ERR_VI_FAILED_NOTBIND,          /* device or channel not bind */
+    ERR_VI_FAILED_BINDED,           /* device or channel not unbind */
+	ERR_VI_FAILED_TIMEOUT,			/* init or select fail */
+	ERR_VI_FAILED_INTERNAL,			/* msg error */
+} EN_VIU_ERR_CODE_E;
+
+#define BD_ERR_VI_INVALID_PARA          BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_ILLEGAL_PARAM)
+#define BD_ERR_VI_INVALID_DEVID         BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_INVALID_DEVID)
+#define BD_ERR_VI_INVALID_CHNID         BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_INVALID_CHNID)
+#define BD_ERR_VI_INVALID_NULL_PTR      BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_NULL_PTR)
+#define BD_ERR_VI_FAILED_NOTCONFIG      BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_NOT_CONFIG)
+#define BD_ERR_VI_SYS_NOTREADY          BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_SYS_NOTREADY)
+#define BD_ERR_VI_BUF_EMPTY             BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_BUF_EMPTY)
+#define BD_ERR_VI_BUF_FULL              BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_BUF_FULL)
+#define BD_ERR_VI_NOMEM                 BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_NOMEM)
+#define BD_ERR_VI_NOT_SUPPORT           BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_NOT_SUPPORT)
+#define BD_ERR_VI_BUSY                  BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_BUSY)
+#define BD_ERR_VI_NOT_PERM              BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, EN_ERR_NOT_PERM)
+
+#define BD_ERR_VI_FAILED_NOTENABLE      BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_FAILED_NOTENABLE)/* 0xA0108040*/
+#define BD_ERR_VI_FAILED_NOTDISABLE     BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_FAILED_NOTDISABLE)/* 0xA0108041*/
+#define BD_ERR_VI_FAILED_CHNOTDISABLE   BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_FAILED_CHNOTDISABLE)/* 0xA0108042*/
+#define BD_ERR_VI_CFG_TIMEOUT           BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_CFG_TIMEOUT)/* 0xA0108043*/
+#define BD_ERR_VI_NORM_UNMATCH          BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_NORM_UNMATCH)/* 0xA0108044*/
+#define BD_ERR_VI_INVALID_WAYID         BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_INVALID_WAYID)/* 0xA0108045*/
+#define BD_ERR_VI_INVALID_PHYCHNID      BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_INVALID_PHYCHNID)/* 0xA0108046*/
+#define BD_ERR_VI_FAILED_NOTBIND        BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_FAILED_NOTBIND)/* 0xA0108047*/
+#define BD_ERR_VI_FAILED_BINDED         BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_FAILED_BINDED)/* 0xA0108048*/
+#define BD_ERR_VI_FAILED_TIMEOUT        BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_FAILED_TIMEOUT)/* 0xA0108049*/
+#define BD_ERR_VI_FAILED_INTERNAL       BD_DEF_ERR(BD_ID_VIU, EN_ERR_LEVEL_ERROR, ERR_VI_FAILED_INTERNAL)/* 0xA010804A*/
+
+
+/*get the subchn index by main chn */
+#define  SUBCHN(ViChn)   (ViChn + 16)
+
+/* define cascade chn */
+#define VI_CAS_CHN_1   32
+#define VI_CAS_CHN_2   33
+
+typedef enum bdVI_DEV_INPUT_E
+{
+	VI_DEV_INPUT_LVDS = 0,
+	VI_DEV_INPUT_BAYER,
+	VI_DEV_INPUT_CAM0,	
+	VI_DEV_INPUT_CAM1,	
+	VI_DEV_INPUT_PVI,	
+    VI_DEV_INPUT_BUTT
+} VI_DEV_INPUT_E;
+
+typedef enum bdVI_CAM_INTF_E
+{
+	/* BD1 LVDS Interface */
+	VI_INTF_LVDS_1080P = 0,
+	VI_INTF_LVDS_720P,
+	
+	/* BD1 CAM0 Interface (Bayer/BT1358/BT656/BT1120 Support) */
+	VI_INTF_CAM0_BAYER_1080P,		/* 1920X1080 progressive */
+	VI_INTF_CAM0_BAYER_720P,		/* 1920X1080 progressive */
+
+	VI_INTF_CAM0_BT1358_480P,		/* 720X480 progressive */
+	VI_INTF_CAM0_BT1358_576P,		/* 720X576 progressive */
+
+	VI_INTF_CAM0_BT656_480I,		/* 720X480 interlaced */
+	VI_INTF_CAM0_BT656_576I,		/* 720X576 interlaced */
+
+	VI_INTF_CAM0_BT1120_720P,		/* 1280X720 progressive */
+	VI_INTF_CAM0_BT1120_720I,		/* 1280X720 interlaced */
+	VI_INTF_CAM0_BT1120_1080P,		/* 1920X1080 progressive */
+	VI_INTF_CAM0_BT1120_1080I,		/* 1920X1080 interlaced */
+
+	/* BD1 CAM1 Interface (BT1358/BT656/BT601 Support) */
+	VI_INTF_CAM1_BT1358_480P,		/* 720X480 progressive */
+	VI_INTF_CAM1_BT1358_576P,		/* 720X576 progressive */
+
+	VI_INTF_CAM1_BT656_480I,		/* 720X480 interlaced */
+	VI_INTF_CAM1_BT656_576I,		/* 720X576 interlaced */
+
+	VI_INTF_CAM1_BT601_480P,		/* 720X480 progressive */
+	VI_INTF_CAM1_BT601_576P,		/* 720X576 progressive */
+
+	VI_INTF_CAM1_BT601_480I,		/* 720X480 interlaced */
+	VI_INTF_CAM1_BT601_576I,		/* 720X576 interlaced */	
+
+	/* Analog NTSC / PAL format */
+	VI_INTF_PVI_480I,				/* 720x480 interlaced */
+	VI_INTF_PVI_576I,				/* 720x576 interlaced */
+
+	/* HD-PVI format */
+	VI_INTF_PVI_HDPVI_720P,			/* 1280x720 progressive */
+	VI_INTF_PVI_HDPVI_1080P,		/* 1920x1080 progressive */
+	
+	/* HD-CVI format */
+	VI_INTF_PVI_HDCVI_720P,			/* 1280x720 progressive */
+	VI_INTF_PVI_HDCVI_1080P,		/* 1920x1080 progressive */
+	
+	/* Analog HD format */
+	VI_INTF_PVI_AHD_720P,			/* 1280x720 progressive */
+	VI_INTF_PVI_AHD_1080P,			/* 1920x1080 progressive */
+	
+	/* HD-TVI format */
+	VI_INTF_PVI_HDTVI_720P,			/* 1280x720 progressive */
+	VI_INTF_PVI_HDTVI_1080P,		/* 1920x1080 progressive */
+	
+    VI_INTF_BUTT
+} VI_CAM_INTF_E;
+
+
+/* whether an input picture is interlaced or progressive */
+typedef enum bdVI_SCAN_MODE_E
+{
+    VI_SCAN_INTERLACED  = 0,
+    VI_SCAN_PROGRESSIVE,
+
+    VI_SCAN_BUTT,
+} VI_SCAN_MODE_E;
+
+typedef enum bdVI_DATA_YUV_SEQ_E
+{
+   /*The input sequence of the second component(only contains u and v) in BT.1120 mode */
+    VI_INPUT_DATA_VUVU = 0,
+    VI_INPUT_DATA_UVUV,
+
+   /* The input sequence for yuv */
+    VI_INPUT_DATA_UYVY = 0,
+    VI_INPUT_DATA_VYUY,
+    VI_INPUT_DATA_YUYV,
+    VI_INPUT_DATA_YVYU,
+
+    VI_DATA_YUV_BUTT
+} VI_DATA_YUV_SEQ_E;
+
+typedef enum bdVI_CLK_EDGE_E
+{
+    VI_CLK_EDGE_SINGLE_UP = 0,         /* single-edge mode and in rising edge */
+    VI_CLK_EDGE_SINGLE_DOWN,           /* single-edge mode and in falling edge */
+    //VI_CLK_EDGE_DOUBLE ,                 /* Double edge mode */
+
+    VI_CLK_EDGE_BUTT
+} VI_CLK_EDGE_E;
+
+typedef enum bdVI_COMP_MODE_E
+{
+    VI_COMP_MODE_SINGLE = 0,           /* in single component mode */
+    VI_COMP_MODE_DOUBLE = 1,           /* in double component mode */
+    VI_COMP_MODE_BUTT,
+}VI_COMP_MODE_E;
+
+/* Y/C composite or separation mode */
+typedef enum bdVI_COMBINE_MODE_E
+{
+    VI_COMBINE_COMPOSITE = 0,     /* Composite mode */
+    VI_COMBINE_SEPARATE,          /* Separate mode */
+    VI_COMBINE_BUTT,
+} VI_COMBINE_MODE_E;
+
+/* Attribute of the vertical synchronization signal */
+typedef enum bdVI_VSYNC_E
+{
+    VI_VSYNC_FIELD = 0,           /* Field/toggle mode:a signal reversal means a new frame or a field */
+    VI_VSYNC_PULSE,               /* Pusle/effective mode:a pusle or an effective signal means a new frame or a field */
+} VI_VSYNC_E;
+
+/* Polarity of the vertical synchronization signal */
+typedef enum bdVI_VSYNC_NEG_E
+{
+    VI_VSYNC_NEG_BDGH = 0,        /*if VIU_VSYNC_E = VIU_VSYNC_FIELD,then the vertical synchronization signal of even field is high-level,
+                                        if VIU_VSYNC_E = VIU_VSYNC_PULSE,then the vertical synchronization pulse is positive pulse.*/
+    VI_VSYNC_NEG_LOW              /*if VIU_VSYNC_E = VIU_VSYNC_FIELD,then the vertical synchronization signal of even field is low-level,
+                                        if VIU_VSYNC_E = VIU_VSYNC_PULSE,then the vertical synchronization pulse is negative pulse.*/
+} VI_VSYNC_NEG_E;
+
+/* Attribute of the horizontal synchronization signal */
+typedef enum bdVI_HSYNC_E
+{
+    VI_HSYNC_VALID_SINGNAL = 0,   /* the horizontal synchronization is valid signal mode */
+    VI_HSYNC_PULSE,               /* the horizontal synchronization is pulse mode, a new pulse means the beginning of a new line */
+} VI_HSYNC_E;
+
+/* Polarity of the horizontal synchronization signal */
+typedef enum bdVI_HSYNC_NEG_E
+{
+    VI_HSYNC_NEG_BDGH = 0,        /*if VI_HSYNC_E = VI_HSYNC_VALID_SINGNAL,then the valid horizontal synchronization signal is high-level;
+                                        if VI_HSYNC_E = VI_HSYNC_PULSE,then the horizontal synchronization pulse is positive pulse */
+    VI_HSYNC_NEG_LOW              /*if VI_HSYNC_E = VI_HSYNC_VALID_SINGNAL,then the valid horizontal synchronization signal is low-level;
+                                        if VI_HSYNC_E = VI_HSYNC_PULSE,then the horizontal synchronization pulse is negative pulse */
+} VI_HSYNC_NEG_E;
+
+/* Attribute of the valid vertical synchronization signal */
+typedef enum bdVI_VSYNC_VALID_E
+{
+    VI_VSYNC_NORM_PULSE = 0,      /* the vertical synchronization is pusle mode, a pusle means a new frame or field  */
+    VI_VSYNC_VALID_SINGAL,        /* the vertical synchronization is effective mode, a effective signal means a new frame or field */
+} VI_VSYNC_VALID_E;
+
+/* Polarity of the valid vertical synchronization signal */
+typedef enum bdVI_VSYNC_VALID_NEG_E
+{
+    VI_VSYNC_VALID_NEG_BDGH = 0,  /*if VI_VSYNC_VALID_E = VI_VSYNC_NORM_PULSE,a positive pulse means vertical synchronization pulse;
+                                        if VI_VSYNC_VALID_E = VI_VSYNC_VALID_SINGAL,the valid vertical synchronization signal is high-level */
+    VI_VSYNC_VALID_NEG_LOW        /*if VI_VSYNC_VALID_E = VI_VSYNC_NORM_PULSE,a negative pulse means vertical synchronization pulse;
+                                        if VI_VSYNC_VALID_E = VI_VSYNC_VALID_SINGAL,the valid vertical synchronization signal is low-level */
+} VI_VSYNC_VALID_NEG_E;
+
+
+
+/* Blank information of the input timing */
+typedef struct bdVI_TIMING_BLANK_S
+{
+    BD_U32 u32HsyncHfb ;    /* Horizontal front blanking width */
+    BD_U32 u32HsyncAct ;    /* Horizontal effetive width */
+    BD_U32 u32HsyncHbb ;    /* Horizontal back blanking width */
+    BD_U32 u32VsyncVfb ;    /* Vertical front blanking height of one frame or odd-field frame picture */
+    BD_U32 u32VsyncVact ;   /* Vertical effetive width of one frame or odd-field frame picture */
+    BD_U32 u32VsyncVbb ;    /* Vertical back blanking height of one frame or odd-field frame picture */
+    BD_U32 u32VsyncVbfb ;   /* Even-field vertical front blanking height when input mode is interlace (invalid when progressive input mode) */
+    BD_U32 u32VsyncVbact ;  /* Even-field vertical effetive width when input mode is interlace (invalid when progressive input mode) */
+    BD_U32 u32VsyncVbbb ;   /* Even-field vertical back blanking height when input mode is interlace (invalid when progressive input mode) */
+}VI_TIMING_BLANK_S;
+
+/* synchronization information about the BT.601 or DC timing */
+typedef struct bdVI_SYNC_CFG_S
+{
+    VI_VSYNC_E             enVsync;
+    VI_VSYNC_NEG_E         enVsyncNeg;
+    VI_HSYNC_E             enHsync;
+    VI_HSYNC_NEG_E         enHsyncNeg;
+    VI_VSYNC_VALID_E       enVsyncValid;
+    VI_VSYNC_VALID_NEG_E   enVsyncValidNeg;
+    VI_TIMING_BLANK_S      stTimingBlank;
+} VI_SYNC_CFG_S;
+
+/* the highest bit of the BT.656 timing reference code*/
+typedef enum bdBT656_FIXCODE_E
+{
+    BT656_FIXCODE_1 = 0,       /* The highest bit of the EAV/SAV data over the BT.656 protocol is always 1.*/
+    BT656_FIXCODE_0            /* The highest bit of the EAV/SAV data over the BT.656 protocol is always 0.*/
+}BT656_FIXCODE_E;
+
+/* Polarity of the field indicator bit (F) of the BT.656 timing reference code */
+typedef enum bdBT656_FIELD_POLAR_E
+{
+    BT656_FIELD_POLAR_STD = 0, /* the standard BT.656 mode,the first filed F=0,the second filed F=1*/
+    BT656_FIELD_POLAR_NSTD     /* the non-standard BT.656 mode,the first filed F=0,the second filed F=1*/
+}BT656_FIELD_POLAR_E;
+
+typedef struct bdVI_BT656_SYNC_CFG_S
+{
+    BT656_FIXCODE_E           enFixCode;
+    BT656_FIELD_POLAR_E         enFieldPolar;
+}VI_BT656_SYNC_CFG_S;
+
+typedef enum bdVI_VBI_LOCAL_E
+{
+    VI_VBI_LOCAL_ODD_FRONT = 0,
+    VI_VBI_LOCAL_ODD_END,
+    VI_VBI_LOCAL_EVEN_FRONT,
+    VI_VBI_LOCAL_EVEN_END,
+    VI_VBI_LOCAL_BUTT
+} VI_VBI_LOCAL_E;
+
+typedef struct bdVI_VBI_ATTR_S
+{
+    VI_VBI_LOCAL_E enLocal; /* location of VBI */
+    BD_S32 s32X;            /* horizontal original position of the VBI data */
+    BD_S32 s32Y;            /* vertical original position of the VBI data */
+    BD_U32 u32Len;          /* length of VBI data, by word(4 Bytes) */
+} VI_VBI_ATTR_S;
+
+typedef enum bdVI_DATA_TYPE_E
+{
+    VI_DATA_TYPE_YUV = 0,
+    VI_DATA_TYPE_RGB = 1,
+    VI_DATA_TYPE_BUTT
+} VI_DATA_TYPE_E;
+
+typedef enum bdVI_DATA_PATH_E
+{
+    VI_PATH_BYPASS    = 0,       /* ISP bypass */
+    VI_PATH_ISP       = 1,        /* ISP enable */
+    VI_PATH_RAW       = 2,        /* Capture raw data, for debug */
+    VI_PATH_BUTT
+}VI_DATA_PATH_E;
+
+typedef enum bdVI_DATA_SHIFT_E
+{
+	VI_DATASHIFT_BAYER_2TO13 = 0,
+	VI_DATASHIFT_BAYER_4TO15,
+	VI_DATASHIFT_BAYER_8TO19,
+	VI_DATASHIFT_BT1120_LOWCHIY,
+	VI_DATASHIFT_BT1120_HICLOWY,
+	VI_DATASHIFT_BT656_2TO9,
+	VI_DATASHIFT_BT656_12TO19,
+	VI_DATASHIFT_BUTT
+} VI_DATA_SHIFT_E;
+
+/* for PVI input format */
+typedef enum bdVI_PVI_FORMAT
+{
+	VI_PVI_FORMAT_PVI = 0,
+	VI_PVI_FORMAT_CVI, 
+	VI_PVI_FORMAT_AHD,
+	VI_PVI_FORMAT_TVI,
+	VI_PVI_FORMAT_SD,
+	VI_PVI_FORMAT_BUTT,
+} VI_PVI_FORMAT_E;
+
+typedef enum bdVI_PVI_FREQUENCY
+{
+	VI_PVI_FREQUENCY_25HZ = 0,
+	VI_PVI_FREQUENCY_30HZ,
+	VI_PVI_FREQUENCY_50HZ,
+	VI_PVI_FREQUENCY_60HZ,
+	VI_PVI_FREQUENCY_BUTT,
+} VI_PVI_FREQUENCY;
+
+typedef struct bdVI_PVI_ATTR_S
+{
+	VI_PVI_FORMAT_E		enPviFormat;
+    BD_BOOL	bAutoMode;		/* PVI format Auto Detect */
+    BD_U16 u16horizontalActiveLine;  /* horizontal active lines count */
+    BD_U16 u16horizontalDelay;       /* horizontal line delay */
+    BD_U16 u16verticalActiveLine;  /* vertical active lines count */
+    BD_U16 u16verticalDelay;       /* vertical line delay */
+	VI_PVI_FREQUENCY enFrequency;		
+} VI_PVI_ATTR_S;
+
+/* the extended attributes of VI device */
+typedef struct bdVI_DEV_ATTR_EX_S
+{
+//    VI_CAM_INTF_E     enInputMode;        /* Input mode */
+//    VI_WORK_MODE_E      enWorkMode;         /*1-, 2-, or 4-channel multiplexed work mode */
+
+//    VI_COMBINE_MODE_E   enCombineMode;      /* Y/C composite or separation mode */
+//    VI_COMP_MODE_E      enCompMode;         /* Component mode (single-component or dual-component) */
+//    VI_CLK_EDGE_E       enClkEdge;          /* Clock edge mode (sampling on the rising or falling edge) */
+
+//    BD_U32              au32CompMask[2];    /* Component mask */
+
+//    VI_SCAN_MODE_E      enScanMode;         /* Input scanning mode (progressive or interlaced) */
+//    BD_S32              s32AdChnId[4];      /* AD channel ID. Typically, the default value -1 is recommended */
+
+//    VI_DATA_YUV_SEQ_E   enDataSeq;          /* Input data sequence (only the YUV format is supported) */
+//    VI_SYNC_CFG_S       stSynCfg;           /* Sync timing. This member must be configured in BT.601 mode or DC mode */
+
+//    VI_BT656_SYNC_CFG_S stBT656SynCfg;      /* Sync timing. This member must be configured in BT.656 mode */
+
+//    VI_DATA_PATH_E      enDataPath;         /* ISP enable or bypass */
+//    VI_DATA_TYPE_E      enInputDataType;    /* RGB: CSC-709 or CSC-601, PT YUV444 disable; YUV: default yuv CSC coef PT YUV444 enable. */
+	BD_U32 reserved;
+} VI_DEV_ATTR_EX_S;
+
+/* the attributes of a VI device */
+typedef struct bdVI_DEV_ATTR_S
+{
+    VI_CAM_INTF_E      enIntfMode;         /* Interface mode */
+//    VI_WORK_MODE_E      enWorkMode;         /*1-, 2-, or 4-channel multiplexed work mode */
+
+//    BD_U32              au32CompMask[2];    /* Component mask */
+//    VI_SCAN_MODE_E      enScanMode;         /* Input scanning mode (progressive or interlaced) */
+//    BD_S32              s32AdChnId[4];      /* AD channel ID. Typically, the default value -1 is recommended */
+
+    /* The below members must be configured in BT.601 mode or DC mode and are invalid in other modes */
+//    VI_DATA_YUV_SEQ_E   enDataSeq;          /* Input data sequence (only the YUV format is supported) */
+//    VI_SYNC_CFG_S       stSynCfg;           /* Sync timing. This member must be configured in BT.601 mode or DC mode */
+
+    VI_DATA_PATH_E      enDataPath;         /* ISP enable or bypass */
+ //   VI_DATA_TYPE_E      enInputDataType;    /* RGB: CSC-709 or CSC-601, PT YUV444 disable; YUV: default yuv CSC coef PT YUV444 enable. */
+
+	VI_DATA_SHIFT_E		enDataShift;		// camera data shift, valid for CAM0
+
+	VI_PVI_ATTR_S		stPviAttr;			/* valid only enIntfMode == VI_INTF_PVI_XXXXXX */
+} VI_DEV_ATTR_S;
+
+
+typedef struct bdVI_CHN_BIND_ATTR_S
+{
+    VI_DEV ViDev;
+    VI_WAY ViWay;
+} VI_CHN_BIND_ATTR_S;
+
+
+/* the attributes of a VI way */
+typedef struct bdVI_WAY_ATTR_S
+{
+   BD_S32 s32AdChnId;
+} VI_WAY_ATTR_S;
+
+
+/* captrue selection of video input */
+typedef enum bdVI_CAPSEL_E
+{
+    VI_CAPSEL_TOP = 0,                  /* top field */
+    VI_CAPSEL_BOTTOM,                   /* bottom field */
+    VI_CAPSEL_BOTH,                     /* top and bottom field */
+    VI_CAPSEL_BUTT
+} VI_CAPSEL_E;
+
+
+/* the attributes of a VI channel */
+typedef struct bdVI_CHN_ATTR_S
+{
+//    RECT_S          stCapRect;          /* the capture rect (corresponding to the size of the picture captured by a VI device). */
+                                    /*            For primary channels, the stCapRect's u32Width and u32Height are static attributes. That is, */
+                                    /*            the value of them can be changed only after primary and secondary channels are disabled. */
+                                    /*            For secondary channels, stCapRect is an invalid attribute */
+    SIZE_S          stDestSize;         /* Target picture size.
+                                                For primary channels, stDestSize must be equal to stCapRect's u32Width and u32Height,
+                                                because primary channel doesn't have scale capability. Additionally, it is a static
+                                                attribute, That is, the value of stDestSize can be changed only after primary and
+                                                secondary channels are disabled.
+                                                For secondary channels, stDestSize is a dynamic attribute */
+
+//    VI_CAPSEL_E     enCapSel;           /* Frame/field select. It is used only in interlaced mode.
+                                          /*   For primary channels, enCapSel is a static attribute */
+
+//    PIXEL_FORMAT_E  enPixFormat;        /* Pixel storage format. Only the formats semi-planar420 and semi-planar422 are supported */
+//    BD_BOOL         bMirror;            /* Whether to mirror */
+//    BD_BOOL         bFlip;              /* Whether to flip */
+//    BD_BOOL         bChromaResample;    /* Whether to perform chrominance resampling. It is valid only for primary channels */
+    BD_S32          s32SrcFrameRate;    /* Source frame rate. The value -1 indicates that the frame rate is not controlled */
+    BD_S32          s32FrameRate;       /* Target frame rate. The value -1 indicates that the frame rate is not controlled */
+} VI_CHN_ATTR_S;
+
+
+typedef struct bdVI_CHN_STAT_S
+{
+    BD_BOOL bEnable;                    /* Whether this channel is enabled */
+    BD_U32 u32IntCnt;                   /* The video frame interrupt count */
+    BD_U32 u32FrmRate;                  /* current frame rate */
+    BD_U32 u32LostInt;                  /* The interrupt is received but nobody care */
+    BD_U32 u32VbFail;                   /* Video buffer malloc failure */
+    BD_U32 u32PicWidth;                 /* curren pic width */
+    BD_U32 u32PicHeight;                /* current pic height */
+} VI_CHN_STAT_S;
+
+typedef enum bd_VI_USERPIC_MODE_E
+{
+    VI_USERPIC_MODE_PIC = 0,            /* YUV picture */
+    VI_USERPIC_MODE_BGC,                /* Background picture only with a color */
+    VI_USERPIC_MODE_BUTT,
+} VI_USERPIC_MODE_E;
+
+typedef struct bdVI_USERPIC_BGC_S
+{
+    BD_U32          u32BgColor;
+} VI_USERPIC_BGC_S;
+
+typedef struct bdVI_USERPIC_ATTR_S
+{
+    BD_BOOL                 bPub;          /* Whether the user picture information is shared by all VI devices and channels*/
+    VI_USERPIC_MODE_E       enUsrPicMode;  /* User picture mode */
+    union
+    {
+        VIDEO_FRAME_INFO_S  stUsrPicFrm;   /* Information about a YUV picture */
+        VI_USERPIC_BGC_S    stUsrPicBg;    /* Information about a background picture only with a color */
+    } unUsrPic;
+} VI_USERPIC_ATTR_S;
+
+typedef struct bdVI_USR_GET_FRM_TIMEOUT_S
+{
+    VIDEO_FRAME_INFO_S *pstVFrame;
+    BD_U32              u32MilliSec;
+} VI_USR_GET_FRM_TIMEOUT_S;
+
+
+typedef enum bdVI_FLASH_MODE_E
+{
+    VI_FLASH_ONCE = 0,		     /*Flash one time*/
+    VI_FLASH_FREQ = 1,           /*Flash frequently*/
+    VI_FLASH_MODE_BUTT
+}VI_FLASH_MODE_E;
+
+typedef struct bdVI_FlASH_CONFIG_S
+{
+    VI_FLASH_MODE_E enFlashMode;	   /*Flash one time, flash frequently*/
+
+    BD_U32 u32StartTime;	           /* Flash start time£¬unit: sensor pix clk.*/
+    BD_U32 u32Duration;                /* Flash high duration, unit: sensor pix clk.*/
+    BD_U32 u32CapFrmIndex;             /* Set which vframe will be bFlashed after flashing, default is 0. */
+    BD_U32 u32Interval;                /* Flash frequently interval, unit: frame*/
+}VI_FLASH_CONFIG_S;
+
+typedef struct bdVI_EXT_CHN_ATTR_S
+{
+    VI_CHN    s32BindChn;		           /*the channel num which extend channel will bind to*/
+    SIZE_S    stDestSize;		           /*target size*/
+
+    BD_S32    s32SrcFrameRate;             /* Source frame rate. The value -1 indicates that the frame rate is not controlled */
+    BD_S32    s32FrameRate;                /* Target frame rate. The value -1 indicates that the frame rate is not controlled */
+    PIXEL_FORMAT_E  enPixFormat;           /* Pixel storage format. Only the formats semi-planar420 and semi-planar422 are supported */
+} VI_EXT_CHN_ATTR_S;
+
+
+typedef struct bdVI_LDC_ATTR_S
+{
+    BD_BOOL bEnable;
+    LDC_ATTR_S stAttr;
+}VI_LDC_ATTR_S;
+
+typedef struct bdVI_CHN_LUM_S
+{
+    BD_U32 u32Lum;
+    BD_U64 u64Pts;
+} VI_CHN_LUM_S;
+
+typedef enum bdVI_CSC_TYPE_E
+{
+    VI_CSC_TYPE_601 = 0,
+    VI_CSC_TYPE_709,
+    VI_CSC_TYPE_BUTT,
+} VI_CSC_TYPE_E;
+
+typedef struct bdVI_CSC_ATTR_S
+{
+    VI_CSC_TYPE_E enViCscType;             /* 601 or 709 */
+    BD_U32 u32LumaVal;                     /* luminance: [0 ~ 100] */
+    BD_U32 u32ContrVal;                    /* contrast: [0 ~ 100] */
+    BD_U32 u32HueVal;                      /* hue: [0 ~ 100] */
+    BD_U32 u32SatuVal;                     /* satuature: [0 ~ 100] */
+} VI_CSC_ATTR_S;
+
+
+#ifdef __cplusplus
+#if __cplusplus
+}
+#endif
+#endif /* __cplusplus */
+
+#endif /* End of #ifndef__BD_COMM_VIDEO_IN_H__ */
+
+

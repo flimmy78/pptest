@@ -1,0 +1,2 @@
+/home/job1/nomadprj/rtsplite/app/mips_build/src/bd_encodercs/CMakeFiles/bd_enc.dir
+/home/job1/nomadprj/rtsplite/app/mips_build/src/video_server/encoder/CMakeFiles/bd_encoder.dir

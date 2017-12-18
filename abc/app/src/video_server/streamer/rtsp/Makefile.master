@@ -1,0 +1,42 @@
+TARGET := bin/master/server
+AR := ar
+CXX := g++
+CC := gcc
+STRIP := strip
+#CPPFLAGS := -Wall -g -std=c++11 -DMASTER -D_DEBUG -DLINUX -D__linux__ -D_FILE_OFFSET_BITS=64 -I./include -I./utils -I./rtsp -I./nomad_media_lib
+CPPFLAGS := -Wall -O2 -Wstrict-aliasing=2 -std=c++11 -DMASTER -D_DEBUG -DLINUX -D__linux__ -D_FILE_OFFSET_BITS=64 -I./include -I./utils -I./rtsp -I./nomad_media_lib
+#LIB := -L./bin/lib -lpthread -ltcmalloc -lsqlite3 -ldl
+LIB := -L./bin/lib -lpthread -lsqlite3 -ldl
+VPATH = ./activator:./utils:./rtsp:./nomad_media_lib/base:./nomad_media_lib/demuxer:./nomad_media_lib/demuxer/ts:./nomad_media_lib/reader:./nomad_media_lib/sinker:
+OBJDIR := bin/master/.obj
+
+include nml.mk
+include utils.mk
+include rtsp.mk
+
+SRCS += \
+	MasterActivator.cpp
+
+OBJS := $(addprefix $(OBJDIR)/,$(SRCS:.cpp=.o))
+
+all : library $(TARGET)
+
+$(OBJDIR)/%.o : %.cpp
+	$(CXX) -c $(CPPFLAGS) $< -g -o $@
+
+$(OBJS) : | $(OBJDIR)
+$(OBJDIR) :
+	mkdir -p $(OBJDIR)
+
+$(TARGET) : $(OBJS) 
+	$(CXX) $(CPPFLAGS) $^ -o $@ $(LIB)
+
+library :
+	make -f sqlite3.mk
+	make -f sqlite3.mk install
+
+clean :
+	rm -rf $(OBJDIR)
+	rm -f $(TARGET) *.a
+	make -f sqlite3.mk clean
+	make -f sqlite3.mk uninstall

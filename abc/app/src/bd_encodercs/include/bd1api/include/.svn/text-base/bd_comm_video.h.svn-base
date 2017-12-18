@@ -1,0 +1,324 @@
+
+/// File : bd_comm_video.h
+/// Date : 2015/03
+
+#ifndef __BD_COMM_VIDEO_H__
+#define __BD_COMM_VIDEO_H__
+
+#include <sys/time.h>
+#include "bd_type.h"
+#include "bd_common.h"
+#include "bd_defines.h"
+
+#ifdef __cplusplus
+#if __cplusplus
+extern "C"{
+#endif
+#endif /* __cplusplus */
+
+
+typedef enum bdPIC_SIZE_E
+{
+	PIC_D1,
+	PIC_960H,
+
+	PIC_QVGA,    /* 320 * 240 */
+	PIC_VGA,     /* 640 * 480 */    
+	PIC_XGA,     /* 1024 * 768 */   
+
+	PIC_HD720,   /* 1280 * 720 */
+	PIC_HD1080,  /* 1920 * 1080 */
+	PIC_HD1088,  /* 1920 * 1088 */
+
+	PIC_BUTT
+}PIC_SIZE_E;
+
+typedef enum bdVIDEO_NORM_E
+{
+	VIDEO_ENCODING_MODE_PAL=0,
+	VIDEO_ENCODING_MODE_NTSC,
+	VIDEO_ENCODING_MODE_AUTO,
+	VIDEO_ENCODING_MODE_BUTT
+} VIDEO_NORM_E;
+
+typedef enum bdVIDEO_CONTROL_MODE_E
+{
+	VIDEO_CONTROL_MODE_SLAVER=0,
+	VIDEO_CONTROL_MODE_MASTER,
+	VIDEO_CONTROL_MODE_BUTT
+}VIDEO_CONTROL_MODE_E;
+
+
+/* we ONLY define picture format used, all unused will be deleted!*/
+typedef enum bdPIXEL_FORMAT_E
+{   
+	PIXEL_FORMAT_RGB_1BPP = 0,
+	PIXEL_FORMAT_RGB_2BPP,
+	PIXEL_FORMAT_RGB_4BPP,
+	PIXEL_FORMAT_RGB_8BPP,
+	PIXEL_FORMAT_RGB_444,
+	PIXEL_FORMAT_RGB_4444,
+	PIXEL_FORMAT_RGB_555,
+	PIXEL_FORMAT_RGB_565,
+	PIXEL_FORMAT_RGB_1555,
+
+	/*  9 reserved */
+	PIXEL_FORMAT_RGB_888,
+	PIXEL_FORMAT_RGB_8888,
+	PIXEL_FORMAT_RGB_PLANAR_888,
+	PIXEL_FORMAT_RGB_BAYER,
+
+	PIXEL_FORMAT_YUV_A422,
+	PIXEL_FORMAT_YUV_A444,
+
+	PIXEL_FORMAT_YUV_PLANAR_422,
+	PIXEL_FORMAT_YUV_PLANAR_420,
+	PIXEL_FORMAT_YUV_PLANAR_444,
+
+	PIXEL_FORMAT_YUV_SEMIPLANAR_422,
+	PIXEL_FORMAT_YUV_SEMIPLANAR_420,
+	PIXEL_FORMAT_YUV_SEMIPLANAR_444,
+
+	PIXEL_FORMAT_UYVY_PACKAGE_422,
+	PIXEL_FORMAT_YUYV_PACKAGE_422,
+	PIXEL_FORMAT_VYUY_PACKAGE_422,
+	PIXEL_FORMAT_YCbCr_PLANAR,
+
+	PIXEL_FORMAT_BUTT   
+} PIXEL_FORMAT_E;
+
+
+typedef struct bdVIDEO_VBI_INFO_S
+{
+	BD_U32 au32Data[VIU_MAX_VBI_LEN];
+	BD_U32 u32Len;
+}VIDEO_VBI_INFO_S;
+
+typedef enum bdVIDEO_FIELD_E
+{
+	VIDEO_FIELD_TOP         = 0x01,    /* even field */
+	VIDEO_FIELD_BOTTOM      = 0x02,    /* odd field */
+	VIDEO_FIELD_INTERLACED  = 0x03,    /* two interlaced fields */
+	VIDEO_FIELD_FRAME       = 0x04,    /* frame */
+
+	VIDEO_FIELD_BUTT
+} VIDEO_FIELD_E;
+
+#if 0
+typedef struct bdVIDEO_FRAME_S
+{    
+    BD_U32          u32Width;
+    BD_U32          u32Height;    
+    VIDEO_FIELD_E   u32Field;
+    PIXEL_FORMAT_E  enPixelFormat;
+
+    BD_U32          u32PhyAddr[3];
+    BD_VOID         *pVirAddr[3];
+    BD_U32          u32Stride[3];
+
+    BD_U16          u16OffsetTop;       /* top offset of show area */
+    BD_U16          u16OffsetBottom;   /* bottom offset of show area */
+    BD_U16          u16OffsetLeft;       /* left offset of show area */
+    BD_U16          u16OffsetRight;    /* right offset of show area */
+
+    BD_U64          u64pts;
+    BD_U32          u32TimeRef;
+
+    BD_U32          u32PrivateData;
+    //VIDEO_VBI_INFO_S astVbiInfo[VIU_MAX_VBI_NUM];
+}VIDEO_FRAME_S;
+
+typedef struct bdVIDEO_FRAME_INFO_S
+{
+    VIDEO_FRAME_S stVFrame;
+    BD_U32 u32PoolId;
+} VIDEO_FRAME_INFO_S;
+
+#else
+typedef struct bdVIDEO_FRAME_INFO_S
+{    
+	BD_U32          u32Width;
+	BD_U32          u32Height;    
+//	VIDEO_FIELD_E   u32Field;
+	PIXEL_FORMAT_E  enPixelFormat;
+	
+	BD_U32          u32PhyAddr[2];
+	BD_VOID         *pVirAddr[2];
+	BD_U32          u32Stride[2];
+
+//    HI_U16          u16OffsetTop;       /* top offset of show area */
+//    HI_U16          u16OffsetBottom;   /* bottom offset of show area */
+//    HI_U16          u16OffsetLeft;       /* left offset of show area */
+//    HI_U16          u16OffsetRight;    /* right offset of show area */
+
+//	BD_U64          u64pts;				// Time stamp
+	struct timeval  stTimeVal;
+	BD_U32          u32TimeRef;			// Frame sequence number of a picture. according to dest frame rate
+
+    BD_U32          u32PrivateData;	// ???
+    //VIDEO_VBI_INFO_S astVbiInfo[VIU_MAX_VBI_NUM];
+} VIDEO_FRAME_INFO_S;
+#endif
+
+typedef struct bdBITMAP_S
+{
+    PIXEL_FORMAT_E enPixelFormat;  /* Bitmap's pixel format */
+
+    BD_U32 u32Width;               /* Bitmap's width */
+    BD_U32 u32Height;              /* Bitmap's height */
+    BD_VOID *pData;                /* Address of Bitmap's data */
+} BITMAP_S;
+
+typedef struct BD_VPP_CFG_S
+{
+    BD_BOOL bVppEn;
+    
+    BD_BOOL bIeEn;
+    BD_BOOL bDnEn;
+    BD_BOOL bSpEn;
+    BD_BOOL bIencEn;
+    
+    BD_S32 s32IeSth;       /* IE Strength [0,10] */
+    BD_S32 s32SpSth;       /* SP Strength [-4,5] */
+    BD_S32 s32DnSfCosSth;  /* coarse DN sf Strength [0,3] */
+    BD_S32 s32DnSfIncSth;  /* Incbdng of DN sf Strength [0,255] */
+    BD_S32 s32DnTfSth;     /* DN tf Strength [0,4] */
+    
+} VPP_CFG_S;
+
+typedef struct bdSCALE_CFG_S
+{
+    BD_BOOL bScaleEn;
+
+    BD_S32  s32DstWidth;    /* the dest width after scale */
+    BD_S32  s32DstHeight;   /* the dest height after scale */
+} SCALE_CFG_S;
+
+/* Ie */
+typedef struct BD_VPP_IE_EX_S
+{
+    BD_U32  u32RefRange;//
+    BD_U32  u32IeStrength;//  
+    BD_U32  u32Black;
+    BD_U32  u32Wbdte;
+} VPP_IE_EX_S;
+
+/*dn*/
+typedef struct
+{
+  BD_U16  saMask[2];
+  BD_U16  weight[2];
+
+} tVppCalcWnd;
+
+typedef struct
+{
+    BD_U8   wWndX, hWndX; 
+    BD_U8   wWndY, hWndY; 
+    BD_U8   wWndC, hWndC; 
+    BD_U8   wWndD, hWndD; //
+
+    BD_U16  sfyMask[2];
+    BD_U8   sfyRange[2]; //
+    BD_U8   sfyStrength; //
+    BD_U8   sfyLimitedFlag; //
+
+    BD_U8   MADpExDirectSub : 1; 
+    BD_U8   MADpExMask : 4; 
+    BD_U8   _reserved_ : 3; 
+
+    BD_U8   sfcStrength;
+    BD_U8   sfyMADpThresh,   sfyMADpRate;/**/
+    BD_U16  sfyMSEiThresh[8];
+
+    BD_U8   rsfyThresh, rsfyRate, rsfyStrength, tfyStrength;
+    BD_U8   rsfcThresh, rsfcRate, rsfcStrength, tfcStrength;/**/
+
+    BD_U8   tfyMADpThresh,  tfyMADpRate;
+    BD_U8   tfySNRpThresh,  tfySNRpRate;
+
+    BD_U16  tfyMSEiThresh[8];
+    BD_U16  tfyMSEpThresh[8];
+
+    BD_U8   tfyMaxStrength;//
+    BD_U8   tfcMaxStrength;/**/
+
+    BD_U8   tfcMADpThresh,  tfcMADpRate;
+    BD_U16  tfcMSEiThresh[8];
+
+    BD_U16  diyMSEiThresh[8];
+
+    BD_U8   tfyLimit;
+    BD_U8   noiseMADpThresh;
+    BD_U16  noiseMSDpThresh;
+
+    BD_U8   log2hStepMADp, log2hStepMSEi;
+
+    BD_U8   histMinMADp, histMaxMADp;
+    BD_U16  histMinMSEi, histMaxMSEi;
+
+    /*---------------------------------------------*/
+    tVppCalcWnd  yWnd[2];
+    tVppCalcWnd  cWnd[2];
+} tVppDnCfg;
+typedef  tVppDnCfg VPP_DN_EX_S;
+
+/* Sp */
+typedef struct
+{
+    BD_U8  strength;//
+    BD_U8  limit;//
+    BD_U8  black;
+    BD_U8  white;
+} tVppSharpenCfg;
+typedef  tVppSharpenCfg VPP_SP_EX_S;
+
+
+typedef struct bdVPP_CFG_EX_S
+{
+    VPP_IE_EX_S     stIE_Ex;
+    VPP_DN_EX_S     stDN_Ex;
+    VPP_SP_EX_S     stSP_Ex;
+} VPP_CFG_EX_S;
+
+
+/* VI Mix-Capture info. */
+typedef struct bdVI_MIXCAP_STAT_S
+{
+    BD_BOOL bMixCapMode;    /* In mix-capture mode or not. */
+    BD_BOOL bHasDownScale;  /* VI Frame is downscaled or not. */
+} VI_MIXCAP_STAT_S;
+
+/* VI output frame info. */
+typedef struct bdVI_FRAME_INFO_S
+{
+    VI_MIXCAP_STAT_S stMixCapState; /* VI Mix-Capture info. */
+    VIDEO_FRAME_INFO_S stViFrmInfo; /* Video frame info. */
+    BD_BOOL bFlashed;
+}VI_FRAME_INFO_S;
+
+typedef enum bdLDC_VIEW_TYPE_E
+{
+    LDC_VIEW_TYPE_ALL = 0,  /* View scale all but x and y independtly, this will keep both x and y axis ,but corner maybe lost*/
+    LDC_VIEW_TYPE_CROP,     /* Not use view scale, this will lost some side and corner */
+        
+    LDC_VIEW_TYPE_BUTT,
+} LDC_VIEW_TYPE_E;
+
+typedef struct bdLDC_ATTR_S 
+{
+    LDC_VIEW_TYPE_E enViewType;
+    
+    BD_S32 s32CenterXOffset;        /* Horizontal offset of the image distortion center relative to image center. [-28,28]. */
+    BD_S32 s32CenterYOffset;        /* Vertical offset of the image distortion center relative to image center. [-14,14]. */
+    BD_S32 s32Ratio;                /* Distortion ratio. [0, 511]. */
+} LDC_ATTR_S;
+
+#ifdef __cplusplus
+#if __cplusplus
+}
+#endif
+#endif /* __cplusplus */
+
+
+#endif /* _BD_COMM_VIDEO_H_ */ 

@@ -1,0 +1,38 @@
+TARGET := bin/slave/server
+AR := $(CROSS_COMPILE)ar
+CXX := $(CROSS_COMPILE)g++
+CC := $(CROSS_COMPILE)gcc
+STRIP := $(CROSS_COMPILE)strip
+
+CPPFLAGS := -Wall -O2 -EL -std=gnu++0x -msoft-float -DSLAVE -D_DEBUG -DLINUX -D__linux__ -D_FILE_OFFSET_BITS=64 -I./include -I./utils -I./rtsp -I./nomad_media_lib
+
+LIB := -lpthread -lstdc++
+VPATH = ./activator:./utils:./rtsp:./nomad_media_lib/base:./nomad_media_lib/demuxer:./nomad_media_lib/demuxer/ts:./nomad_media_lib/reader:./nomad_media_lib/sinker:
+OBJDIR := bin/slave/.obj
+
+
+
+#include nml.mk
+include utils_slave.mk
+include rtsp_slave.mk
+
+SRCS += \
+	SlaveActivator.cpp
+
+OBJS := $(addprefix $(OBJDIR)/,$(SRCS:.cpp=.o))
+
+all : $(TARGET)
+
+$(OBJDIR)/%.o : %.cpp
+	$(CXX) -c $(CPPFLAGS) $< -g -o $@
+
+$(OBJS) : | $(OBJDIR)
+$(OBJDIR) :
+	mkdir -p $(OBJDIR)
+
+$(TARGET) : $(OBJS) 
+	$(CXX) $(CPPFLAGS) $^ -o $@ $(LIB)
+	
+clean :
+	rm -rf $(OBJDIR)
+	rm -f $(TARGET) *.a

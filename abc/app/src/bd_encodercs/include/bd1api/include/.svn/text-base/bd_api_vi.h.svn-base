@@ -1,0 +1,85 @@
+
+#ifndef __BD_API_VI_H_
+#define __BD_API_VI_H_
+
+BD_S32 BD_MPI_VI_InitDev(VI_DEV_INPUT_E enPrimaryInputMode, VI_DEV_INPUT_E enSecondaryInputMode);
+BD_VOID BD_MPI_VI_ExitDev(BD_VOID);
+
+BD_S32 BD_MPI_VI_SetDevAttr(VI_DEV enViDev, const VI_DEV_ATTR_S *pstDevAttr);
+BD_S32 BD_MPI_VI_GetDevAttr(VI_DEV enViDev, VI_DEV_ATTR_S *pstDevAttr);
+
+BD_S32 BD_MPI_VI_EnableDev(VI_DEV enViDev);
+BD_S32 BD_MPI_VI_DisableDev(VI_DEV enViDev);
+
+
+BD_S32 BD_MPI_VI_SetChnAttr(VI_CHN ViChn, const VI_CHN_ATTR_S *pstAttr);
+// VI_CHN is DMA bus number. 0, 1, 3 -> 0, 1, 2
+
+BD_S32 BD_MPI_VI_GetChnAttr(VI_CHN ViChn, VI_CHN_ATTR_S *pstAttr);
+
+BD_S32 BD_MPI_VI_EnableChn(VI_CHN ViChn);
+BD_S32 BD_MPI_VI_DisableChn(VI_CHN ViChn);
+
+BD_S32 BD_MPI_VI_PauseChn(VI_CHN ViChn);
+BD_S32 BD_MPI_VI_ResumeChn(VI_CHN ViChn);
+
+BD_S32 BD_MPI_VI_GetFrame(VI_CHN ViChn, VIDEO_FRAME_INFO_S *pstFrameInfo);
+
+BD_S32 BD_MPI_VI_GetFrameTimeOut(VI_CHN ViChn, VIDEO_FRAME_INFO_S *pstFrameInfo, BD_U32 u32MilliSec);
+BD_S32 BD_MPI_VI_ReleaseFrame(VI_CHN ViChn, VIDEO_FRAME_INFO_S *pstFrameInfo);
+
+// default depth = 4, range 2~8
+BD_S32 BD_MPI_VI_SetFrameDepth(VI_CHN ViChn, BD_U32 u32Depth);
+BD_S32 BD_MPI_VI_GetFrameDepth(VI_CHN ViChn, BD_U32 *pu32Depth);
+
+BD_S32 BD_MPI_VI_SetFrameRate(VI_CHN ViChn, BD_S32 s32SrcFrameRate, BD_S32 s32FrameRate);
+BD_S32 BD_MPI_VI_GetFrameRate(VI_CHN ViChn, BD_S32* s32SrcFrameRate, BD_S32* s32FrameRate);
+
+//Sets a user picture that is used as the picture inserted when there is no video signal.
+BD_S32 BD_MPI_VI_SetUserPic(VI_CHN ViChn, VI_USERPIC_ATTR_S *pstUsrPic);
+BD_S32 BD_MPI_VI_EnableUserPic(VI_CHN ViChn);
+BD_S32 BD_MPI_VI_DisableUserPic(VI_CHN ViChn);
+
+/* These functions are used to start the cascade mode. VI cascade mode can work normally Only when they have been called */
+//BD_S32 BD_MPI_VI_EnableCascade(VI_DEV ViDev); 
+//BD_S32 BD_MPI_VI_DisableCascade(VI_DEV ViDev); 
+//BD_S32 BD_MPI_VI_EnableCascadeChn(VI_CHN ViChn);
+//BD_S32 BD_MPI_VI_DisableCascadeChn(VI_CHN ViChn);
+
+/* Normally, these functions are not necessary in typical business */
+//BD_S32 BD_MPI_VI_ChnBind(VI_CHN ViChn, const VI_CHN_BIND_ATTR_S *pstChnBindAttr);
+//BD_S32 BD_MPI_VI_ChnUnBind(VI_CHN ViChn);
+//BD_S32 BD_MPI_VI_GetChnBind(VI_CHN ViChn, VI_CHN_BIND_ATTR_S *pstChnBindAttr);
+
+BD_S32 BD_MPI_VI_SetDevAttrEx(VI_DEV ViDev, const VI_DEV_ATTR_EX_S *pstDevAttrEx);
+BD_S32 BD_MPI_VI_GetDevAttrEx(VI_DEV ViDev, VI_DEV_ATTR_EX_S *pstDevAttrEx);
+
+//BD_S32 BD_MPI_VI_GetFd(VI_CHN ViChn);
+
+BD_S32 BD_MPI_VI_Query(VI_CHN ViChn, VI_CHN_STAT_S *pstStat);
+
+BD_S32 BD_MPI_VI_EnableChnInterrupt(VI_CHN ViChn);
+BD_S32 BD_MPI_VI_DisableChnInterrupt(VI_CHN ViChn);
+
+//BD_S32 BD_MPI_VI_SetFlashConfig(VI_DEV ViDev, const VI_FLASH_CONFIG_S *pstFlashConfig);
+//BD_S32 BD_MPI_VI_GetFlashConfig(VI_DEV ViDev, VI_FLASH_CONFIG_S *pstFlashConfig);
+//BD_S32 BD_MPI_VI_FlashTrigger(VI_DEV ViDev, BD_BOOL bEnable);
+
+BD_S32 BD_MPI_VI_SetExtChnAttr(VI_CHN ViChn, const VI_EXT_CHN_ATTR_S *pstExtChnAttr);
+BD_S32 BD_MPI_VI_GetExtChnAttr(VI_CHN ViChn, VI_EXT_CHN_ATTR_S *pstExtChnAttr);
+
+//BD_S32 BD_MPI_VI_SetLDCAttr(VI_CHN ViChn, const VI_LDC_ATTR_S *pstLDCAttr);
+//BD_S32 BD_MPI_VI_GetLDCAttr(VI_CHN ViChn, VI_LDC_ATTR_S *pstLDCAttr);
+
+//BD_S32 BD_MPI_VI_SetCSCAttr(VI_DEV ViDev, const VI_CSC_ATTR_S *pstCSCAttr);
+//BD_S32 BD_MPI_VI_GetCSCAttr(VI_DEV ViDev, VI_CSC_ATTR_S *pstCSCAttr);
+
+//BD_S32 BD_MPI_VI_SetRotate(VI_CHN ViChn, const ROTATE_E enRotate);
+//BD_S32 BD_MPI_VI_GetRotate(VI_CHN ViChn, ROTATE_E *penRotate);
+
+//BD_S32 BD_MPI_VI_GetChnLuma(VI_CHN ViChn, VI_CHN_LUM_S *pstLuma);
+
+BD_S32 BD_MPI_VI_GetPviState(BD_U32* u32LockState, BD_U32* u32Format, BD_U32* u32Resol, BD_U32* u32Freq, BD_U32 u32Timeout);
+//----------------------------------------------------------------
+// Error Code
+#endif

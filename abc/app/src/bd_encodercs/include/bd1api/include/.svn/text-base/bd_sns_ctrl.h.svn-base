@@ -1,0 +1,67 @@
+#ifndef __BD_SNS_CTRL_H_
+#define __BD_SNS_CTRL_H_	1
+
+#define SNS_INTF_ISPMASK	2
+#define SNS_INTF_BAYER		0
+#define SNS_INTF_LVDS		1
+#define SNS_INTF_BT1120		2
+#define SNS_INTF_BT656		3
+#define SNS_INTF_BT601		4
+#define SNS_INTF_PVI		5
+#define SNS_INTF_MAX		(SNS_INTF_PVI+1)
+
+#define SNS_SUPPORT_BAYER	0x01
+#define SNS_SUPPORT_LVDS	0x02
+#define SNS_SUPPORT_BT1120	0x04
+#define SNS_SUPPORT_BT656	0x08
+#define SNS_SUPPORT_BT601	0x10
+#define SNS_SUPPORT_PVI		0x20
+
+#define SNS_SUPPORT_NTSC	0x01
+#define SNS_SUPPORT_PAL		0x02
+
+#define SNS_SCAN_NTSC	0
+#define SNS_SCAN_PAL		1
+#define SNS_SCAN_MAX		(SNS_SCAN_PAL+1)
+
+#define IsSnsNeedIsp(x)		((unsigned char)x < SNS_INTF_ISPMASK)
+
+struct sensor_image_attr {
+	unsigned char seq;
+	unsigned short startx;
+	unsigned short width;
+	unsigned short delayx;
+	unsigned short starty;
+	unsigned short height;
+	unsigned short delayy;
+};
+
+struct sensor_gain_attr {
+	unsigned short dagin;
+	unsigned short again;
+};
+
+struct sensor_init_info {
+	const unsigned char intf_supported;
+	const unsigned short *intf_mode[SNS_INTF_MAX];
+};
+
+struct sensor_ctrl_info {
+	const unsigned short chip_id;				// chip id
+	const char *name;				// sensor name
+	const unsigned char chip_addr;			// sensor i2c address
+	const unsigned char use_16bit_addr;		// sensor has 16bit address
+	const unsigned char use_16bit_data;		// sensor has 16bit data
+	const unsigned char scan_supported;
+	const struct sensor_init_info scan_mode[SNS_SCAN_MAX];
+
+	void (*set_image_attr)(struct sensor_image_attr* attr);	
+	int (*set_gain_attr)(struct sensor_gain_attr *attr);
+};
+
+
+struct sensor_ctrl_info* initialize_sensor0_configs(void);
+struct sensor_ctrl_info* initialize_sensor1_configs(void);
+
+
+#endif

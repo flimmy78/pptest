@@ -1,0 +1,270 @@
+#ifndef __BD_API_ISP_H_
+#define __BD_API_ISP_H_	1
+
+/*
+	ISP will work auto mode only. 
+*/
+
+/* Firmware Main Operation */
+BD_S32 BD_MPI_ISP_MemInit(BD_VOID);
+BD_S32 BD_MPI_ISP_Run(BD_VOID);
+BD_S32 BD_MPI_ISP_Init(BD_VOID);	/* Initialize ISP and Addon Device, Create ISP Thread */
+BD_S32 BD_MPI_ISP_Exit(BD_VOID);
+BD_S32 BD_MPI_ISP_SetImageAttr(ISP_IMAGE_ATTR_S *pstImageAttr);
+BD_S32 BD_MPI_ISP_SetInputTiming(ISP_INPUT_TIMING_S *pstInputTiming);
+
+BD_S32 BD_MPI_ISP_RequestI2CAccess(BD_U32 u32MilliSec);
+BD_S32 BD_MPI_ISP_ReleaseI2CAccess(BD_VOID);
+BD_S32 BD_MPI_ISP_SetClockPolarity(ISP_INPUT_POLARITY_S* pstInputPolarity);
+BD_S32 BD_MPI_ISP_GetClockPolarity(ISP_INPUT_POLARITY_S* pstInputPolarity);
+
+
+
+#if 0
+/* The interface of ae lib register to isp. */
+BD_S32 BD_MPI_AE_Register(ALG_LIB_S *pstAeLib);
+BD_S32 BD_MPI_AE_UnRegister(ALG_LIB_S *pstAeLib);
+
+/* The callback function of sensor register to ae lib. */
+BD_S32 BD_MPI_AE_SensorRegCallBack(ALG_LIB_S *pstAeLib, SENSOR_ID SensorId,
+		AE_SENSOR_REGISTER_S *pstRegister);
+BD_S32 BD_MPI_AE_SensorUnRegCallBack(ALG_LIB_S *pstAeLib, SENSOR_ID SensorId);
+
+BD_S32 BD_MPI_ISP_SetExposureAttr(ISP_EXPOSURE_ATTR_S *pstExpAttr);
+BD_S32 BD_MPI_ISP_GetExposureAttr(ISP_EXPOSURE_ATTR_S *pstExpAttr);
+
+BD_S32 BD_MPI_ISP_SetWDRExposureAttr(ISP_WDR_EXPOSURE_ATTR_S *pstWDRExpAttr);
+BD_S32 BD_MPI_ISP_GetWDRExposureAttr(ISP_WDR_EXPOSURE_ATTR_S *pstWDRExpAttr);
+
+BD_S32 BD_MPI_ISP_SetAERouteAttr(ISP_AE_ROUTE_S *pstAERouteAttr);
+BD_S32 BD_MPI_ISP_GetAERouteAttr(ISP_AE_ROUTE_S *pstAERouteAttr);
+
+BD_S32 BD_MPI_ISP_QueryExposureInfo(ISP_EXP_INFO_S *pstExpInfo);
+
+#endif
+
+#if 0
+/* The interface of af lib register to isp. */
+BD_S32 BD_MPI_AF_Register(ALG_LIB_S *pstAfLib);
+BD_S32 BD_MPI_AF_UnRegister(ALG_LIB_S *pstAfLib);
+
+#if 0
+/* The callback function of sensor register to af lib. */
+BD_S32 hi_af_sensor_register_cb(ALG_LIB_S *pstAfLib, SENSOR_ID SensorId,
+		CMOS_ISP_AF_DEFAULT_S *pstSnsDft, SENSOR_AF_EXP_FUNC_S *pstSnsExp);
+#endif
+
+/* The new awb lib is compatible with the old mpi interface. */
+BD_S32 BD_MPI_ISP_SetFocusType(ISP_OP_TYPE_E enFocusType);    //not support yet
+BD_S32 BD_MPI_ISP_GetFocusType(ISP_OP_TYPE_E *penFocusType);  //not support yet
+
+BD_S32 BD_MPI_ISP_SetAFAttr(ISP_AF_ATTR_S *pstAFAttr);    //not support yet
+BD_S32 BD_MPI_ISP_GetAFAttr(ISP_AF_ATTR_S *pstAFAttr);          //not support yet
+
+BD_S32 BD_MPI_ISP_SetMFAttr(ISP_MF_ATTR_S *pstMFAttr);    //not support yet
+BD_S32 BD_MPI_ISP_GetMFAttr(ISP_MF_ATTR_S *pstMFAttr);         //not support yet
+
+BD_S32 BD_MPI_ISP_ManualFocusMove(BD_S32 s32MoveSteps);    //not support yet
+#endif
+
+#if 0
+/* The interface of awb lib register to isp. */
+BD_S32 BD_MPI_AWB_Register(ALG_LIB_S *pstAwbLib);
+BD_S32 BD_MPI_AWB_UnRegister(ALG_LIB_S *pstAwbLib);
+
+/* The callback function of sensor register to awb lib. */
+BD_S32 BD_MPI_AWB_SensorRegCallBack(ALG_LIB_S *pstAwbLib, SENSOR_ID SensorId,
+		AWB_SENSOR_REGISTER_S *pstRegister);
+BD_S32 BD_MPI_AWB_SensorUnRegCallBack(ALG_LIB_S *pstAwbLib, SENSOR_ID SensorId);
+
+BD_S32 BD_MPI_ISP_AWBLibRegCallBack(ALG_LIB_S *pstAWBLib,
+		ISP_AWB_REGISTER_S *pstRegister);
+
+
+BD_S32 BD_MPI_ISP_SetWBAttr(ISP_WB_ATTR_S *pstWBAttr);
+BD_S32 BD_MPI_ISP_GetWBAttr(ISP_WB_ATTR_S *pstWBAttr);
+
+BD_S32 BD_MPI_ISP_SetAWBAttrEx(ISP_AWB_ATTR_EX_S *pstAWBAttrEx);
+BD_S32 BD_MPI_ISP_GetAWBAttrEx(ISP_AWB_ATTR_EX_S *pstAWBAttrEx);
+
+BD_S32 BD_MPI_ISP_SetCCMAttr(ISP_COLORMATRIX_ATTR_S *pstCCMAttr);
+BD_S32 BD_MPI_ISP_GetCCMAttr(ISP_COLORMATRIX_ATTR_S *pstCCMAttr);
+
+BD_S32 BD_MPI_ISP_SetSaturationAttr(ISP_SATURATION_ATTR_S *pstSatAttr);
+BD_S32 BD_MPI_ISP_GetSaturationAttr(ISP_SATURATION_ATTR_S *pstSatAttr);
+
+BD_S32 BD_MPI_ISP_SetColorToneAttr(ISP_COLOR_TONE_ATTR_S *pstCTAttr);
+BD_S32 BD_MPI_ISP_GetColorToneAttr(ISP_COLOR_TONE_ATTR_S *pstCTAttr);
+
+BD_S32 BD_MPI_ISP_QueryWBInfo(ISP_WB_INFO_S *pstWBInfo);
+#endif
+
+
+#if 0
+BD_S32 BD_MPI_ISP_SensorRegCallBack(SENSOR_ID SensorId, ISP_SENSOR_REGISTER_S *pstRegister);
+BD_S32 BD_MPI_ISP_SensorUnRegCallBack(SENSOR_ID SensorId);
+
+/* if have registered multy libs, set bind attr to appoint the active lib. */
+BD_S32 BD_MPI_ISP_SetBindAttr(ISP_BIND_ATTR_S *pstBindAttr);
+BD_S32 BD_MPI_ISP_GetBindAttr(ISP_BIND_ATTR_S *pstBindAttr);
+BD_S32 BD_MPI_ISP_AELibRegCallBack(ALG_LIB_S *pstAeLib,
+		ISP_AE_REGISTER_S *pstRegister);
+BD_S32 BD_MPI_ISP_AWBLibRegCallBack(ALG_LIB_S *pstAwbLib,
+		ISP_AWB_REGISTER_S *pstRegister);
+BD_S32 BD_MPI_ISP_AFLibRegCallBack(ALG_LIB_S *pstAfLib,
+		ISP_AF_REGISTER_S *pstRegister);
+BD_S32 BD_MPI_ISP_AELibUnRegCallBack(ALG_LIB_S *pstAeLib);
+BD_S32 BD_MPI_ISP_AWBLibUnRegCallBack(ALG_LIB_S *pstAwbLib);
+BD_S32 BD_MPI_ISP_AFLibUnRegCallBack(ALG_LIB_S *pstAfLib);
+
+BD_S32 BD_MPI_ISP_SetPubAttr(ISP_PUB_ATTR_S *pstPubAttr);
+BD_S32 BD_MPI_ISP_GetPubAttr(ISP_PUB_ATTR_S *pstPubAttr);
+
+BD_S32 BD_MPI_ISP_SetFMWState(ISP_FMW_STATE_E enState);
+BD_S32 BD_MPI_ISP_GetFMWState(ISP_FMW_STATE_E *penState);
+
+BD_S32 BD_MPI_ISP_SetWDRMode(ISP_WDR_MODE_S *pstWDRMode);
+BD_S32 BD_MPI_ISP_GetWDRMode(ISP_WDR_MODE_S *pstWDRMode);
+
+BD_S32 BD_MPI_ISP_SetModuleControl(ISP_MODULE_CTRL_U *punModCtrl);
+BD_S32 BD_MPI_ISP_GetModuleControl(ISP_MODULE_CTRL_U *punModCtrl);
+
+/* General Function Settings */
+BD_S32 BD_MPI_ISP_SetDRCAttr(ISP_DRC_ATTR_S *pstDRC);
+BD_S32 BD_MPI_ISP_GetDRCAttr(ISP_DRC_ATTR_S *pstDRC);
+
+BD_S32 BD_MPI_ISP_SetFSWDRAttr(ISP_WDR_FS_ATTR_S *pstFSWDRAttr);
+BD_S32 BD_MPI_ISP_GetFSWDRAttr(ISP_WDR_FS_ATTR_S *pstFSWDRAttr);
+
+BD_S32 BD_MPI_ISP_SetDPCalibrate(ISP_DP_STATIC_CALIBRATE_S *pstDPCalibrate);
+BD_S32 BD_MPI_ISP_GetDPCalibrate(ISP_DP_STATIC_CALIBRATE_S *pstDPCalibrate);
+
+BD_S32 BD_MPI_ISP_SetDPAttr(ISP_DP_ATTR_S *pstDPAttr);
+BD_S32 BD_MPI_ISP_GetDPAttr(ISP_DP_ATTR_S *pstDPAttr);
+
+BD_S32 BD_MPI_ISP_SetDISAttr(ISP_DIS_ATTR_S *pstDISAttr);
+BD_S32 BD_MPI_ISP_GetDISAttr(ISP_DIS_ATTR_S *pstDISAttr);
+
+BD_S32 BD_MPI_ISP_SetShadingAttr(ISP_SHADING_ATTR_S *pstShadingAttr);
+BD_S32 BD_MPI_ISP_GetShadingAttr(ISP_SHADING_ATTR_S *pstShadingAttr);
+
+
+BD_S32 BD_MPI_ISP_SetGammaAttr(ISP_GAMMA_ATTR_S *pstGammaAttr);
+BD_S32 BD_MPI_ISP_GetGammaAttr(ISP_GAMMA_ATTR_S *pstGammaAttr);
+
+BD_S32 BD_MPI_ISP_SetGammaFEAttr(ISP_GAMMAFE_ATTR_S *pstGammaFEAttr);
+BD_S32 BD_MPI_ISP_GetGammaFEAttr(ISP_GAMMAFE_ATTR_S *pstGammaFEAttr);
+
+BD_S32 BD_MPI_ISP_SetSharpenAttr(ISP_SHARPEN_ATTR_S *pstSharpenAttr);
+BD_S32 BD_MPI_ISP_GetSharpenAttr(ISP_SHARPEN_ATTR_S *pstSharpenAttr);
+
+BD_S32 BD_MPI_ISP_SetCrosstalkAttr(ISP_CR_ATTR_S *pstCRAttr);
+BD_S32 BD_MPI_ISP_GetCrosstalkAttr(ISP_CR_ATTR_S *pstCRAttr);
+
+BD_S32 BD_MPI_ISP_SetAntiFalseColorAttr(ISP_ANTI_FALSECOLOR_S *pstAntiFC);
+BD_S32 BD_MPI_ISP_GetAntiFalseColorAttr(ISP_ANTI_FALSECOLOR_S *pstAntiFC);
+
+BD_S32 BD_MPI_ISP_SetDemosaicAttr(ISP_DEMOSAIC_ATTR_S *pstDemosaicAttr);
+BD_S32 BD_MPI_ISP_GetDemosaicAttr(ISP_DEMOSAIC_ATTR_S *pstDemosaicAttr);
+
+BD_S32 BD_MPI_ISP_SetBlackLevelAttr(ISP_BLACK_LEVEL_S *pstBlackLevel);
+BD_S32 BD_MPI_ISP_GetBlackLevelAttr(ISP_BLACK_LEVEL_S *pstBlackLevel);
+
+/* block, return fpn frame when this is function is called. */
+BD_S32 BD_MPI_ISP_FPNCalibrate(ISP_FPN_CALIBRATE_ATTR_S *pstCalibrateAttr);
+BD_S32 BD_MPI_ISP_SetFPNAttr(ISP_FPN_ATTR_S *pstFPNAttr);
+BD_S32 BD_MPI_ISP_GetFPNAttr(ISP_FPN_ATTR_S *pstFPNAttr);
+
+
+BD_S32 BD_MPI_ISP_SetDCFInfo(ISP_DCF_INFO_S *pstIspDCF);
+BD_S32 BD_MPI_ISP_GetDCFInfo(ISP_DCF_INFO_S *pstIspDCF);
+
+BD_S32 BD_MPI_ISP_SetAcmAttr(ISP_ACM_ATTR_S *pstAcmAttr);
+BD_S32 BD_MPI_ISP_GetAcmAttr(ISP_ACM_ATTR_S *pstAcmAttr);
+
+BD_S32 BD_MPI_ISP_SetAcmCoeff(ISP_ACM_LUT_S *pstAcmCoef, ISP_ACM_MODE_E enMode);
+BD_S32 BD_MPI_ISP_GetAcmCoeff(ISP_ACM_LUT_S *pstAcmCoef, ISP_ACM_MODE_E enMode);
+
+BD_S32 BD_MPI_ISP_QueryInnerStateInfo(ISP_INNER_STATE_INFO_S *pstInnerStateInfo);
+
+BD_S32 BD_MPI_ISP_SetStatisticsConfig(ISP_STATISTICS_CFG_S *pstStatCfg);
+BD_S32 BD_MPI_ISP_GetStatisticsConfig(ISP_STATISTICS_CFG_S *pstStatCfg);
+BD_S32 BD_MPI_ISP_GetStatistics(ISP_STATISTICS_S *pstStat);
+
+BD_S32 BD_MPI_ISP_SetRegister(BD_U32 u32Addr, BD_U32 u32Value);
+BD_S32 BD_MPI_ISP_GetRegister(BD_U32 u32Addr, BD_U32 *pu32Value);
+
+BD_S32 BD_MPI_ISP_GetVDTimeOut(ISP_VD_INFO_S *pstIspVdInfo, BD_U32 u32MilliSec);
+
+BD_S32 BD_MPI_ISP_GetISPRegAttr(ISP_REG_ATTR_S * pstIspRegAttr);
+
+BD_S32 BD_MPI_ISP_SetDebug(ISP_DEBUG_INFO_S * pstIspDebug);
+BD_S32 BD_MPI_ISP_GetDebug(ISP_DEBUG_INFO_S * pstIspDebug);
+#endif
+
+
+
+#if 0			// replacement by BD1ISP-Addon
+/* for DEHAZE */
+BD_S32 BD_MPI_ISP_SetDeFogAttr(ISP_DEFOG_ATTR_S *pstDefogAttr);
+BD_S32 BD_MPI_ISP_GetDeFogAttr(ISP_DEFOG_ATTR_S *pstDefogAttr);
+#else
+BD_S32 BD_MPI_ISP_SetDehazeAttr(ISP_DEHAZE_ATTR_S *pstDehazeAttr);
+BD_S32 BD_MPI_ISP_GetDehazeAttr(ISP_DEHAZE_ATTR_S *pstDehazeAttr);
+BD_S32 BD_MPI_ISP_GetDehazeDetectInfo(ISP_DEHAZE_DETECT_STATE_S *pstDehazeDetectInfo);
+#endif
+
+#if 0
+/* MANR */
+BD_S32 BD_MPI_ISP_SetNRAttr(ISP_NR_ATTR_S *pstNRAttr);
+BD_S32 BD_MPI_ISP_GetNRAttr(ISP_NR_ATTR_S *pstNRAttr);
+#else
+BD_S32 BD_MPI_ISP_SetManrAttr(ISP_MANR_ATTR_S *pstManrAttr);
+BD_S32 BD_MPI_ISP_SetManrFilter(ISP_MANR_FILTER_S *pstManrFilter);
+BD_S32 BD_MPI_ISP_GetManrAttr(ISP_MANR_ATTR_S *pstManrAttr);
+#endif
+
+#if 0
+/* Defocus */
+BD_S32 BD_MPI_ISP_SetIrisAttr(ISP_IRIS_ATTR_S *pstIrisAttr);
+BD_S32 BD_MPI_ISP_GetIrisAttr(ISP_IRIS_ATTR_S *pstIrisAttr);
+#else
+BD_S32 BD_MPI_ISP_SetDefocusAttr(ISP_DEFOCUS_ATTR_S *pstDefocusAttr);
+BD_S32 BD_MPI_ISP_GetDefocusAttr(ISP_DEFOCUS_ATTR_S *pstDefocusAttr);
+BD_S32 BD_MPI_ISP_GetDefocusDetectInfo(ISP_DEFOCUS_STATE_S *pstDefocusState);		
+#endif
+
+/* Motion Detection */
+BD_S32 BD_MPI_ISP_SetMotionDetectAttr(ISP_MOTION_DETECT_ATTR_S *pstMotionDetectAttr);
+BD_S32 BD_MPI_ISP_GetMotionDetectAttr(ISP_MOTION_DETECT_ATTR_S *pstMotionDetectAttr);
+BD_S32 BD_MPI_ISP_SetMotionMask(ISP_MOTION_DETECT_MASK_S *pstMotionDetectMask);
+BD_S32 BD_MPI_ISP_GetMotionMask(ISP_MOTION_DETECT_MASK_S *pstMotionDetectMask);
+BD_S32 BD_MPI_ISP_GetMotionDetectInfo(ISP_MOTION_DETECT_DATA_S *pstMotionDetectRegion);
+
+/* Blind Detection */
+BD_S32 BD_MPI_ISP_SetBlindDetectAttr(ISP_BLIND_DETECT_ATTR_S *pstBlindDetectAttr);
+BD_S32 BD_MPI_ISP_GetBlindDetectAttr(ISP_BLIND_DETECT_ATTR_S *pstBlindDetectAttr);
+BD_S32 BD_MPI_ISP_SetBlindMask(ISP_BLIND_DETECT_MASK_S *pstBlindDetectMask);
+BD_S32 BD_MPI_ISP_GetBlindMask(ISP_BLIND_DETECT_MASK_S *pstBlindDetectMask);
+BD_S32 BD_MPI_ISP_GetBlindDetectInfo(ISP_BLIND_DETECT_STATE_S *pstBlindDetectInfo);
+
+/* Night Detection */
+BD_S32 BD_MPI_ISP_SetNightDetectAttr(ISP_NIGHT_DETECT_ATTR_S *pstNightDetectAttr);
+BD_S32 BD_MPI_ISP_GetNightDetectAttr(ISP_NIGHT_DETECT_ATTR_S *pstNightDetectAttr);
+BD_S32 BD_MPI_ISP_GetNightDetectInfo(ISP_NIGHT_DETECT_STATE_S *pstNightDetectInfo);
+
+/* Day Detection */
+BD_S32 BD_MPI_ISP_SetDayDetectAttr(ISP_DAY_DETECT_ATTR_S *pstDayDetectAttr);
+BD_S32 BD_MPI_ISP_GetDayDetectAttr(ISP_DAY_DETECT_ATTR_S *pstDayDetectAttr);
+BD_S32 BD_MPI_ISP_GetDayDetectInfo(ISP_DAY_DETECT_STATE_S *pstDayDetectInfo);
+
+
+/* Common */
+BD_S32 BD_MPI_ISP_EventDetect(BD_U32 u32MilliSec, ISP_EVENT_DETECT_MASK* eventMask);
+
+//BD_S32 BD_MPI_ISP_RunAddon(BD_VOID);		/* use BD_MPI_ISP_Run() function */
+
+
+
+
+#endif
