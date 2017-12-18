@@ -18,7 +18,7 @@
 
 
 
-
+// my commnet
 
 #define CONTEXT_CNT     2
 
@@ -140,7 +140,7 @@ int run_encoder(
       //To use new shared memory or UDP socket.
       app_contexts[i].shared_mem = NULL;
       app_contexts[i].udp_socket = NULL;
-	  
+
     }
 
 
@@ -222,5 +222,3 @@ int run_encoder(
 
     return 0;
 }
-
-
