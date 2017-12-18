@@ -17,6 +17,10 @@
 //#include <cJSON.h>
 //#include <curl/curl.h>
 
+
+
+
+
 #include "bd_encoder.h"
 #include "sample_comm.h"
 #include "request_http.h"
@@ -177,7 +181,7 @@ BD_S32 SAMPLE_VI_FillConfig(
     SAMPLE_VI_MODE_E enViMode,
     PIC_SIZE_E enPicSize,
     VIDEO_NORM_E enNorm,
-    BD_S32 s32FrameRate, 
+    BD_S32 s32FrameRate,
     BD_U32 u32FrameDepth){
 
     if (!pstViConfig) {
@@ -257,7 +261,7 @@ BD_S32 bd_open_video_input_device(
     }
 
 
-	
+
 
     return BD_FAILURE;
 }
@@ -271,10 +275,10 @@ BD_S32 bd_start_to_capture(
 
     return SAMPLE_COMM_VI_StartVi(
         app_context->viChn,
-        &app_context->stViConfig, 
+        &app_context->stViConfig,
         &stISPAddonConfig
     );
-	
+
 }
 
 
@@ -622,7 +626,7 @@ BD_S32 bd_run_encoder(
 
 
 
-	
+
 }
 
 BD_S32 bd_wait_encoding_finish(
@@ -932,7 +936,7 @@ PIC_SIZE_E get_video_size_enum(int width, int height){
 				size_enum = PIC_WQXGA;
 				break;
 		#endif
-		
+
 		case 1280:
 				size_enum = PIC_HD720;
 				break;
@@ -1022,7 +1026,7 @@ void bd_terminate_hw(){
 
 	BD_MPI_AO_EXIT();
 	BD_MPI_AI_EXIT();
-	
+
 	SAMPLE_COMM_SYS_Exit();
 }
 
@@ -1049,15 +1053,15 @@ do{\
 /******************************************************************************
 * function : PT Number to String
 ******************************************************************************/
-static char* SAMPLE_AUDIO_Pt2Str(PAYLOAD_TYPE_E enType){    
-	if (PT_G711A == enType)	{        
-		return "g711a";    
+static char* SAMPLE_AUDIO_Pt2Str(PAYLOAD_TYPE_E enType){
+	if (PT_G711A == enType)	{
+		return "g711a";
 	}else if (PT_G711U == enType){
-		return "g711u";    
+		return "g711u";
 	}else if (PT_G726 == enType){
 		return "g726";
 	}else{
-		return "data";    
+		return "data";
 	}
 }
 
@@ -1077,9 +1081,9 @@ static FILE *SAMPLE_AUDIO_OpenAencOutFile(AENC_CHN AeChn, PAYLOAD_TYPE_E enType,
 
 	pfd = fopen(aszFileName, "wb");
 	if (NULL == pfd)
-	{        
-		printf("%s: open file %s failed\n", __FUNCTION__, aszFileName);        
-		return NULL;    
+	{
+		printf("%s: open file %s failed\n", __FUNCTION__, aszFileName);
+		return NULL;
 	}
 	printf("open stream file:\"%s\" for saving ok\n", aszFileName);
 	return pfd;
@@ -1095,12 +1099,12 @@ BD_S32 SAMPLE_AUDIO_AiAenc(BD_VOID)
 	AI_CHN		AiChn;
 	AUDIO_DEV	AoDev = SAMPLE_AUDIO_AO_DEV;
 	AO_CHN		AoChn = 0;
-	BD_S32		s32AiChnCnt;	
-	BD_S32		s32AencChnCnt;	  
+	BD_S32		s32AiChnCnt;
+	BD_S32		s32AencChnCnt;
 	BD_S32		s32AoChnCnt;
-	AENC_CHN	AeChn;	  
+	AENC_CHN	AeChn;
 	ADEC_CHN	AdChn = 0;
-	FILE		*pfd = NULL;	
+	FILE		*pfd = NULL;
 	AIO_ATTR_S stAioAttr;
 	AENC_CHN_ATTR_S stAencAttr;
 	AENC_ATTR_G726_S stAencG726;
@@ -1109,13 +1113,13 @@ BD_S32 SAMPLE_AUDIO_AiAenc(BD_VOID)
 	BD_BOOL bSendAdec = BD_TRUE;
 	BD_BOOL bUserGetMode = BD_FALSE;
 	BD_S32 i;
-	
-	stAioAttr.enSamplerate	 = AUDIO_SAMPLE_RATE_8000;	  
-	stAioAttr.enBitwidth	 = AUDIO_BIT_WIDTH_16;	  
-	stAioAttr.enWorkmode	 = AIO_MODE_I2S_SLAVE;//AIO_MODE_I2S_MASTER;	
+
+	stAioAttr.enSamplerate	 = AUDIO_SAMPLE_RATE_8000;
+	stAioAttr.enBitwidth	 = AUDIO_BIT_WIDTH_16;
+	stAioAttr.enWorkmode	 = AIO_MODE_I2S_SLAVE;//AIO_MODE_I2S_MASTER;
 	stAioAttr.enSoundmode	 = AUDIO_SOUND_MODE_MONO;//AUDIO_SOUND_MODE_MONO;	 //AUDIO_SOUND_MODE_STEREO
-	stAioAttr.u32FrmNum 	 = 30;	  
-	stAioAttr.u32PtNumPerFrm = SAMPLE_AUDIO_PTNUMPERFRM;	
+	stAioAttr.u32FrmNum 	 = 30;
+	stAioAttr.u32PtNumPerFrm = SAMPLE_AUDIO_PTNUMPERFRM;
 	if(AUDIO_SOUND_MODE_MONO == stAioAttr.enSoundmode){
 		stAioAttr.u32ChnCnt 	 = AIO_MAX_CHN_NUM;
 	}else{
@@ -1124,7 +1128,7 @@ BD_S32 SAMPLE_AUDIO_AiAenc(BD_VOID)
 
 
 	s32AiChnCnt = 1;//stAioAttr.u32ChnCnt;
-	s32AencChnCnt = 1;	  
+	s32AencChnCnt = 1;
 	s32AoChnCnt = 1;//stAioAttr.u32ChnCnt;
 
 
@@ -1135,32 +1139,32 @@ BD_S32 SAMPLE_AUDIO_AiAenc(BD_VOID)
 	stAdecAttr.enType = gs_enPayloadType;
 	stAdecAttr.u32BufSize = 30;
 	stAdecAttr.u32PtNumPerFrm = SAMPLE_AUDIO_PTNUMPERFRM;
-	
+
 	if(PT_G711A == gs_enPayloadType || PT_G711U == gs_enPayloadType){
 		stAencAttr.pValue = NULL;
-		
+
 		stAdecAttr.pValue = NULL;
 	}else if(PT_G726 == gs_enPayloadType){
 		stAencAttr.pValue = &stAencG726;
 		stAencG726.enG726bps = gs_enG726BPS;
-	
+
 		stAdecAttr.pValue = &stAdecG726;
 		stAdecG726.enG726bps = gs_enG726BPS;
 	}else{
 		printf("%s: invalid aenc payload type:%d\n", __FUNCTION__, gs_enPayloadType);
 		return BD_FAILURE;
-	}	 
-
-	s32Ret = SAMPLE_COMM_AUDIO_StartAi(AiDev, s32AiChnCnt, &stAioAttr);    
-	if (s32Ret != BD_SUCCESS){		  
-		SAMPLE_DBG(s32Ret); 	   
-		return BD_FAILURE;	  
 	}
 
-	s32Ret = SAMPLE_COMM_AUDIO_StartAenc(s32AencChnCnt, &stAencAttr);	 
-	if (s32Ret != BD_SUCCESS){		  
-		SAMPLE_DBG(s32Ret); 	   
-		return BD_FAILURE;	  
+	s32Ret = SAMPLE_COMM_AUDIO_StartAi(AiDev, s32AiChnCnt, &stAioAttr);
+	if (s32Ret != BD_SUCCESS){
+		SAMPLE_DBG(s32Ret);
+		return BD_FAILURE;
+	}
+
+	s32Ret = SAMPLE_COMM_AUDIO_StartAenc(s32AencChnCnt, &stAencAttr);
+	if (s32Ret != BD_SUCCESS){
+		SAMPLE_DBG(s32Ret);
+		return BD_FAILURE;
 	}
 
 
@@ -1168,16 +1172,16 @@ BD_S32 SAMPLE_AUDIO_AiAenc(BD_VOID)
 		AeChn = i;
 		AiChn = i;
 		if(BD_TRUE == bUserGetMode){
-			s32Ret = SAMPLE_COMM_AUDIO_CreatTrdAiAenc(AiDev, AiChn, AeChn, BD_FALSE); 		   
-			if (s32Ret != BD_SUCCESS){				 
-				SAMPLE_DBG(s32Ret); 			
-				return BD_FAILURE;			  
+			s32Ret = SAMPLE_COMM_AUDIO_CreatTrdAiAenc(AiDev, AiChn, AeChn, BD_FALSE);
+			if (s32Ret != BD_SUCCESS){
+				SAMPLE_DBG(s32Ret);
+				return BD_FAILURE;
 			}
 		}else{
-			s32Ret = SAMPLE_COMM_AUDIO_AencBindAi(AiDev, AiChn, AeChn); 		   
-			if (s32Ret != BD_SUCCESS){				 
-				SAMPLE_DBG(s32Ret); 			
-				return s32Ret;			  
+			s32Ret = SAMPLE_COMM_AUDIO_AencBindAi(AiDev, AiChn, AeChn);
+			if (s32Ret != BD_SUCCESS){
+				SAMPLE_DBG(s32Ret);
+				return s32Ret;
 			}
 		}
 		printf("Ai(%d,%d) bind to AencChn:%d ok!\n",AiDev , AiChn, AeChn);
@@ -1191,35 +1195,35 @@ BD_S32 SAMPLE_AUDIO_AiAenc(BD_VOID)
 			return BD_FAILURE;
 
 		}
-		
+
 		s32Ret = SAMPLE_COMM_AUDIO_StartAo(AoDev, s32AoChnCnt, &stAioAttr);
 		if (BD_SUCCESS != s32Ret)
-		{			 
+		{
 			SAMPLE_DBG(s32Ret);
-			return BD_FAILURE;		  
-		}		
+			return BD_FAILURE;
+		}
 		pfd = SAMPLE_AUDIO_OpenAencOutFile(AeChn, gs_enPayloadType, gs_enG726BPS);
 		if(BD_NULL == pfd){
 			SAMPLE_DBG(BD_FAILURE);
 			return BD_FAILURE;
 		}
-		
+
 		// Get encoded stream and save in file.
 		// Send encoded stream to Adec
 		s32Ret = SAMPLE_COMM_AUDIO_CreatTrdAencAdec(AeChn, AdChn, pfd);
-		if (s32Ret != BD_SUCCESS)		
-		{			 
-			SAMPLE_DBG(s32Ret); 		
-			return BD_FAILURE;		  
+		if (s32Ret != BD_SUCCESS)
+		{
+			SAMPLE_DBG(s32Ret);
+			return BD_FAILURE;
 		}
-		
+
 		// Bind Adec Ao
-		s32Ret = SAMPLE_COMM_AUDIO_AoBindAdec(AoDev, AoChn, AdChn); 	   
-		if (s32Ret != BD_SUCCESS){			  
-			SAMPLE_DBG(s32Ret); 		   
-			return BD_FAILURE;		  
+		s32Ret = SAMPLE_COMM_AUDIO_AoBindAdec(AoDev, AoChn, AdChn);
+		if (s32Ret != BD_SUCCESS){
+			SAMPLE_DBG(s32Ret);
+			return BD_FAILURE;
 		}
-		
+
 	}
 
 
@@ -1227,36 +1231,36 @@ BD_S32 SAMPLE_AUDIO_AiAenc(BD_VOID)
 	return BD_SUCCESS;
 
 
-	printf("\nplease press twice ENTER to exit this sample\n");    
-	getchar();	  
+	printf("\nplease press twice ENTER to exit this sample\n");
+	getchar();
 	getchar();
 
-	/********************************************	   
-			step 6: exit the process   
+	/********************************************
+			step 6: exit the process
 		********************************************/
 
 	if(BD_TRUE == bSendAdec){
-		s32Ret = SAMPLE_COMM_AUDIO_DestoryTrdAencAdec(AeChn);		 
-		if (s32Ret != BD_SUCCESS){			  
-			SAMPLE_DBG(s32Ret); 		   
-			return BD_FAILURE;		  
+		s32Ret = SAMPLE_COMM_AUDIO_DestoryTrdAencAdec(AeChn);
+		if (s32Ret != BD_SUCCESS){
+			SAMPLE_DBG(s32Ret);
+			return BD_FAILURE;
 		}
 
-		s32Ret = SAMPLE_COMM_AUDIO_StopAo(AoDev, s32AoChnCnt);		  
-		if (s32Ret != BD_SUCCESS){			  
-			SAMPLE_DBG(s32Ret); 		   
-			return BD_FAILURE;		  
+		s32Ret = SAMPLE_COMM_AUDIO_StopAo(AoDev, s32AoChnCnt);
+		if (s32Ret != BD_SUCCESS){
+			SAMPLE_DBG(s32Ret);
+			return BD_FAILURE;
 		}
-		s32Ret = SAMPLE_COMM_AUDIO_StopAdec(AdChn); 	   
-		if (s32Ret != BD_SUCCESS){			  
-			SAMPLE_DBG(s32Ret); 		   
-			return BD_FAILURE;		  
-		}	
+		s32Ret = SAMPLE_COMM_AUDIO_StopAdec(AdChn);
+		if (s32Ret != BD_SUCCESS){
+			SAMPLE_DBG(s32Ret);
+			return BD_FAILURE;
+		}
 
-		s32Ret = SAMPLE_COMM_AUDIO_AoUnbindAdec(AoDev, AoChn, AdChn);		 
-		if (s32Ret != BD_SUCCESS){			  
-			SAMPLE_DBG(s32Ret); 		   
-			return BD_FAILURE;		  
+		s32Ret = SAMPLE_COMM_AUDIO_AoUnbindAdec(AoDev, AoChn, AdChn);
+		if (s32Ret != BD_SUCCESS){
+			SAMPLE_DBG(s32Ret);
+			return BD_FAILURE;
 		}
 
 	}
@@ -1265,36 +1269,30 @@ BD_S32 SAMPLE_AUDIO_AiAenc(BD_VOID)
 		AeChn = i;
 		AiChn = i;
 		if(BD_TRUE == bUserGetMode){
-			s32Ret = SAMPLE_COMM_AUDIO_DestoryTrdAi(AiDev, AiChn);			  
-			if (s32Ret != BD_SUCCESS){				
-				SAMPLE_DBG(s32Ret); 			   
-				return BD_FAILURE;			 
+			s32Ret = SAMPLE_COMM_AUDIO_DestoryTrdAi(AiDev, AiChn);
+			if (s32Ret != BD_SUCCESS){
+				SAMPLE_DBG(s32Ret);
+				return BD_FAILURE;
 			}
 		}else{
-			s32Ret = SAMPLE_COMM_AUDIO_AencUnbindAi(AiDev, AiChn, AeChn);			 
-			if (s32Ret != BD_SUCCESS){			   
-				SAMPLE_DBG(s32Ret); 			  
-				return BD_FAILURE;			
+			s32Ret = SAMPLE_COMM_AUDIO_AencUnbindAi(AiDev, AiChn, AeChn);
+			if (s32Ret != BD_SUCCESS){
+				SAMPLE_DBG(s32Ret);
+				return BD_FAILURE;
 			}
 		}
 	}
-	s32Ret = SAMPLE_COMM_AUDIO_StopAenc(s32AencChnCnt);    
-	if (s32Ret != BD_SUCCESS){		  
-		SAMPLE_DBG(s32Ret); 	   
-		return BD_FAILURE;	  
-	}		 
+	s32Ret = SAMPLE_COMM_AUDIO_StopAenc(s32AencChnCnt);
+	if (s32Ret != BD_SUCCESS){
+		SAMPLE_DBG(s32Ret);
+		return BD_FAILURE;
+	}
 
-	s32Ret = SAMPLE_COMM_AUDIO_StopAi(AiDev, s32AiChnCnt);	  
-	if (s32Ret != BD_SUCCESS){		  
-		SAMPLE_DBG(s32Ret); 	   
+	s32Ret = SAMPLE_COMM_AUDIO_StopAi(AiDev, s32AiChnCnt);
+	if (s32Ret != BD_SUCCESS){
+		SAMPLE_DBG(s32Ret);
 		return BD_FAILURE;
 	}
 
 	return BD_SUCCESS;
 }
-
-
-
-
-
-
