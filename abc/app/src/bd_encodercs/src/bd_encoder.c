@@ -672,6 +672,9 @@ BD_S32 bd_stop_video_input_and_encoding(
 		return BD_FAILURE;
 	}
 
+
+
+
 #if 1 /* 20160411 JACOB */
 s32Ret = SAMPLE_COMM_VENC_Stop(app_context->viChn);
 #else
