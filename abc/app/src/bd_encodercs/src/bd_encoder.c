@@ -681,6 +681,8 @@ s32Ret = SAMPLE_COMM_VENC_Stop(app_context->viChn);
 #endif
 
 
+
+
 	if( BD_SUCCESS != s32Ret){
 		SAMPLE_PRT("failed with %#x!\n", s32Ret);
 		return BD_FAILURE;
